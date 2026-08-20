@@ -299,11 +299,23 @@ tự viết đúng dạng `type(scope): subject`).
 
 ## Phát hành
 
-Việc publish đi qua [staged publishing](https://docs.npmjs.com/staged-publishing/)
-của npm, tách phần máy làm và phần người duyệt:
+Việc phát hành đi qua [staged publishing](https://docs.npmjs.com/staged-publishing/)
+của npm, tách phần máy làm và phần người duyệt.
+
+**Lần publish đầu tiên của một tên package mới.** Cả staged publishing lẫn
+trusted publishing đều **không tạo được** package chưa tồn tại trên registry —
+cả hai đều cần bản ghi package có sẵn. Nên bản đầu tiên phải publish thủ công,
+đúng một lần:
+
+```bash
+npm login          # tài khoản sở hữu tên package
+npm publish        # sẽ hỏi 2FA
+```
+
+**Từ bản thứ hai trở đi:**
 
 1. Bump version (`npm version <patch|minor|major>`) rồi push.
-2. Chạy workflow **Publish** — qua GitHub Release, hoặc thủ công ở
+2. Chạy workflow **Publish** — qua GitHub Release, hoặc ở
    *Actions -> Publish -> Run workflow*. Nó build, kiểm tra, rồi chạy
    `npm stage publish --provenance` — bước này **không cần 2FA**.
 3. Duyệt bản đã stage — đây mới là chỗ cần proof-of-presence:
@@ -315,6 +327,12 @@ của npm, tách phần máy làm và phần người duyệt:
    ```
 
    hoặc duyệt trên npmjs.com. `npm stage reject <stage-id>` để huỷ.
+
+Workflow còn nhận `mode: publish` để publish thẳng, bỏ qua staging. Đường này
+cần [trusted publishing](https://docs.npmjs.com/trusted-publishers/) (cấu hình ở
+trang settings của package sau lần publish đầu, khi đó không cần token nữa) hoặc
+một token được phép bypass 2FA — lưu ý npm đang
+[siết loại token này](https://gh.io/npm-gat-bypass2fa-deprecation).
 
 Staged publishing cần npm >= 11.15.0 và Node >= 22.14.0, nên workflow cài npm
 mới trước khi chạy.

@@ -4,6 +4,12 @@ on:
   release:
     types: [published]
   workflow_dispatch:
+    inputs:
+      mode:
+        description: 'stage = queue for approval (no 2FA); publish = go straight to the registry (needs trusted publishing or a 2FA-capable token)'
+        type: choice
+        options: [stage, publish]
+        default: stage
 
 jobs:
   publish:
@@ -34,16 +40,23 @@ jobs:
       - run: npm test
       - run: npx tsup
 
-      # Stages the version instead of publishing it. No 2FA needed here - a
-      # human approves it afterwards with `npm stage approve <stage-id>` or on
-      # npmjs.com, which is where proof-of-presence is required.
-      - name: Stage the release
-        run: npm stage publish . --provenance --access public
+      # `stage` queues the version for a human to approve with
+      # `npm stage approve`, which is where proof-of-presence is required.
+      # Neither mode can create a package that does not exist on the registry
+      # yet - the first release of a new name has to be published by hand.
+      - name: Release
         env:
+          MODE: ${{ inputs.mode || 'stage' }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          if [ "$MODE" = 'publish' ]; then
+            npm publish --provenance --access public
+          else
+            npm stage publish . --provenance --access public
+          fi
 
       - name: Show what is awaiting approval
         if: always()
-        run: npm stage list datex2-ts
+        run: npm stage list datex2-ts || true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

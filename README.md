@@ -316,11 +316,23 @@ Commit messages are linted with commitlint, so use `npm run commit` (or write
 
 ## Releasing
 
-Publishing goes through npm's [staged publishing](https://docs.npmjs.com/staged-publishing/),
-which splits the release into a machine step and a human step:
+Releases go through npm's [staged publishing](https://docs.npmjs.com/staged-publishing/),
+which splits a release into a machine step and a human step.
+
+**Bootstrapping a new package name.** Neither staged publishing nor trusted
+publishing can create a package that does not exist on the registry yet - both
+need the package record to already be there. So the very first release has to be
+published by hand, once:
+
+```bash
+npm login          # the account that owns the name
+npm publish        # prompts for 2FA
+```
+
+**Every release after that:**
 
 1. Bump the version (`npm version <patch|minor|major>`) and push.
-2. Run the **Publish** workflow - on a published GitHub Release, or manually via
+2. Run the **Publish** workflow - on a published GitHub Release, or via
    *Actions -> Publish -> Run workflow*. It builds, verifies and runs
    `npm stage publish --provenance`, which needs no 2FA.
 3. Approve the staged version, which is where proof-of-presence is required:
@@ -331,8 +343,14 @@ which splits the release into a machine step and a human step:
    npm stage approve <stage-id> # prompts for 2FA, then publishes
    ```
 
-   or approve it on npmjs.com. `npm stage reject <stage-id>` discards it
-   instead.
+   or approve it on npmjs.com. `npm stage reject <stage-id>` discards it.
+
+The workflow also accepts `mode: publish`, which skips staging and publishes
+directly. That path needs either
+[trusted publishing](https://docs.npmjs.com/trusted-publishers/) (configure it
+on the package's npm settings page after the first release, and no token is
+needed at all) or a token allowed to bypass 2FA - note npm is
+[restricting those](https://gh.io/npm-gat-bypass2fa-deprecation).
 
 Staging needs npm >= 11.15.0 and Node >= 22.14.0; the workflow installs a
 current npm for that reason.
