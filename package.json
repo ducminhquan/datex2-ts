@@ -1,6 +1,6 @@
 {
   "name": "datex2-ts",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Dev-friendly TypeScript data model for DATEX II v3 (JSON encoding): generated types, discriminated-union friendly model, immutable editing helpers and metadata-driven validation.",
   "keywords": [
     "datex2",
