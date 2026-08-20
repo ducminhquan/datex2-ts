@@ -1,0 +1,236 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {
+    "CISInformation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "serviceFeedback": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_CISInformation.json#/definitions/ServiceFeedback"
+          },
+          "minItems": 0
+        },
+        "serviceRequest": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_CISInformation.json#/definitions/ServiceRequest"
+          },
+          "minItems": 0
+        },
+        "cisInformationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      }
+    },
+    "PredefinedServiceEnum": {
+      "type": "string",
+      "enum": [
+        "broadcastDelivery",
+        "other",
+        "tmpActivation",
+        "vmsMessageProcessing",
+        "extendedG"
+      ]
+    },
+    "PredefinedServiceEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_CISInformation.json#/definitions/PredefinedServiceEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "ServiceActionEnum": {
+      "type": "string",
+      "enum": [
+        "agreement",
+        "cancellation",
+        "implementation",
+        "processing",
+        "statusInformation",
+        "termination",
+        "extendedG"
+      ]
+    },
+    "ServiceActionEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_CISInformation.json#/definitions/ServiceActionEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "ServiceActionStatusEnum": {
+      "type": "string",
+      "enum": [
+        "compliant",
+        "failed",
+        "notCompliant",
+        "processing",
+        "rejected",
+        "scheduled",
+        "success",
+        "timedOut",
+        "extendedG"
+      ]
+    },
+    "ServiceActionStatusEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_CISInformation.json#/definitions/ServiceActionStatusEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "ServiceFeedback": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "serviceRequestFeedbackReason": {
+          "$ref": "DATEXII_3_Common.json#/definitions/MultilingualString"
+        },
+        "serviceRequestStatus": {
+          "$ref": "DATEXII_3_CISInformation.json#/definitions/ServiceActionStatusEnumG"
+        },
+        "serviceRequestReference": {
+          "$ref": "DATEXII_3_Common.json#/definitions/VersionedReference"
+        },
+        "serviceProvider": {
+          "$ref": "DATEXII_3_ExchangeInformation.json#/definitions/Agent"
+        },
+        "serviceFeedbackExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "serviceRequestReference",
+        "serviceRequestStatus",
+        "serviceProvider"
+      ]
+    },
+    "ServiceRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "elementToProcessReference": {
+          "$ref": "DATEXII_3_Common.json#/definitions/Reference"
+        },
+        "elementToProcessVersionedReference": {
+          "$ref": "DATEXII_3_Common.json#/definitions/VersionedReference"
+        },
+        "expiryTime": {
+          "$ref": "DATEXII_3_Common.json#/definitions/VersionedReference"
+        },
+        "externalReference": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "notPredefinedServiceName": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "predefinedService": {
+          "$ref": "DATEXII_3_CISInformation.json#/definitions/PredefinedServiceEnumG"
+        },
+        "requestedAction": {
+          "$ref": "DATEXII_3_CISInformation.json#/definitions/ServiceActionEnumG"
+        },
+        "servicerRequestCreationTime": {
+          "$ref": "DATEXII_3_Common.json#/definitions/DateTime"
+        },
+        "servicerRequestVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/definitions/DateTime"
+        },
+        "customServiceParameter": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "serviceRequester": {
+          "$ref": "DATEXII_3_ExchangeInformation.json#/definitions/Agent"
+        },
+        "serviceProvider": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_ExchangeInformation.json#/definitions/Agent"
+          },
+          "minItems": 1
+        },
+        "serviceRequestCondition": {
+          "$ref": "DATEXII_3_CISInformation.json#/definitions/ServiceRequestCondition"
+        },
+        "serviceRequestExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "predefinedService",
+        "requestedAction",
+        "servicerRequestCreationTime",
+        "servicerRequestVersionTime",
+        "serviceRequester",
+        "serviceProvider"
+      ]
+    },
+    "ServiceRequestCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "conditionDescription": {
+          "$ref": "DATEXII_3_Common.json#/definitions/MultilingualString"
+        },
+        "externalIdCondition": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/definitions/String"
+          },
+          "minItems": 0
+        },
+        "referencedCondition": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/definitions/Reference"
+          },
+          "minItems": 0
+        },
+        "versionReferencedCondition": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/definitions/VersionedReference"
+          },
+          "minItems": 0
+        },
+        "serviceRequestConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      }
+    }
+  }
+}

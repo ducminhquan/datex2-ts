@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {
+    "EmissionsExtension": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "comparisonOperator": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ComparisonOperatorEnumG"
+        }
+      },
+      "required": [
+        "comparisonOperator"
+      ]
+    }
+  }
+}

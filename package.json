@@ -1,0 +1,76 @@
+{
+  "name": "datex2-ts",
+  "version": "0.1.0",
+  "description": "Dev-friendly TypeScript data model for DATEX II v3 (JSON encoding): generated types, discriminated-union friendly model, immutable editing helpers and metadata-driven validation.",
+  "keywords": [
+    "datex2",
+    "datex-ii",
+    "traffic",
+    "its",
+    "json-schema",
+    "typescript",
+    "data-model",
+    "mobility",
+    "napcore"
+  ],
+  "license": "MIT",
+  "author": "ducminhquan",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ducminhquan/datex2-ts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ducminhquan/datex2-ts/issues"
+  },
+  "homepage": "https://github.com/ducminhquan/datex2-ts#readme",
+  "type": "module",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./wire": {
+      "types": "./dist/wire.d.ts",
+      "import": "./dist/wire.js",
+      "require": "./dist/wire.cjs"
+    },
+    "./friendly": {
+      "types": "./dist/friendly.d.ts",
+      "import": "./dist/friendly.js",
+      "require": "./dist/friendly.cjs"
+    },
+    "./schemas/*": "./schemas/*",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "schemas",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "generate": "node scripts/generate.mjs",
+    "build": "npm run generate && tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run build && npm run typecheck && npm run test"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

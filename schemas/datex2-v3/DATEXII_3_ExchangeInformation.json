@@ -1,0 +1,389 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {
+    "Agent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "address": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "name": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "referenceID": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "serviceURL": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "internationalIdentifier": {
+          "$ref": "DATEXII_3_Common.json#/definitions/InternationalIdentifier"
+        },
+        "agentExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      }
+    },
+    "DynamicInformation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "exchangeStatus": {
+          "$ref": "DATEXII_3_ExchangeInformation.json#/definitions/ExchangeStatusEnumG"
+        },
+        "exchangeStatusDescription": {
+          "$ref": "DATEXII_3_Common.json#/definitions/MultilingualString"
+        },
+        "completedPaylod": {
+          "$ref": "DATEXII_3_Common.json#/definitions/Boolean"
+        },
+        "messageSequencingNumber": {
+          "$ref": "DATEXII_3_Common.json#/definitions/NonNegativeInteger"
+        },
+        "messageGenerationTimestamp": {
+          "$ref": "DATEXII_3_Common.json#/definitions/DateTime"
+        },
+        "returnInformation": {
+          "$ref": "DATEXII_3_ExchangeInformation.json#/definitions/ReturnInformation"
+        },
+        "sessionInformation": {
+          "$ref": "DATEXII_3_ExchangeInformation.json#/definitions/SessionInformation"
+        },
+        "dynamicInformationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "exchangeStatus",
+        "messageGenerationTimestamp"
+      ]
+    },
+    "ExchangeContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "codedExchangeProtocol": {
+          "$ref": "DATEXII_3_ExchangeInformation.json#/definitions/ProtocolTypeEnumG"
+        },
+        "exchangeSpecificationVersion": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "operatingMode": {
+          "$ref": "DATEXII_3_ExchangeInformation.json#/definitions/OperatingModeEnumG"
+        },
+        "updateMethod": {
+          "$ref": "DATEXII_3_ExchangeInformation.json#/definitions/UpdateMethodEnumG"
+        },
+        "nonCodedExchangeProtocol": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "supplierOrCisRequester": {
+          "$ref": "DATEXII_3_ExchangeInformation.json#/definitions/Agent"
+        },
+        "clientOrCisProvider": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_ExchangeInformation.json#/definitions/Agent"
+          },
+          "minItems": 0
+        },
+        "subscription": {
+          "$ref": "DATEXII_3_ExchangeInformation.json#/definitions/Subscription"
+        },
+        "exchangeContextExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "codedExchangeProtocol",
+        "exchangeSpecificationVersion",
+        "supplierOrCisRequester"
+      ]
+    },
+    "ExchangeInformation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "messageType": {
+          "$ref": "DATEXII_3_ExchangeInformation.json#/definitions/MessageTypeEnumG"
+        },
+        "exchangeContext": {
+          "$ref": "DATEXII_3_ExchangeInformation.json#/definitions/ExchangeContext"
+        },
+        "dynamicInformation": {
+          "$ref": "DATEXII_3_ExchangeInformation.json#/definitions/DynamicInformation"
+        },
+        "exchangeInformationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "dynamicInformation",
+        "exchangeContext"
+      ]
+    },
+    "ExchangeReturnEnum": {
+      "type": "string",
+      "enum": [
+        "ack",
+        "closeSessionRequest",
+        "fail",
+        "snapshotSynchronisationRequest",
+        "extendedG"
+      ]
+    },
+    "ExchangeReturnEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_ExchangeInformation.json#/definitions/ExchangeReturnEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "ExchangeStatusEnum": {
+      "type": "string",
+      "enum": [
+        "closingSession",
+        "offline",
+        "online",
+        "openingSession",
+        "resuming",
+        "undefined",
+        "extendedG"
+      ]
+    },
+    "ExchangeStatusEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_ExchangeInformation.json#/definitions/ExchangeStatusEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "InvalidityReasonEnum": {
+      "type": "string",
+      "enum": [
+        "invalidCISInformation",
+        "invalidClient",
+        "invalidExchangeContext",
+        "invalidInformationManagement",
+        "invalidMessage",
+        "invalidPayload",
+        "invalidSequencingNumber",
+        "invalidSession",
+        "invalidSupplier",
+        "other",
+        "extendedG"
+      ]
+    },
+    "InvalidityReasonEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_ExchangeInformation.json#/definitions/InvalidityReasonEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "MessageTypeEnum": {
+      "type": "string",
+      "enum": [
+        "CISFeedback",
+        "CISServiceRequest",
+        "closeSession",
+        "keepAlive",
+        "openSession",
+        "payloadDelivery",
+        "return",
+        "extendedG"
+      ]
+    },
+    "MessageTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_ExchangeInformation.json#/definitions/MessageTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "OperatingModeEnum": {
+      "type": "string",
+      "enum": [
+        "conditionTriggered",
+        "onOccurrence",
+        "other",
+        "periodic",
+        "extendedG"
+      ]
+    },
+    "OperatingModeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_ExchangeInformation.json#/definitions/OperatingModeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "ProtocolTypeEnum": {
+      "type": "string",
+      "enum": [
+        "deltaPull",
+        "deltaPush",
+        "other",
+        "simpleCIS",
+        "simplePush",
+        "snapshotPull",
+        "snapshotPush",
+        "statefulCIS",
+        "statefulPush",
+        "extendedG"
+      ]
+    },
+    "ProtocolTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_ExchangeInformation.json#/definitions/ProtocolTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "ReturnInformation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "returnStatus": {
+          "$ref": "DATEXII_3_ExchangeInformation.json#/definitions/ExchangeReturnEnumG"
+        },
+        "returnStatusReason": {
+          "$ref": "DATEXII_3_Common.json#/definitions/MultilingualString"
+        },
+        "codedInvalidityReason": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_ExchangeInformation.json#/definitions/InvalidityReasonEnumG"
+          },
+          "minItems": 0
+        },
+        "returnInformationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "returnStatus"
+      ]
+    },
+    "SessionInformation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sessionID": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "startSession": {
+          "$ref": "DATEXII_3_Common.json#/definitions/DateTime"
+        },
+        "sessionInformationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "sessionID"
+      ]
+    },
+    "Subscription": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "referenceID": {
+          "$ref": "DATEXII_3_Common.json#/definitions/Reference"
+        },
+        "subscriptionStart": {
+          "$ref": "DATEXII_3_Common.json#/definitions/DateTime"
+        },
+        "subscriptionEnd": {
+          "$ref": "DATEXII_3_Common.json#/definitions/DateTime"
+        },
+        "deliveyFrequency": {
+          "$ref": "DATEXII_3_Common.json#/definitions/NonNegativeInteger"
+        },
+        "validity": {
+          "$ref": "DATEXII_3_Common.json#/definitions/Validity"
+        },
+        "subscriptionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      }
+    },
+    "UpdateMethodEnum": {
+      "type": "string",
+      "enum": [
+        "allElementUpdate",
+        "allInformationUpdate",
+        "other",
+        "singleElementUpdate",
+        "snapshot",
+        "extendedG"
+      ]
+    },
+    "UpdateMethodEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_ExchangeInformation.json#/definitions/UpdateMethodEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    }
+  }
+}

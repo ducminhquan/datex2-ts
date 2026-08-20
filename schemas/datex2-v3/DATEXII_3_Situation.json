@@ -1,0 +1,490 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {
+    "Accident": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "situationRecordCreationTime": {
+          "$ref": "DATEXII_3_Common.json#/definitions/DateTime"
+        },
+        "situationRecordVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/definitions/DateTime"
+        },
+        "probabilityOfOccurrence": {
+          "$ref": "DATEXII_3_Situation.json#/definitions/ProbabilityOfOccurrenceEnumG"
+        },
+        "accidentCause": {
+          "$ref": "DATEXII_3_Situation.json#/definitions/AccidentCauseEnumG"
+        },
+        "accidentType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/definitions/AccidentTypeEnumG"
+          },
+          "minItems": 1
+        },
+        "collisionType": {
+          "$ref": "DATEXII_3_Situation.json#/definitions/CollisionTypeEnumG"
+        },
+        "totalNumberOfPeopleInvolved": {
+          "$ref": "DATEXII_3_Common.json#/definitions/NonNegativeInteger"
+        },
+        "totalNumberOfVehiclesInvolved": {
+          "$ref": "DATEXII_3_Common.json#/definitions/NonNegativeInteger"
+        },
+        "validity": {
+          "$ref": "DATEXII_3_Common.json#/definitions/Validity"
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/LocationReferenceG"
+        },
+        "vehicleInvolved": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/definitions/Vehicle"
+          },
+          "minItems": 0
+        },
+        "groupOfVehiclesInvolved": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/definitions/GroupOfVehiclesInvolved"
+          },
+          "minItems": 0
+        },
+        "groupOfPeopleInvolved": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/definitions/GroupOfPeopleInvolved"
+          },
+          "minItems": 0
+        },
+        "situationRecordExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        },
+        "trafficElementExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        },
+        "accidentExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "situationRecordCreationTime",
+        "situationRecordVersionTime",
+        "probabilityOfOccurrence",
+        "accidentType",
+        "validity",
+        "locationReference"
+      ]
+    },
+    "AccidentCauseEnum": {
+      "type": "string",
+      "enum": [
+        "avoidanceOfObstacles",
+        "driverDistraction",
+        "driverDrugAbuse",
+        "driverIllness",
+        "exceedingSpeedsLimits",
+        "excessAlcohol",
+        "excessiveDriverTiredness",
+        "impermissibleManoeuvre",
+        "limitedVisibility",
+        "notKeepingASafeDistance",
+        "onTheWrongSideOfTheRoad",
+        "pedestrianInRoad",
+        "poorLaneAdherence",
+        "poorMergeEntryOrExitJudgement",
+        "poorRoadSurfaceCondition",
+        "poorSurfaceAdherence",
+        "undisclosed",
+        "unknown",
+        "vehicleFailure",
+        "other",
+        "extendedG"
+      ]
+    },
+    "AccidentCauseEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/definitions/AccidentCauseEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "AccidentTypeEnum": {
+      "type": "string",
+      "enum": [
+        "accident",
+        "accidentInvolvingHazardousMaterials",
+        "accidentInvolvingHeavyLorries",
+        "accidentInvolvingMassTransitVehicle",
+        "accidentInvolvingPublicTransport",
+        "accidentInvolvingRadioactiveMaterial",
+        "accidentInvolvingTrain",
+        "collision",
+        "multipleVehicleAccident",
+        "secondaryAccident",
+        "seriousInjuryOrFatalAccident",
+        "vehicleStuckUnderBridge",
+        "other",
+        "extendedG"
+      ]
+    },
+    "AccidentTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/definitions/AccidentTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "CollisionTypeEnum": {
+      "type": "string",
+      "enum": [
+        "collisionWithAnimal",
+        "collisionWithObstacle",
+        "collisionWithPerson",
+        "headOnCollision",
+        "headOnOrSideCollision",
+        "multipleVehicleCollision",
+        "rearCollision",
+        "sideCollision",
+        "extendedG"
+      ]
+    },
+    "CollisionTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/definitions/CollisionTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "GroupOfPeopleInvolved": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "numberOfPeople": {
+          "$ref": "DATEXII_3_Common.json#/definitions/NonNegativeInteger"
+        },
+        "injuryStatusType": {
+          "$ref": "DATEXII_3_Situation.json#/definitions/InjuryStatusTypeEnumG"
+        },
+        "involvementRole": {
+          "$ref": "DATEXII_3_Situation.json#/definitions/InvolvementRolesEnumG"
+        },
+        "categoryOfPeopleInvolved": {
+          "$ref": "DATEXII_3_Situation.json#/definitions/PersonCategoryEnumG"
+        },
+        "groupOfPeopleInvolvedExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      }
+    },
+    "InjuryStatusTypeEnum": {
+      "type": "string",
+      "enum": [
+        "dead",
+        "injured",
+        "seriouslyInjured",
+        "slightlyInjured",
+        "uninjured",
+        "unknown",
+        "extendedG"
+      ]
+    },
+    "InjuryStatusTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/definitions/InjuryStatusTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "InvolvementRolesEnum": {
+      "type": "string",
+      "enum": [
+        "cyclist",
+        "motorcyclist",
+        "pedestrian",
+        "unknown",
+        "vehicleDriver",
+        "vehicleOccupant",
+        "vehiclePassenger",
+        "witness",
+        "extendedG"
+      ]
+    },
+    "InvolvementRolesEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/definitions/InvolvementRolesEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "PersonCategoryEnum": {
+      "type": "string",
+      "enum": [
+        "adult",
+        "child",
+        "emergencyServicesPerson",
+        "fireman",
+        "infant",
+        "medicalStaff",
+        "memberOfThePublic",
+        "policeman",
+        "politician",
+        "publicTransportPassenger",
+        "sickPerson",
+        "trafficOfficer",
+        "trafficWarden",
+        "veryImportantPerson",
+        "extendedG"
+      ]
+    },
+    "PersonCategoryEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/definitions/PersonCategoryEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "ProbabilityOfOccurrenceEnum": {
+      "type": "string",
+      "enum": [
+        "certain",
+        "probable",
+        "riskOf",
+        "extendedG"
+      ]
+    },
+    "ProbabilityOfOccurrenceEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/definitions/ProbabilityOfOccurrenceEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "Situation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "headerInformation": {
+          "$ref": "DATEXII_3_Common.json#/definitions/HeaderInformation"
+        },
+        "situationRecord": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/definitions/SituationRecordG"
+          },
+          "minItems": 1
+        },
+        "situationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "headerInformation",
+        "situationRecord"
+      ]
+    },
+    "SituationPublication": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "lang": {
+          "$ref": "DATEXII_3_Common.json#/definitions/Language"
+        },
+        "publicationTime": {
+          "$ref": "DATEXII_3_Common.json#/definitions/DateTime"
+        },
+        "publicationCreator": {
+          "$ref": "DATEXII_3_Common.json#/definitions/InternationalIdentifier"
+        },
+        "situation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/definitions/Situation"
+          },
+          "minItems": 0
+        },
+        "payloadPublicationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        },
+        "situationPublicationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "lang",
+        "publicationTime",
+        "publicationCreator"
+      ]
+    },
+    "SituationRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "situationRecordCreationTime": {
+          "$ref": "DATEXII_3_Common.json#/definitions/DateTime"
+        },
+        "situationRecordVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/definitions/DateTime"
+        },
+        "probabilityOfOccurrence": {
+          "$ref": "DATEXII_3_Situation.json#/definitions/ProbabilityOfOccurrenceEnumG"
+        },
+        "validity": {
+          "$ref": "DATEXII_3_Common.json#/definitions/Validity"
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/LocationReferenceG"
+        },
+        "situationRecordExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "situationRecordCreationTime",
+        "situationRecordVersionTime",
+        "probabilityOfOccurrence",
+        "validity",
+        "locationReference"
+      ]
+    },
+    "SituationRecordG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sitAccident": {
+          "$ref": "DATEXII_3_Situation.json#/definitions/Accident"
+        }
+      }
+    },
+    "TrafficElement": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "situationRecordCreationTime": {
+          "$ref": "DATEXII_3_Common.json#/definitions/DateTime"
+        },
+        "situationRecordVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/definitions/DateTime"
+        },
+        "probabilityOfOccurrence": {
+          "$ref": "DATEXII_3_Situation.json#/definitions/ProbabilityOfOccurrenceEnumG"
+        },
+        "validity": {
+          "$ref": "DATEXII_3_Common.json#/definitions/Validity"
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/LocationReferenceG"
+        },
+        "situationRecordExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        },
+        "trafficElementExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "situationRecordCreationTime",
+        "situationRecordVersionTime",
+        "probabilityOfOccurrence",
+        "validity",
+        "locationReference"
+      ]
+    },
+    "TrafficElementG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sitAccident": {
+          "$ref": "DATEXII_3_Situation.json#/definitions/Accident"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,1380 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {
+    "AlertCDirection": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "alertCDirectionCoded": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/AlertCDirectionEnumG"
+        },
+        "alertCDirectionNamed": {
+          "$ref": "DATEXII_3_Common.json#/definitions/MultilingualString"
+        },
+        "alertCAffectedDirection": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/LinearDirectionEnumG"
+        },
+        "alertCDirectionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "alertCDirectionCoded",
+        "alertCAffectedDirection"
+      ]
+    },
+    "AlertCDirectionEnum": {
+      "type": "string",
+      "enum": [
+        "negative",
+        "positive",
+        "extendedG"
+      ]
+    },
+    "AlertCDirectionEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/AlertCDirectionEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "AlertCLinear": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "alertCLocationCountryCode": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "alertCLocationTableNumber": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "alertCLocationTableVersion": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "alertCLinearExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "alertCLocationCountryCode",
+        "alertCLocationTableNumber",
+        "alertCLocationTableVersion"
+      ]
+    },
+    "AlertCLinearByCode": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "alertCLocationCountryCode": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "alertCLocationTableNumber": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "alertCLocationTableVersion": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "alertCDirection": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/AlertCDirection"
+        },
+        "locationCodeForLinearLocation": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/AlertCLocation"
+        },
+        "alertCLinearExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        },
+        "alertCLinearByCodeExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "alertCLocationCountryCode",
+        "alertCLocationTableNumber",
+        "alertCLocationTableVersion",
+        "alertCDirection",
+        "locationCodeForLinearLocation"
+      ]
+    },
+    "AlertCLinearG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "locAlertCLinearByCode": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/AlertCLinearByCode"
+        },
+        "locAlertCMethod4Linear": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/AlertCMethod4Linear"
+        },
+        "locAlertCMethod2Linear": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/AlertCMethod2Linear"
+        }
+      }
+    },
+    "AlertCLocation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "alertCLocationName": {
+          "$ref": "DATEXII_3_Common.json#/definitions/MultilingualString"
+        },
+        "specificLocation": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/AlertCLocationCode"
+        },
+        "alertCLocationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "specificLocation"
+      ]
+    },
+    "AlertCLocationCode": {
+      "$ref": "DATEXII_3_Common.json#/definitions/NonNegativeInteger",
+      "minimum": 1.0,
+      "maximum": 63487.0
+    },
+    "AlertCMethod2Linear": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "alertCLocationCountryCode": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "alertCLocationTableNumber": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "alertCLocationTableVersion": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "alertCDirection": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/AlertCDirection"
+        },
+        "alertCMethod2PrimaryPointLocation": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/AlertCMethod2PrimaryPointLocation"
+        },
+        "alertCMethod2SecondaryPointLocation": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/AlertCMethod2SecondaryPointLocation"
+        },
+        "alertCLinearExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        },
+        "alertCMethod2LinearExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "alertCLocationCountryCode",
+        "alertCLocationTableNumber",
+        "alertCLocationTableVersion",
+        "alertCDirection",
+        "alertCMethod2PrimaryPointLocation",
+        "alertCMethod2SecondaryPointLocation"
+      ]
+    },
+    "AlertCMethod2Point": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "alertCLocationCountryCode": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "alertCLocationTableNumber": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "alertCLocationTableVersion": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "alertCDirection": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/AlertCDirection"
+        },
+        "alertCMethod2PrimaryPointLocation": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/AlertCMethod2PrimaryPointLocation"
+        },
+        "alertCPointExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        },
+        "alertCMethod2PointExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "alertCLocationCountryCode",
+        "alertCLocationTableNumber",
+        "alertCLocationTableVersion",
+        "alertCDirection",
+        "alertCMethod2PrimaryPointLocation"
+      ]
+    },
+    "AlertCMethod2PrimaryPointLocation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "alertCLocation": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/AlertCLocation"
+        },
+        "alertCMethod2PrimaryPointLocationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "alertCLocation"
+      ]
+    },
+    "AlertCMethod2SecondaryPointLocation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "alertCLocation": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/AlertCLocation"
+        },
+        "alertCMethod2SecondaryPointLocationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "alertCLocation"
+      ]
+    },
+    "AlertCMethod4Linear": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "alertCLocationCountryCode": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "alertCLocationTableNumber": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "alertCLocationTableVersion": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "alertCDirection": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/AlertCDirection"
+        },
+        "alertCMethod4PrimaryPointLocation": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/AlertCMethod4PrimaryPointLocation"
+        },
+        "alertCMethod4SecondaryPointLocation": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/AlertCMethod4SecondaryPointLocation"
+        },
+        "alertCLinearExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        },
+        "alertCMethod4LinearExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "alertCLocationCountryCode",
+        "alertCLocationTableNumber",
+        "alertCLocationTableVersion",
+        "alertCDirection",
+        "alertCMethod4PrimaryPointLocation",
+        "alertCMethod4SecondaryPointLocation"
+      ]
+    },
+    "AlertCMethod4Point": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "alertCLocationCountryCode": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "alertCLocationTableNumber": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "alertCLocationTableVersion": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "alertCDirection": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/AlertCDirection"
+        },
+        "alertCMethod4PrimaryPointLocation": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/AlertCMethod4PrimaryPointLocation"
+        },
+        "alertCPointExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        },
+        "alertCMethod4PointExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "alertCLocationCountryCode",
+        "alertCLocationTableNumber",
+        "alertCLocationTableVersion",
+        "alertCDirection",
+        "alertCMethod4PrimaryPointLocation"
+      ]
+    },
+    "AlertCMethod4PrimaryPointLocation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "alertCLocation": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/AlertCLocation"
+        },
+        "offsetDistance": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/OffsetDistance"
+        },
+        "alertCMethod4PrimaryPointLocationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "alertCLocation",
+        "offsetDistance"
+      ]
+    },
+    "AlertCMethod4SecondaryPointLocation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "alertCLocation": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/AlertCLocation"
+        },
+        "offsetDistance": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/OffsetDistance"
+        },
+        "alertCMethod4SecondaryPointLocationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "alertCLocation",
+        "offsetDistance"
+      ]
+    },
+    "AlertCPoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "alertCLocationCountryCode": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "alertCLocationTableNumber": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "alertCLocationTableVersion": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "alertCPointExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "alertCLocationCountryCode",
+        "alertCLocationTableNumber",
+        "alertCLocationTableVersion"
+      ]
+    },
+    "AlertCPointG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "locAlertCMethod2Point": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/AlertCMethod2Point"
+        },
+        "locAlertCMethod4Point": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/AlertCMethod4Point"
+        }
+      }
+    },
+    "AltitudeAccuracyEnum": {
+      "type": "string",
+      "enum": [
+        "equalToOrLessThan1Centimetre",
+        "equalToOrLessThan2Centimetres",
+        "equalToOrLessThan5Centimetres",
+        "equalToOrLessThan10Centimetres",
+        "equalToOrLessThan20Centimetres",
+        "equalToOrLessThan50Centimetres",
+        "equalToOrLessThan1Metre",
+        "equalToOrLessThan2Metres",
+        "equalToOrLessThan5Metres",
+        "equalToOrLessThan10Metres",
+        "equalToOrLessThan20Metres",
+        "equalToOrLessThan50Metres",
+        "equalToOrLessThan100Metres",
+        "equalToOrLessThan200Metres",
+        "extendedG"
+      ]
+    },
+    "AltitudeAccuracyEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/AltitudeAccuracyEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "AltitudeConfidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "altitudeAccuracyCodedValue": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/AltitudeAccuracyEnumG"
+        },
+        "altitudeAccuracyCodedError": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/PositionConfidenceCodedErrorEnumG"
+        },
+        "altitudeConfidenceExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      }
+    },
+    "Carriageway": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "carriageway": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/CarriagewayEnumG"
+        },
+        "originalNumberOfLanes": {
+          "$ref": "DATEXII_3_Common.json#/definitions/Integer"
+        },
+        "lane": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/definitions/Lane"
+          },
+          "minItems": 0
+        },
+        "carriagewayExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "carriageway"
+      ]
+    },
+    "CarriagewayEnum": {
+      "type": "string",
+      "enum": [
+        "connectingCarriageway",
+        "cycleTrack",
+        "entrySlipRoad",
+        "exitSlipRoad",
+        "flyover",
+        "footpath",
+        "leftHandParallelCarriageway",
+        "leftHandFeederRoad",
+        "mainCarriageway",
+        "oppositeCarriageway",
+        "parallelCarriageway",
+        "rightHandFeederRoad",
+        "rightHandParallelCarriageway",
+        "roundabout",
+        "serviceRoad",
+        "slipRoads",
+        "underpass",
+        "unspecifiedCarriageway",
+        "extendedG"
+      ]
+    },
+    "CarriagewayEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/CarriagewayEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "GmlLinearRing": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "srsDimension": {
+          "$ref": "DATEXII_3_Common.json#/definitions/NonNegativeInteger"
+        },
+        "srsName": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "posList": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/GmlPosList"
+        },
+        "gmlLineStringExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        },
+        "gmlLinearRingExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "posList"
+      ]
+    },
+    "GmlLineString": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "srsDimension": {
+          "$ref": "DATEXII_3_Common.json#/definitions/NonNegativeInteger"
+        },
+        "srsName": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "posList": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/GmlPosList"
+        },
+        "gmlLineStringExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "posList"
+      ]
+    },
+    "GmlLineStringG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "locGmlLineString": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/GmlLineString"
+        },
+        "locGmlLinearRing": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/GmlLinearRing"
+        }
+      }
+    },
+    "GmlPosList": {
+      "$ref": "DATEXII_3_Common.json#/definitions/LongString",
+      "pattern": "[-+]?[0-9]*\\.?[0-9]+(\\s[-+]?[0-9]*\\.?[0-9]+){3,}"
+    },
+    "HeightCoordinate": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "heightValue": {
+          "$ref": "DATEXII_3_Common.json#/definitions/MetresAsFloat"
+        },
+        "heightType": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/HeightTypeEnumG"
+        },
+        "altitudeConfidence": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/AltitudeConfidence"
+        },
+        "verticalPositionAccuracy": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/PositionAccuracy"
+        },
+        "heightCoordinateExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "heightValue"
+      ]
+    },
+    "HeightTypeEnum": {
+      "type": "string",
+      "enum": [
+        "ellipsoidalHeight",
+        "gravityRelatedHeight",
+        "relativeHeight",
+        "extendedG"
+      ]
+    },
+    "HeightTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/HeightTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "IsoNamedArea": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "areaName": {
+          "$ref": "DATEXII_3_Common.json#/definitions/MultilingualString"
+        },
+        "namedAreaType": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/NamedAreaTypeEnumG"
+        },
+        "country": {
+          "$ref": "DATEXII_3_Common.json#/definitions/CountryCode"
+        },
+        "subdivisionType": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/SubdivisionTypeEnumG"
+        },
+        "subdivisionCode": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/SubdivisionCode"
+        },
+        "namedAreaExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "areaName",
+        "subdivisionType",
+        "subdivisionCode"
+      ]
+    },
+    "Lane": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "laneNumber": {
+          "$ref": "DATEXII_3_Common.json#/definitions/Integer"
+        },
+        "laneUsage": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/LaneEnumG"
+        },
+        "laneExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      }
+    },
+    "LaneEnum": {
+      "type": "string",
+      "enum": [
+        "allLanesCompleteCarriageway",
+        "busLane",
+        "busStop",
+        "carPoolLane",
+        "centralReservation",
+        "crawlerLane",
+        "cycleLane",
+        "emergencyLane",
+        "escapeLane",
+        "expressLane",
+        "hardShoulder",
+        "heavyVehicleLane",
+        "layBy",
+        "leftHandTurningLane",
+        "leftLane",
+        "localTrafficLane",
+        "middleLane",
+        "overtakingLane",
+        "rightHandTurningLane",
+        "rightLane",
+        "rushHourLane",
+        "setDownArea",
+        "slowVehicleLane",
+        "throughTrafficLane",
+        "tidalFlowLane",
+        "turningLane",
+        "verge",
+        "extendedG"
+      ]
+    },
+    "LaneEnumExtensionTypeG": {
+      "type": "string",
+      "enum": [
+        "advisoryCycleLane",
+        "bridlePath",
+        "busAndCycleLane",
+        "footAndCyclePath",
+        "guidedBusWay",
+        "taxiLane",
+        "taxiRank",
+        "tollLane",
+        "trolleyBusLane"
+      ]
+    },
+    "LaneEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/LaneEnum"
+        },
+        "extendedValueG": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/LaneEnumExtensionTypeG"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "LinearDirectionEnum": {
+      "type": "string",
+      "enum": [
+        "both",
+        "opposite",
+        "aligned",
+        "unknown",
+        "extendedG"
+      ]
+    },
+    "LinearDirectionEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/LinearDirectionEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "LinearLocation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "coordinatesForDisplay": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/PointCoordinates"
+        },
+        "supplementaryPositionalDescription": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/SupplementaryPositionalDescription"
+        },
+        "gmlLineString": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/GmlLineStringG"
+        },
+        "locationReferenceExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        },
+        "locationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        },
+        "networkLocationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        },
+        "linearLocationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      }
+    },
+    "LinearLocationG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "locLinearLocation": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/LinearLocation"
+        },
+        "locSingleRoadLinearLocation": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/SingleRoadLinearLocation"
+        }
+      }
+    },
+    "Location": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "coordinatesForDisplay": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/PointCoordinates"
+        },
+        "locationReferenceExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        },
+        "locationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      }
+    },
+    "LocationG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "locLinearLocation": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/LinearLocation"
+        },
+        "locSingleRoadLinearLocation": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/SingleRoadLinearLocation"
+        },
+        "locPointLocation": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/PointLocation"
+        }
+      }
+    },
+    "LocationReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "locationReferenceExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      }
+    },
+    "LocationReferenceG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "locLinearLocation": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/LinearLocation"
+        },
+        "locSingleRoadLinearLocation": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/SingleRoadLinearLocation"
+        },
+        "locPointLocation": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/PointLocation"
+        }
+      }
+    },
+    "NamedArea": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "areaName": {
+          "$ref": "DATEXII_3_Common.json#/definitions/MultilingualString"
+        },
+        "namedAreaType": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/NamedAreaTypeEnumG"
+        },
+        "country": {
+          "$ref": "DATEXII_3_Common.json#/definitions/CountryCode"
+        },
+        "namedAreaExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "areaName"
+      ]
+    },
+    "NamedAreaExtensionTypeG": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "NamedAreaExtended": {
+          "$ref": "DATEXII_3_LocationExtension.json#/definitions/NamedAreaExtended"
+        }
+      }
+    },
+    "NamedAreaG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "locNamedArea": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/NamedArea"
+        },
+        "locNutsNamedArea": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/NutsNamedArea"
+        },
+        "locIsoNamedArea": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/IsoNamedArea"
+        },
+        "locxNamedAreaExtended": {
+          "$ref": "DATEXII_3_LocationExtension.json#/definitions/NamedAreaExtended"
+        }
+      }
+    },
+    "NamedAreaTypeEnum": {
+      "type": "string",
+      "enum": [
+        "applicationRegion",
+        "continent",
+        "country",
+        "countryGroup",
+        "carParkArea",
+        "carpoolArea",
+        "fuzzyArea",
+        "industrialArea",
+        "lake",
+        "meteorologicalArea",
+        "metropolitanArea",
+        "municipality",
+        "parkAndRideSite",
+        "ruralCounty",
+        "sea",
+        "touristArea",
+        "trafficArea",
+        "urbanCounty",
+        "order1AdministrativeArea",
+        "order2AdministrativeArea",
+        "order3AdministrativeArea",
+        "order4AdministrativeArea",
+        "order5AdministrativeArea",
+        "policeForceControlArea",
+        "roadOperatorControlArea",
+        "waterArea",
+        "extendedG"
+      ]
+    },
+    "NamedAreaTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/NamedAreaTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "NetworkLocation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "coordinatesForDisplay": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/PointCoordinates"
+        },
+        "supplementaryPositionalDescription": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/SupplementaryPositionalDescription"
+        },
+        "locationReferenceExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        },
+        "locationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        },
+        "networkLocationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      }
+    },
+    "NetworkLocationG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "locLinearLocation": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/LinearLocation"
+        },
+        "locSingleRoadLinearLocation": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/SingleRoadLinearLocation"
+        },
+        "locPointLocation": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/PointLocation"
+        }
+      }
+    },
+    "NutsCode": {
+      "$ref": "DATEXII_3_Common.json#/definitions/String",
+      "maxLength": 5
+    },
+    "NutsCodeTypeEnum": {
+      "type": "string",
+      "enum": [
+        "nuts1Code",
+        "nuts2Code",
+        "nuts3Code",
+        "lau1Code",
+        "lau2Code",
+        "extendedG"
+      ]
+    },
+    "NutsCodeTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/NutsCodeTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "NutsNamedArea": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "areaName": {
+          "$ref": "DATEXII_3_Common.json#/definitions/MultilingualString"
+        },
+        "namedAreaType": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/NamedAreaTypeEnumG"
+        },
+        "country": {
+          "$ref": "DATEXII_3_Common.json#/definitions/CountryCode"
+        },
+        "nutsCodeType": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/NutsCodeTypeEnumG"
+        },
+        "nutsCode": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/NutsCode"
+        },
+        "namedAreaExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "areaName",
+        "nutsCodeType",
+        "nutsCode"
+      ]
+    },
+    "OffsetDistance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "offsetDistance": {
+          "$ref": "DATEXII_3_Common.json#/definitions/MetresAsNonNegativeInteger"
+        },
+        "offsetDistanceExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "offsetDistance"
+      ]
+    },
+    "PointByCoordinates": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "bearing": {
+          "$ref": "DATEXII_3_Common.json#/definitions/AngleInDegrees"
+        },
+        "pointCoordinates": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/PointCoordinates"
+        },
+        "pointByCoordinatesExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "pointCoordinates"
+      ]
+    },
+    "PointCoordinates": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "latitude": {
+          "$ref": "DATEXII_3_Common.json#/definitions/Float"
+        },
+        "longitude": {
+          "$ref": "DATEXII_3_Common.json#/definitions/Float"
+        },
+        "heightCoordinate": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/definitions/HeightCoordinate"
+          },
+          "minItems": 0,
+          "maxItems": 3
+        },
+        "positionConfidenceEllipse": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/PositionConfidenceEllipse"
+        },
+        "horizontalPositionAccuracy": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/PositionAccuracy"
+        },
+        "pointCoordinatesExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "latitude",
+        "longitude"
+      ]
+    },
+    "PointLocation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "coordinatesForDisplay": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/PointCoordinates"
+        },
+        "supplementaryPositionalDescription": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/SupplementaryPositionalDescription"
+        },
+        "pointByCoordinates": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/PointByCoordinates"
+        },
+        "alertCPoint": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/definitions/AlertCPointG"
+          },
+          "minItems": 0
+        },
+        "locationReferenceExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        },
+        "locationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        },
+        "networkLocationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        },
+        "pointLocationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      }
+    },
+    "PointLocationG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "locPointLocation": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/PointLocation"
+        }
+      }
+    },
+    "PositionAccuracy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "accuracyPercentile50": {
+          "$ref": "DATEXII_3_Common.json#/definitions/MetresAsFloat"
+        },
+        "accuracyPercentile75": {
+          "$ref": "DATEXII_3_Common.json#/definitions/MetresAsFloat"
+        },
+        "accuracyPercentile95": {
+          "$ref": "DATEXII_3_Common.json#/definitions/MetresAsFloat"
+        },
+        "positionAccuracyExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      }
+    },
+    "PositionConfidenceCodedErrorEnum": {
+      "type": "string",
+      "enum": [
+        "outOfRange",
+        "unavailable",
+        "extendedG"
+      ]
+    },
+    "PositionConfidenceCodedErrorEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/PositionConfidenceCodedErrorEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "PositionConfidenceEllipse": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "semiMajorAxisLength": {
+          "$ref": "DATEXII_3_Common.json#/definitions/MetresAsFloat"
+        },
+        "semiMajorAxisLengthCodedError": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/PositionConfidenceCodedErrorEnumG"
+        },
+        "semiMinorAxisLength": {
+          "$ref": "DATEXII_3_Common.json#/definitions/MetresAsFloat"
+        },
+        "semiMinorAxisLengthCodedError": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/PositionConfidenceCodedErrorEnumG"
+        },
+        "semiMajorAxisOrientation": {
+          "$ref": "DATEXII_3_Common.json#/definitions/AngleInDegrees"
+        },
+        "semiMajorAxisOrientationError": {
+          "$ref": "DATEXII_3_Common.json#/definitions/Boolean"
+        },
+        "positionConfidenceEllipseExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      }
+    },
+    "RoadInformation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "roadDestination": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "roadName": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "roadNumber": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "roadInformationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      }
+    },
+    "RoadInformationG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "locRoadInformation": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/RoadInformation"
+        },
+        "prkRoadInformationEnhanced": {
+          "$ref": "DATEXII_3_Parking.json#/definitions/RoadInformationEnhanced"
+        }
+      }
+    },
+    "SingleRoadLinearLocation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "coordinatesForDisplay": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/PointCoordinates"
+        },
+        "supplementaryPositionalDescription": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/SupplementaryPositionalDescription"
+        },
+        "gmlLineString": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/GmlLineStringG"
+        },
+        "alertCLinear": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/definitions/AlertCLinearG"
+          },
+          "minItems": 0
+        },
+        "locationReferenceExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        },
+        "locationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        },
+        "networkLocationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        },
+        "linearLocationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        },
+        "singleRoadLinearLocationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      }
+    },
+    "SubdivisionCode": {
+      "$ref": "DATEXII_3_Common.json#/definitions/String",
+      "maxLength": 3
+    },
+    "SubdivisionTypeEnum": {
+      "type": "string",
+      "enum": [
+        "administrativeAtoll",
+        "administrativeRegion",
+        "administrativeTerritory",
+        "arcticRegion",
+        "autonomousCity",
+        "autonomousCityInNorthAfrica",
+        "autonomousCommunity",
+        "autonomousDistrict",
+        "autonomousProvince",
+        "autonomousRegion",
+        "canton",
+        "capitalCity",
+        "city",
+        "cityMunicipality",
+        "cityOfCountyRight",
+        "commune",
+        "councilArea",
+        "county",
+        "country",
+        "department",
+        "dependency",
+        "district",
+        "districtMunicipality",
+        "districtWithSpecialStatus",
+        "entity",
+        "geographicalEntity",
+        "governorate",
+        "laender",
+        "localCouncil",
+        "londonBorough",
+        "metropolitanArea",
+        "metropolitanDepartment",
+        "metropolitanDistrict",
+        "metropolitanRegion",
+        "municipality",
+        "overseasDepartment",
+        "overseasRegion",
+        "overseasTerritorialCollectivity",
+        "parish",
+        "province",
+        "quarter",
+        "region",
+        "republic",
+        "republicanCity",
+        "selfGovernedPart",
+        "specialMunicipality",
+        "state",
+        "territorialUnit",
+        "territory",
+        "twoTierCounty",
+        "unitaryAuthority",
+        "ward",
+        "other",
+        "extendedG"
+      ]
+    },
+    "SubdivisionTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/SubdivisionTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "SupplementaryPositionalDescription": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "locationDescription": {
+          "$ref": "DATEXII_3_Common.json#/definitions/MultilingualString"
+        },
+        "carriageway": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/definitions/Carriageway"
+          },
+          "minItems": 0
+        },
+        "namedArea": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/definitions/NamedAreaG"
+        },
+        "roadInformation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/definitions/RoadInformationG"
+          },
+          "minItems": 0
+        },
+        "supplementaryPositionalDescriptionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      }
+    }
+  }
+}

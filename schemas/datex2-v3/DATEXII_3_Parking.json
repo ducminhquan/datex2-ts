@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {
+    "RoadInformationEnhanced": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "roadDestination": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "roadName": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "roadNumber": {
+          "$ref": "DATEXII_3_Common.json#/definitions/String"
+        },
+        "typeOfRoad": {
+          "$ref": "DATEXII_3_Parking.json#/definitions/RoadTypeEnumG"
+        },
+        "roadOrigination": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/definitions/MultilingualString"
+          },
+          "minItems": 0
+        },
+        "roadInformationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        },
+        "roadInformationEnhancedExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      }
+    },
+    "RoadTypeEnum": {
+      "type": "string",
+      "enum": [
+        "motorway",
+        "trunkRoad",
+        "mainRoad",
+        "other",
+        "extendedG"
+      ]
+    },
+    "RoadTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Parking.json#/definitions/RoadTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    }
+  }
+}

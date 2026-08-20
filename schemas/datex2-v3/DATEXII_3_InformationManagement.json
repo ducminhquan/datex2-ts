@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {
+    "ElementReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "managementStatus": {
+          "$ref": "DATEXII_3_InformationManagement.json#/definitions/ManagementTypeEnumG"
+        },
+        "reference": {
+          "$ref": "DATEXII_3_Common.json#/definitions/Reference"
+        },
+        "versionedReference": {
+          "$ref": "DATEXII_3_Common.json#/definitions/VersionedReference"
+        },
+        "elementReferenceExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "managementStatus"
+      ]
+    },
+    "InformationManagedResourceList": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "elementReference": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_InformationManagement.json#/definitions/ElementReference"
+          },
+          "minItems": 1
+        },
+        "informationManagedResourceListExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "elementReference"
+      ]
+    },
+    "InformationManagement": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "informationManagedResourceList": {
+          "$ref": "DATEXII_3_InformationManagement.json#/definitions/InformationManagedResourceList"
+        },
+        "informationManagementExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/definitions/ExtensionTypeG"
+        }
+      }
+    },
+    "ManagementTypeEnum": {
+      "type": "string",
+      "enum": [
+        "cancelled",
+        "closed",
+        "extendedG"
+      ]
+    },
+    "ManagementTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_InformationManagement.json#/definitions/ManagementTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    }
+  }
+}
