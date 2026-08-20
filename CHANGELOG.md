@@ -1,8 +1,8 @@
 # Changelog
 
-## 0.1.0
+## 1.0.0
 
-Initial release.
+First release.
 
 - TypeScript model generated from the vendored DATEX II v3 JSON Schemas:
   207 definitions across 11 namespaces, as both a wire model
