@@ -307,9 +307,35 @@ npm run generate    # regenerate src/generated/ from schemas/
 npm run typecheck
 npm test
 npm run build
+npm run commit      # commitizen prompt - commits follow Conventional Commits
 ```
 
 `src/generated/` is committed and CI fails if it drifts from the schemas.
+Commit messages are linted with commitlint, so use `npm run commit` (or write
+`type(scope): subject` by hand).
+
+## Releasing
+
+Publishing goes through npm's [staged publishing](https://docs.npmjs.com/staged-publishing/),
+which splits the release into a machine step and a human step:
+
+1. Bump the version (`npm version <patch|minor|major>`) and push.
+2. Run the **Publish** workflow - on a published GitHub Release, or manually via
+   *Actions -> Publish -> Run workflow*. It builds, verifies and runs
+   `npm stage publish --provenance`, which needs no 2FA.
+3. Approve the staged version, which is where proof-of-presence is required:
+
+   ```bash
+   npm stage list datex2-ts     # find the stage id
+   npm stage view <stage-id>    # inspect what would go live
+   npm stage approve <stage-id> # prompts for 2FA, then publishes
+   ```
+
+   or approve it on npmjs.com. `npm stage reject <stage-id>` discards it
+   instead.
+
+Staging needs npm >= 11.15.0 and Node >= 22.14.0; the workflow installs a
+current npm for that reason.
 
 ## License
 

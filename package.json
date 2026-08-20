@@ -62,15 +62,26 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "prepublishOnly": "npm run build && npm run typecheck && npm run test"
+    "prepublishOnly": "npm run build && npm run typecheck && npm run test",
+    "commit": "cz",
+    "commitlint": "commitlint --from=HEAD~1 --to=HEAD"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
     "@types/node": "^22.10.2",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
     "tsup": "^8.3.5",
     "typescript": "^5.7.2",
     "vitest": "^2.1.8"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

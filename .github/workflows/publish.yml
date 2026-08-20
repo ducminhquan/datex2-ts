@@ -18,7 +18,32 @@ jobs:
           node-version: '22'
           registry-url: https://registry.npmjs.org
           cache: npm
+
+      # Staged publishing needs npm >= 11.15.0; the runner ships an older one.
+      - run: npm install -g npm@latest
+      - run: npm --version
+
       - run: npm ci
-      - run: npm publish --provenance
+
+      # Explicit, so the tarball is built and verified whether or not the
+      # staging flow runs the prepublishOnly lifecycle script.
+      - run: npm run generate
+      - name: Model is in sync with the vendored schemas
+        run: git diff --exit-code src/generated
+      - run: npm run typecheck
+      - run: npm test
+      - run: npx tsup
+
+      # Stages the version instead of publishing it. No 2FA needed here - a
+      # human approves it afterwards with `npm stage approve <stage-id>` or on
+      # npmjs.com, which is where proof-of-presence is required.
+      - name: Stage the release
+        run: npm stage publish . --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Show what is awaiting approval
+        if: always()
+        run: npm stage list datex2-ts
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

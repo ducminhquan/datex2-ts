@@ -290,9 +290,34 @@ npm run generate    # sinh lại src/generated/ từ schemas/
 npm run typecheck
 npm test
 npm run build
+npm run commit      # prompt của commitizen - commit theo Conventional Commits
 ```
 
 `src/generated/` được commit, và CI sẽ fail nếu nó lệch so với schema.
+Commit message được kiểm bằng commitlint, nên hãy dùng `npm run commit` (hoặc
+tự viết đúng dạng `type(scope): subject`).
+
+## Phát hành
+
+Việc publish đi qua [staged publishing](https://docs.npmjs.com/staged-publishing/)
+của npm, tách phần máy làm và phần người duyệt:
+
+1. Bump version (`npm version <patch|minor|major>`) rồi push.
+2. Chạy workflow **Publish** — qua GitHub Release, hoặc thủ công ở
+   *Actions -> Publish -> Run workflow*. Nó build, kiểm tra, rồi chạy
+   `npm stage publish --provenance` — bước này **không cần 2FA**.
+3. Duyệt bản đã stage — đây mới là chỗ cần proof-of-presence:
+
+   ```bash
+   npm stage list datex2-ts     # lấy stage id
+   npm stage view <stage-id>    # xem thứ sắp lên registry
+   npm stage approve <stage-id> # hỏi 2FA rồi publish
+   ```
+
+   hoặc duyệt trên npmjs.com. `npm stage reject <stage-id>` để huỷ.
+
+Staged publishing cần npm >= 11.15.0 và Node >= 22.14.0, nên workflow cài npm
+mới trước khi chạy.
 
 ## Giấy phép
 
