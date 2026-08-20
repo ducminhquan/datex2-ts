@@ -1,0 +1,2666 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "AccessCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "negate": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "active": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "accessConditionType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/AccessConditionTypeEnumG"
+          },
+          "minItems": 1
+        },
+        "otherAccessRestriction": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "legalBasis": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/LegalBasis"
+        },
+        "applicableLocation": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "troConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troAccessConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "accessConditionType"
+      ]
+    },
+    "AccessConditionTypeEnum": {
+      "type": "string",
+      "enum": [
+        "accessOnly",
+        "destinationTraffic",
+        "loadingAndUnloading",
+        "necessaryHospitalAndDoctorConsultations",
+        "passengerLoadingAndUnloading",
+        "snowChainsCompulsory",
+        "socialAndCareSupportServices",
+        "sourceAndDestinationTraffic",
+        "sourceTraffic",
+        "throughTraffic",
+        "extendedG"
+      ]
+    },
+    "AccessConditionTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/AccessConditionTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "AccessRestriction": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "accessRestrictionType": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/AccessRestrictionTypeEnumG"
+        },
+        "troTypeOfRegulationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troAccessRestrictionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "accessRestrictionType"
+      ]
+    },
+    "AccessRestrictionTypeEnum": {
+      "type": "string",
+      "enum": [
+        "laneUsageProhibited",
+        "noEntry",
+        "noPassingWithoutStopping",
+        "restrictedAccess",
+        "useOfAudibleWarningDevicesProhibited",
+        "extendedG"
+      ]
+    },
+    "AccessRestrictionTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/AccessRestrictionTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "ActivatedRegulation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "actor": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "issuingAuthority": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "regulationId": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "trafficRegulation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/TrafficRegulationG"
+          },
+          "minItems": 1
+        },
+        "troActivatedRegulationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "actor",
+        "issuingAuthority",
+        "trafficRegulation"
+      ]
+    },
+    "ActivationStatusEnum": {
+      "type": "string",
+      "enum": [
+        "active",
+        "beingSetUp",
+        "beingShutDown",
+        "inactive",
+        "scheduled",
+        "extendedG"
+      ]
+    },
+    "ActivationStatusEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/ActivationStatusEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "AdHocTrafficRegulation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "installer": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/TrafficRegulationInstallerTypeEnumG"
+        },
+        "trafficRegulation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/TrafficRegulationG"
+          },
+          "minItems": 1
+        },
+        "troAdHocTrafficRegulationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "installer",
+        "trafficRegulation"
+      ]
+    },
+    "AdHocTrafficRegulations": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "adHocTrafficRegulation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/AdHocTrafficRegulation"
+          },
+          "minItems": 1
+        },
+        "troAdHocTrafficRegulationsExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "adHocTrafficRegulation"
+      ]
+    },
+    "ADRTunnelCategoryTypeEnum": {
+      "type": "string",
+      "enum": [
+        "categoryA",
+        "categoryB",
+        "categoryC",
+        "categoryD",
+        "categoryE",
+        "extendedG"
+      ]
+    },
+    "ADRTunnelCategoryTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/ADRTunnelCategoryTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "AdvisorySpeed": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "numericalValue": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "unitOfMeasure": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/UnitOfSpeedEnumG"
+        },
+        "troTypeOfRegulationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troSpeedLimitExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troNumercialSpeedValueExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troAdvisorySpeedExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "numericalValue",
+        "unitOfMeasure"
+      ]
+    },
+    "AlternateRoadOrCarriagewayOrLaneLayout": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "roadOrCarriagewayOrLaneLayoutType": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/RoadOrCarriagewayOrLaneLayoutTypeG"
+        },
+        "roadOrCarriagewayOrLaneStatus": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/RoadOrCarriagewayOrLaneStatusG"
+        },
+        "temporaryMarkings": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "newLayout": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/NetworkLocationG"
+        },
+        "speedLimit": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/SpeedLimitG"
+        },
+        "troTypeOfRegulationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troAlternateRoadOrCarriagewayOrLaneLayoutExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "roadOrCarriagewayOrLaneStatus"
+      ]
+    },
+    "AmbientWarning": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ambientWarningType": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/AmbientWarningTypeEnumG"
+        },
+        "troTypeOfRegulationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troWarningExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troAmbientWarningExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "ambientWarningType"
+      ]
+    },
+    "AmbientWarningTypeEnum": {
+      "type": "string",
+      "enum": [
+        "accompaniedHorsesCrossing",
+        "airfield",
+        "cattle",
+        "fallingRocks",
+        "insufficientStructureGauge",
+        "looseGravel",
+        "migratoryToadCrossing",
+        "otherDanger",
+        "pedestrianCrossing",
+        "poorVisibility",
+        "quaysideOrRiverBank",
+        "riskOfIce",
+        "sideWindsLeft",
+        "sideWindsRight",
+        "wildAnimalsCrossing",
+        "extendedG"
+      ]
+    },
+    "AmbientWarningTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/AmbientWarningTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "AmountOfMoney": {
+      "$ref": "DATEXII_3_Common.json#/$defs/Decimal"
+    },
+    "CompulsoryMinSpeed": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "numericalValue": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "unitOfMeasure": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/UnitOfSpeedEnumG"
+        },
+        "troTypeOfRegulationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troSpeedLimitExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troNumercialSpeedValueExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troCompulsoryMinSpeedExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "numericalValue",
+        "unitOfMeasure"
+      ]
+    },
+    "ConditionG": {
+      "description": "Only one of the properties shall be used in an instance.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "troConditionSet": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/ConditionSet"
+        },
+        "czPeriodCondition": {
+          "$ref": "DATEXII_3_ControlledZone.json#/$defs/PeriodCondition"
+        },
+        "troVehicleCondition": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/VehicleCondition"
+        },
+        "czTariffCondition": {
+          "$ref": "DATEXII_3_ControlledZone.json#/$defs/TariffCondition"
+        },
+        "troOccupantCondition": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/OccupantCondition"
+        },
+        "troNonVehicularRoadUserCondition": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/NonVehicularRoadUserCondition"
+        },
+        "troAccessCondition": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/AccessCondition"
+        },
+        "czNonCodableCondition": {
+          "$ref": "DATEXII_3_ControlledZone.json#/$defs/NonCodableCondition"
+        },
+        "troDriverCondition": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/DriverCondition"
+        },
+        "troWeatherCondition": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/WeatherCondition"
+        },
+        "troStandingOrParkingCondition": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/StandingOrParkingCondition"
+        },
+        "troConditionReference": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/ConditionReference"
+        },
+        "troTimeValidityCondition": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/TimeValidityCondition"
+        },
+        "troLocationCondition": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/LocationCondition"
+        },
+        "czRetrofittingCondition": {
+          "$ref": "DATEXII_3_ControlledZone.json#/$defs/RetrofittingCondition"
+        },
+        "troTunnelCategoryCondition": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/TunnelCategoryCondition"
+        },
+        "troRoadCondition": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/RoadCondition"
+        },
+        "troRequiredPermitCondition": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/RequiredPermitCondition"
+        }
+      }
+    },
+    "ConditionOperator": {
+      "type": "string",
+      "enum": [
+        "and",
+        "or",
+        "xor",
+        "extendedG"
+      ]
+    },
+    "ConditionOperatorG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/ConditionOperator"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "ConditionReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "negate": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "active": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "reference": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/PredefinedConditionVersionedReferenceG"
+        },
+        "legalBasis": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/LegalBasis"
+        },
+        "troConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troConditionReferenceExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "reference"
+      ]
+    },
+    "ConditionSet": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "negate": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "active": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "operator": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/ConditionOperatorG"
+        },
+        "legalBasis": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/LegalBasis"
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/ConditionG"
+          },
+          "minItems": 1
+        },
+        "troConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troConditionSetExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "operator",
+        "conditions"
+      ]
+    },
+    "DirectionRestriction": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "directionToBeFollowed": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/DirectionRestrictionTypeEnumG"
+        },
+        "respectBicycle": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "respectPedestrian": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "respectMotorisedPersonalTransportDevices": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "troTypeOfRegulationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troDirectionRestrictionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "directionToBeFollowed"
+      ]
+    },
+    "DirectionRestrictionTypeEnum": {
+      "type": "string",
+      "enum": [
+        "aheadOnly",
+        "keepLeft",
+        "keepRight",
+        "noLeftTurn",
+        "noReversing",
+        "noRightTurn",
+        "noThroughRoad",
+        "noUTurn",
+        "oneWayTraffic",
+        "passEitherSide",
+        "roundabout",
+        "straightAheadOrTurnLeft",
+        "straightAheadOrTurnRight",
+        "turnLeft",
+        "turnLeftAhead",
+        "turnLeftOrTurnRight",
+        "turnRight",
+        "turnRightAhead",
+        "extendedG"
+      ]
+    },
+    "DirectionRestrictionTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/DirectionRestrictionTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "DriverCharacteristicsTypeEnum": {
+      "type": "string",
+      "enum": [
+        "disabledWithPermit",
+        "hotelGuest",
+        "learnerDriver",
+        "localResident",
+        "extendedG"
+      ]
+    },
+    "DriverCharacteristicsTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/DriverCharacteristicsTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "DriverCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "negate": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "active": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "driverCharacteristicsType": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/DriverCharacteristicsTypeEnumG"
+        },
+        "licenceCharacteristics": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/LicenceCharacteristicsEnumG"
+        },
+        "legalBasis": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/LegalBasis"
+        },
+        "ageOfDriver": {
+          "$ref": "DATEXII_3_CommonExtension.json#/$defs/NonNegativeIntegerComparison"
+        },
+        "timeDriversLicenceHeld": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/TimeDriversLicenceHeld"
+        },
+        "troConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troDriverConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      }
+    },
+    "Duration": {
+      "type": "string",
+      "format": "duration"
+    },
+    "DynamicTrafficManagement": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "issuingAuthority": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "trafficRegulation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/TrafficRegulationG"
+          },
+          "minItems": 0
+        },
+        "troDynamicTrafficRegulationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troDynamicTrafficManagementExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      }
+    },
+    "DynamicTrafficRegulationG": {
+      "description": "Only one of the properties shall be used in an instance.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "troDynamicTrafficManagement": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/DynamicTrafficManagement"
+        }
+      }
+    },
+    "DynamicTrafficRegulations": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "dynamicTrafficRegulation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/DynamicTrafficRegulationG"
+          },
+          "minItems": 1
+        },
+        "troDynamicTrafficRegulationsExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "dynamicTrafficRegulation"
+      ]
+    },
+    "GddPictogramCategoryCode": {
+      "type": "integer",
+      "exclusiveMinimum": 0.0
+    },
+    "GddPictogramIdentification": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "$ref": "DATEXII_3_Common.json#/$defs/CountryCode"
+        },
+        "serviceCategory": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/GddServiceCategoryEnumG"
+        },
+        "pictogramCategoryCode": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/GddPictogramCategoryCode"
+        },
+        "troGddPictogramIdentificationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "country",
+        "pictogramCategoryCode",
+        "serviceCategory"
+      ]
+    },
+    "GddServiceCategoryEnum": {
+      "type": "string",
+      "enum": [
+        "ambientConditions",
+        "dangerWarning",
+        "informative",
+        "publicFacilities",
+        "regulatory",
+        "roadConditions",
+        "extendedG"
+      ]
+    },
+    "GddServiceCategoryEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/GddServiceCategoryEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "HardShoulderRunningRestriction": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "clearHardShoulder": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "hardShoulderRunningActive": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "troTypeOfRegulationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troHardShoulderRunningRestrictionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      }
+    },
+    "LegalBasis": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "version": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "date": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Date"
+        },
+        "troLegalBasisExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "LicenceCharacteristicsEnum": {
+      "type": "string",
+      "enum": [
+        "permanent",
+        "provisional",
+        "extendedG"
+      ]
+    },
+    "LicenceCharacteristicsEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/LicenceCharacteristicsEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "LocationCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "negate": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "active": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "legalBasis": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/LegalBasis"
+        },
+        "implementedLocation": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "locationByOrder": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "trafficImpactLocation": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "troConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troLocationConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      }
+    },
+    "MainSign": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "pictureOfRoadSign": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Base64Binary"
+        },
+        "urlToRoadSign": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Url"
+        },
+        "nationalSignID": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "description": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "gddPictogramIdentification": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/GddPictogramIdentification"
+        },
+        "locationOfSign": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/PointLocationG"
+          },
+          "minItems": 0
+        },
+        "troRoadSignExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troMainSignExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      }
+    },
+    "MandatoryRoadOrCarriagewayOrLaneUsage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "exclusive": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "respectMandatoryTraffic": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "segregatedLanes": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "contraflowLane": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "otherObligation": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "troTypeOfRegulationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troMandatoryRoadOrCarriagewayOrLaneUsageExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      }
+    },
+    "MaxSpeedLimit": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "numericalValue": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "unitOfMeasure": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/UnitOfSpeedEnumG"
+        },
+        "troTypeOfRegulationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troSpeedLimitExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troNumercialSpeedValueExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troMaxSpeedLimitExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "numericalValue",
+        "unitOfMeasure"
+      ]
+    },
+    "MinimumDistanceRestriction": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MetresAsFloat"
+        },
+        "troTypeOfRegulationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troMinimumDistanceRestrictionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "NonVehicularRoadUserCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "negate": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "active": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "nonVehicularRoadUser": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/NonVehicularRoadUserTypeEnumG"
+        },
+        "legalBasis": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/LegalBasis"
+        },
+        "troConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troNonVehicularRoadUserConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "nonVehicularRoadUser"
+      ]
+    },
+    "NonVehicularRoadUserTypeEnum": {
+      "type": "string",
+      "enum": [
+        "cattle",
+        "cattleDrive",
+        "equestrian",
+        "pedestrians",
+        "riddenOrAccompaniedHorses",
+        "extendedG"
+      ]
+    },
+    "NonVehicularRoadUserTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/NonVehicularRoadUserTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "NumercialSpeedValueG": {
+      "description": "Only one of the properties shall be used in an instance.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "troMaxSpeedLimit": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/MaxSpeedLimit"
+        },
+        "troAdvisorySpeed": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/AdvisorySpeed"
+        },
+        "troCompulsoryMinSpeed": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/CompulsoryMinSpeed"
+        }
+      }
+    },
+    "OccupantCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "negate": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "active": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "legalBasis": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/LegalBasis"
+        },
+        "numberOfOccupants": {
+          "$ref": "DATEXII_3_CommonExtension.json#/$defs/NonNegativeIntegerComparison"
+        },
+        "troConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troOccupantConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "numberOfOccupants"
+      ]
+    },
+    "PermitInformation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "applicationRequired": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "description": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "locationRelatedPermit": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "maxDurationOfPermit": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/Duration"
+        },
+        "whereToApplyForPermit": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Url"
+        },
+        "whereToCallForPermit": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "permitOwnerType": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/PermitOwnerTypeEnumG"
+        },
+        "urlForFurtherInformation": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Url"
+        },
+        "howToObtainPermit": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "permitType": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/PermitTypeEnumG"
+        },
+        "disabledParkingPermit": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "minimumTimeToNextEntry": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/Duration"
+        },
+        "permitSubjectToFee": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/PermitSubjectToFee"
+        },
+        "locationOfRegistrationMachine": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/PointLocationG"
+          },
+          "minItems": 0
+        },
+        "troPermitInformationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "permitType"
+      ]
+    },
+    "PermitInformationVersionedReferenceG": {
+      "type": "object",
+      "properties": {
+        "targetClass": {
+          "type": "string",
+          "default": "PermitInformation"
+        },
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "targetClass",
+        "idG"
+      ]
+    },
+    "PermitOwnerTypeEnum": {
+      "type": "string",
+      "enum": [
+        "vehicle",
+        "vehicleOccupant",
+        "vehicleOwner",
+        "extendedG"
+      ]
+    },
+    "PermitOwnerTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/PermitOwnerTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "PermitSubjectToFee": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "amountDue": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/AmountOfMoney"
+        },
+        "maximumAccessDuration": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/Duration"
+        },
+        "paymentInformation": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Url"
+        },
+        "troPermitSubjectToFeeExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      }
+    },
+    "PermitTypeEnum": {
+      "type": "string",
+      "enum": [
+        "electronic",
+        "other",
+        "paper",
+        "sticker",
+        "extendedG"
+      ]
+    },
+    "PermitTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/PermitTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "PredefinedCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "condition": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/ConditionG"
+        },
+        "troPredefinedConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "condition"
+      ]
+    },
+    "PredefinedConditionPublication": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "lang": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Language"
+        },
+        "feedDescription": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "feedType": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "publicationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "publicationCreator": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "predefinedCondition": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/PredefinedCondition"
+          },
+          "minItems": 1
+        },
+        "comPayloadPublicationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troPredefinedConditionPublicationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "lang",
+        "publicationTime",
+        "publicationCreator",
+        "predefinedCondition"
+      ]
+    },
+    "PredefinedConditionPublicationVersionedReferenceG": {
+      "type": "object",
+      "properties": {
+        "targetClass": {
+          "type": "string",
+          "default": "PredefinedConditionPublication"
+        },
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "targetClass",
+        "idG"
+      ]
+    },
+    "PredefinedConditionVersionedReferenceG": {
+      "type": "object",
+      "properties": {
+        "targetClass": {
+          "type": "string",
+          "default": "PredefinedCondition"
+        },
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "targetClass",
+        "idG"
+      ]
+    },
+    "PriorityRule": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "priorityRuleType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/PriorityRuleTypeEnumG"
+          },
+          "minItems": 1
+        },
+        "respectBicycle": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "giveWayTo": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/VehicleCharacteristics"
+          },
+          "minItems": 0
+        },
+        "troTypeOfRegulationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troPriorityRuleExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "priorityRuleType"
+      ]
+    },
+    "PriorityRuleTypeEnum": {
+      "type": "string",
+      "enum": [
+        "giveWay",
+        "giveWayToOncomingVehicles",
+        "giveWayToRail",
+        "giveWayToSchoolCrossingPatrol",
+        "giveWayToTram",
+        "priorityAtNextJunction",
+        "priorityOverOncomingVehicles",
+        "priorityRoad",
+        "stop",
+        "extendedG"
+      ]
+    },
+    "PriorityRuleTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/PriorityRuleTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "ProhibitionOfOvertaking": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "doNotOvertake": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/VehicleCharacteristics"
+          },
+          "minItems": 0
+        },
+        "permissionToOvertake": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/VehicleCharacteristics"
+          },
+          "minItems": 0
+        },
+        "troTypeOfRegulationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troProhibitionOfOvertakingExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      }
+    },
+    "ReasonForRegulationEnum": {
+      "type": "string",
+      "enum": [
+        "other",
+        "protectionOfNoiseAndEmissions",
+        "protectionOfRoad",
+        "protectionOfWaters",
+        "publicSafety",
+        "researchAndTest",
+        "roadworks",
+        "trafficOrder",
+        "trafficSafety",
+        "extendedG"
+      ]
+    },
+    "ReasonForRegulationEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/ReasonForRegulationEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "RequiredPermitCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "negate": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "active": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "identifier": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "issuingAuthority": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "permitCharacteristics": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/PermitInformationVersionedReferenceG"
+        },
+        "permitType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/PermitTypeEnumG"
+          },
+          "minItems": 1
+        },
+        "legalBasis": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/LegalBasis"
+        },
+        "troConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troRequiredPermitConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "permitType"
+      ]
+    },
+    "Rerouting": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "troTypeOfRegulationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troReroutingExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      }
+    },
+    "RoadCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "negate": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "active": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "roadType": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/RoadTypeEnumG"
+        },
+        "legalBasis": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/LegalBasis"
+        },
+        "troConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troRoadConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "roadType"
+      ]
+    },
+    "RoadOrCarriagewayOrLaneLayoutType": {
+      "type": "string",
+      "enum": [
+        "carriageway",
+        "lane",
+        "road",
+        "extendedG"
+      ]
+    },
+    "RoadOrCarriagewayOrLaneLayoutTypeG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/RoadOrCarriagewayOrLaneLayoutType"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "RoadOrCarriagewayOrLaneStatus": {
+      "type": "string",
+      "enum": [
+        "closed",
+        "deviatedToHardShoulder",
+        "deviatedToLeft",
+        "deviatedToOtherCarriageway",
+        "deviatedToRight",
+        "mergedToLeft",
+        "mergedToRight",
+        "open",
+        "extendedG"
+      ]
+    },
+    "RoadOrCarriagewayOrLaneStatusG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/RoadOrCarriagewayOrLaneStatus"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "RoadSignG": {
+      "description": "Only one of the properties shall be used in an instance.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "troSupplementaryPanel": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/SupplementaryPanel"
+        },
+        "troMainSign": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/MainSign"
+        }
+      }
+    },
+    "RoadTypeEnum": {
+      "type": "string",
+      "enum": [
+        "expressRoad",
+        "insideBuiltUpAreas",
+        "motorway",
+        "outsideBuiltUpAreas",
+        "extendedG"
+      ]
+    },
+    "RoadTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/RoadTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "RoadWarning": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "roadWarningType": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/RoadWarningTypeEnumG"
+        },
+        "troTypeOfRegulationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troWarningExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troRoadWarningExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "roadWarningType"
+      ]
+    },
+    "RoadWarningTypeEnum": {
+      "type": "string",
+      "enum": [
+        "accident",
+        "bendToLeft",
+        "bendToRight",
+        "crossroadsWithPriorityFromRight",
+        "doubleBendFirstToLeft",
+        "doubleBendFirstToRight",
+        "lateralStep",
+        "lightSignals",
+        "obstacleOnTheRoad",
+        "roadDip",
+        "roadHump",
+        "roadNarrowsBothSides",
+        "roadNarrowsLeft",
+        "roadNarrowsRight",
+        "roadWorks",
+        "roundaboutAntiClockwise",
+        "roundaboutClockwise",
+        "slipperyRoad",
+        "swingBridge",
+        "unevenRoad",
+        "extendedG"
+      ]
+    },
+    "RoadWarningTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/RoadWarningTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "RushHourLaneRestriction": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "clearRushHourLane": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "rushHourLaneOpen": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "troTypeOfRegulationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troRushHourLaneRestrictionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      }
+    },
+    "SpeedLimitG": {
+      "description": "Only one of the properties shall be used in an instance.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "troWalkingSpeed": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/WalkingSpeed"
+        },
+        "troMaxSpeedLimit": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/MaxSpeedLimit"
+        },
+        "troAdvisorySpeed": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/AdvisorySpeed"
+        },
+        "troCompulsoryMinSpeed": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/CompulsoryMinSpeed"
+        }
+      }
+    },
+    "StandingOrParkingCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "negate": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "active": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "standingOrParkingConditionType": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/StandingOrParkingConditionTypeEnumG"
+        },
+        "legalBasis": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/LegalBasis"
+        },
+        "troConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troStandingOrParkingConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "standingOrParkingConditionType"
+      ]
+    },
+    "StandingOrParkingConditionTypeEnum": {
+      "type": "string",
+      "enum": [
+        "electricVehicleDuringCharging",
+        "footwayAlso",
+        "footwayOnly",
+        "gettingInAndOutOfAVehicle",
+        "kerbsideAlso",
+        "kerbsideOnly",
+        "loadingAndUnloading",
+        "vergeAlso",
+        "vergeOnly",
+        "extendedG"
+      ]
+    },
+    "StandingOrParkingConditionTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/StandingOrParkingConditionTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "StandingOrParkingControl": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "standingOrParkingControlType": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/StandingOrParkingControlTypeEnumG"
+        },
+        "permittedStandingTime": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/Duration"
+        },
+        "permittedParkingTime": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/Duration"
+        },
+        "paidParking": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "troTypeOfRegulationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troStandingOrParkingControlExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "standingOrParkingControlType"
+      ]
+    },
+    "StandingOrParkingControlTypeEnum": {
+      "type": "string",
+      "enum": [
+        "parkingOutsideDesignatedParkingSpacesProhibited",
+        "parkingPermitted",
+        "parkingProhibited",
+        "standingAndParkingProhibited",
+        "extendedG"
+      ]
+    },
+    "StandingOrParkingControlTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/StandingOrParkingControlTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "SteepHill": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "roadGradientValue": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Percentage"
+        },
+        "steepHillDirectionType": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/SteepHillDirectionTypeEnumG"
+        },
+        "troTypeOfRegulationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troWarningExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troSteepHillExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "roadGradientValue",
+        "steepHillDirectionType"
+      ]
+    },
+    "SteepHillDirectionTypeEnum": {
+      "type": "string",
+      "enum": [
+        "downwards",
+        "upwards",
+        "extendedG"
+      ]
+    },
+    "SteepHillDirectionTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/SteepHillDirectionTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "SupplementaryPanel": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "pictureOfRoadSign": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Base64Binary"
+        },
+        "urlToRoadSign": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Url"
+        },
+        "nationalSignID": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "description": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "gddPictogramIdentification": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/GddPictogramIdentification"
+        },
+        "locationOfSign": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/PointLocationG"
+          },
+          "minItems": 0
+        },
+        "troRoadSignExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troSupplementaryPanelExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      }
+    },
+    "TemporaryTrafficRegulationOrder": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "description": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "issuingAuthority": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "reason": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/ReasonForRegulationEnumG"
+          },
+          "minItems": 0
+        },
+        "regulationId": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "status": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/TrafficRegulationOrderStatusEnumG"
+        },
+        "overruledTrafficRegulationOrder": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/TrafficRegulationOrderVersionedReferenceG"
+          },
+          "minItems": 0
+        },
+        "implementedValidity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "validityByOrder": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "implementedLocation": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "locationByOrder": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "trafficRegulation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/TrafficRegulationG"
+          },
+          "minItems": 1
+        },
+        "legalBasis": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/LegalBasis"
+        },
+        "troTrafficRegulationOrderExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troTemporaryTrafficRegulationOrderExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "issuingAuthority",
+        "regulationId",
+        "status",
+        "trafficRegulation"
+      ]
+    },
+    "TimeDriversLicenceHeld": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/Duration"
+        },
+        "comparisonOperator": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ComparisonOperatorEnumG"
+        },
+        "troTimeDriversLicenceHeldExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "comparisonOperator",
+        "value"
+      ]
+    },
+    "TimeValidityCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "negate": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "active": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "legalBasis": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/LegalBasis"
+        },
+        "implementedValidity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "validityByOrder": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "troConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troTimeValidityConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      }
+    },
+    "TrafficAhead": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "trafficAheadType": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/TrafficAheadTypeEnumG"
+        },
+        "troTypeOfRegulationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troWarningExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troTrafficAheadExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "trafficAheadType"
+      ]
+    },
+    "TrafficAheadTypeEnum": {
+      "type": "string",
+      "enum": [
+        "busCrossing",
+        "children",
+        "cycleRoute",
+        "levelCrossing",
+        "levelCrossingWithGate",
+        "pedestrianCrossing",
+        "ridingPath",
+        "trafficQueues",
+        "tramsCrossingAhead",
+        "twoWayTraffic",
+        "extendedG"
+      ]
+    },
+    "TrafficAheadTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/TrafficAheadTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "TrafficRegulation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/ActivationStatusEnumG"
+        },
+        "roadSign": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/RoadSignG"
+          },
+          "minItems": 0
+        },
+        "typeOfRegulation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/TypeOfRegulationG"
+          },
+          "minItems": 0
+        },
+        "condition": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/ConditionG"
+        },
+        "permitInformation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/PermitInformation"
+          },
+          "minItems": 0
+        },
+        "troTrafficRegulationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG"
+      ]
+    },
+    "TrafficRegulationG": {
+      "description": "Only one of the properties shall be used in an instance.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "troTrafficRegulation": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/TrafficRegulation"
+        },
+        "czControlledZoneRegulation": {
+          "$ref": "DATEXII_3_ControlledZone.json#/$defs/ControlledZoneRegulation"
+        }
+      }
+    },
+    "TrafficRegulationInstallerTypeEnum": {
+      "type": "string",
+      "enum": [
+        "fireBrigade",
+        "police",
+        "publicWorkOrUtilityCompanies",
+        "roadOperator",
+        "extendedG"
+      ]
+    },
+    "TrafficRegulationInstallerTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/TrafficRegulationInstallerTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "TrafficRegulationOrder": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "description": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "issuingAuthority": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "reason": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/ReasonForRegulationEnumG"
+          },
+          "minItems": 0
+        },
+        "regulationId": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "status": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/TrafficRegulationOrderStatusEnumG"
+        },
+        "implementedValidity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "validityByOrder": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "implementedLocation": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "locationByOrder": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "trafficRegulation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/TrafficRegulationG"
+          },
+          "minItems": 1
+        },
+        "legalBasis": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/LegalBasis"
+        },
+        "troTrafficRegulationOrderExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "issuingAuthority",
+        "regulationId",
+        "status",
+        "trafficRegulation"
+      ]
+    },
+    "TrafficRegulationOrderG": {
+      "description": "Only one of the properties shall be used in an instance.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "troTrafficRegulationOrder": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/TrafficRegulationOrder"
+        },
+        "troTemporaryTrafficRegulationOrder": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/TemporaryTrafficRegulationOrder"
+        }
+      }
+    },
+    "TrafficRegulationOrderStatusEnum": {
+      "type": "string",
+      "enum": [
+        "madeAndImplemented",
+        "madeAndPartiallyImplemented",
+        "madeButNotImplemented",
+        "partiallyWithdrawn",
+        "planned",
+        "withdrawn",
+        "extendedG"
+      ]
+    },
+    "TrafficRegulationOrderStatusEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/TrafficRegulationOrderStatusEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "TrafficRegulationOrderVersionedReferenceG": {
+      "type": "object",
+      "properties": {
+        "targetClass": {
+          "type": "string",
+          "default": "TrafficRegulationOrder"
+        },
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "targetClass",
+        "idG"
+      ]
+    },
+    "TrafficRegulationPublication": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "lang": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Language"
+        },
+        "feedDescription": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "feedType": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "publicationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "predefinedConditionPublicationReference": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/PredefinedConditionPublicationVersionedReferenceG"
+          },
+          "minItems": 0
+        },
+        "publicationCreator": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "trafficRegulationsFromCompetentAuthorities": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/TrafficRegulationsFromCompetentAuthorities"
+        },
+        "trafficRegulationsByAuthorisedActors": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/TrafficRegulationsByAuthorisedActors"
+        },
+        "adHocTrafficRegulations": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/AdHocTrafficRegulations"
+        },
+        "dynamicTrafficRegulations": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/DynamicTrafficRegulations"
+        },
+        "trafficRegulationsWithoutTrafficRegulationOrder": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/TrafficRegulationsWithoutTrafficRegulationOrder"
+        },
+        "comPayloadPublicationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troTrafficRegulationPublicationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "lang",
+        "publicationTime",
+        "publicationCreator"
+      ]
+    },
+    "TrafficRegulationsByAuthorisedActors": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "activatedRegulation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/ActivatedRegulation"
+          },
+          "minItems": 1
+        },
+        "troTrafficRegulationsByAuthorisedActorsExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "activatedRegulation"
+      ]
+    },
+    "TrafficRegulationsFromCompetentAuthorities": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "trafficRegulationOrder": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/TrafficRegulationOrderG"
+          },
+          "minItems": 1
+        },
+        "troTrafficRegulationsFromCompetentAuthoritiesExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "trafficRegulationOrder"
+      ]
+    },
+    "TrafficRegulationsWithoutTrafficRegulationOrder": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "trafficRegulation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/TrafficRegulationG"
+          },
+          "minItems": 1
+        },
+        "troTrafficRegulationsWithoutTrafficRegulationOrderExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "trafficRegulation"
+      ]
+    },
+    "TunnelCategoryCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "negate": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "active": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "tunnelCategoryType": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/ADRTunnelCategoryTypeEnumG"
+        },
+        "legalBasis": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/LegalBasis"
+        },
+        "troConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troTunnelCategoryConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "tunnelCategoryType"
+      ]
+    },
+    "TypeOfRegulationG": {
+      "description": "Only one of the properties shall be used in an instance.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "troProhibitionOfOvertaking": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/ProhibitionOfOvertaking"
+        },
+        "troAlternateRoadOrCarriagewayOrLaneLayout": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/AlternateRoadOrCarriagewayOrLaneLayout"
+        },
+        "troMinimumDistanceRestriction": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/MinimumDistanceRestriction"
+        },
+        "troAccessRestriction": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/AccessRestriction"
+        },
+        "troStandingOrParkingControl": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/StandingOrParkingControl"
+        },
+        "troDirectionRestriction": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/DirectionRestriction"
+        },
+        "troWalkingSpeed": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/WalkingSpeed"
+        },
+        "troMaxSpeedLimit": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/MaxSpeedLimit"
+        },
+        "troAdvisorySpeed": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/AdvisorySpeed"
+        },
+        "troCompulsoryMinSpeed": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/CompulsoryMinSpeed"
+        },
+        "troMandatoryRoadOrCarriagewayOrLaneUsage": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/MandatoryRoadOrCarriagewayOrLaneUsage"
+        },
+        "troRerouting": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/Rerouting"
+        },
+        "troRoadWarning": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/RoadWarning"
+        },
+        "troSteepHill": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/SteepHill"
+        },
+        "troAmbientWarning": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/AmbientWarning"
+        },
+        "troTrafficAhead": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/TrafficAhead"
+        },
+        "troPriorityRule": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/PriorityRule"
+        },
+        "troHardShoulderRunningRestriction": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/HardShoulderRunningRestriction"
+        },
+        "troRushHourLaneRestriction": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/RushHourLaneRestriction"
+        }
+      }
+    },
+    "UnitOfSpeedEnum": {
+      "type": "string",
+      "enum": [
+        "kilometresPerHour",
+        "milesPerHour",
+        "extendedG"
+      ]
+    },
+    "UnitOfSpeedEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/UnitOfSpeedEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "VehicleCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "negate": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "active": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "legalBasis": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/LegalBasis"
+        },
+        "vehicleCharacteristics": {
+          "$ref": "DATEXII_3_Common.json#/$defs/VehicleCharacteristics"
+        },
+        "troConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troVehicleConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "vehicleCharacteristics"
+      ]
+    },
+    "WalkingSpeed": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "troTypeOfRegulationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troSpeedLimitExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troWalkingSpeedExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      }
+    },
+    "WarningG": {
+      "description": "Only one of the properties shall be used in an instance.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "troRoadWarning": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/RoadWarning"
+        },
+        "troSteepHill": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/SteepHill"
+        },
+        "troAmbientWarning": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/AmbientWarning"
+        },
+        "troTrafficAhead": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/TrafficAhead"
+        }
+      }
+    },
+    "WarningPublication": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "lang": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Language"
+        },
+        "feedDescription": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "feedType": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "publicationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "publicationCreator": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "warningWithoutRegulation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/WarningWithoutRegulation"
+          },
+          "minItems": 1
+        },
+        "comPayloadPublicationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troWarningPublicationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "lang",
+        "publicationTime",
+        "publicationCreator",
+        "warningWithoutRegulation"
+      ]
+    },
+    "WarningWithoutRegulation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "typeOfWarningWithoutRegulation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/WarningG"
+          },
+          "minItems": 1
+        },
+        "condition": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/ConditionG"
+        },
+        "roadSign": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/RoadSignG"
+          },
+          "minItems": 0
+        },
+        "troWarningWithoutRegulationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "typeOfWarningWithoutRegulation"
+      ]
+    },
+    "WeatherCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "negate": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "active": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "weatherConditionType": {
+          "$ref": "DATEXII_3_Common.json#/$defs/WeatherRelatedRoadConditionTypeEnumG"
+        },
+        "legalBasis": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/LegalBasis"
+        },
+        "troConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "troWeatherConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "weatherConditionType"
+      ]
+    }
+  }
+}

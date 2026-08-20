@@ -1,12 +1,13 @@
 {
   "payload": {
+    "versionG": "3.7",
     "modelBaseVersionG": "3",
     "sitSituationPublication": {
-      "lang": "se",
-      "publicationTime": "2018-10-11T15:00:00+02:00",
+      "lang": "en",
+      "publicationTime": "2026-08-20T15:00:00+07:00",
       "publicationCreator": {
-        "country": "se",
-        "nationalIdentifier": "STA"
+        "country": "vn",
+        "nationalIdentifier": "HCMC"
       },
       "situation": [
         {
@@ -21,10 +22,13 @@
               "sitAccident": {
                 "idG": "2322",
                 "versionG": "1",
-                "situationRecordCreationTime": "2018-10-11T14:32:00+02:00",
-                "situationRecordVersionTime": "2018-10-11T14:32:00+02:00",
+                "situationRecordCreationTime": "2026-08-20T14:32:00+07:00",
+                "situationRecordVersionTime": "2026-08-20T14:32:00+07:00",
                 "probabilityOfOccurrence": {
                   "value": "certain"
+                },
+                "severity": {
+                  "value": "high"
                 },
                 "accidentType": [
                   {
@@ -36,36 +40,17 @@
                     "value": "active"
                   },
                   "validityTimeSpecification": {
-                    "overallStartTime": "2018-10-11T14:32:00+02:00"
+                    "overallStartTime": "2026-08-20T14:32:00+07:00"
                   }
                 },
                 "locationReference": {
                   "locPointLocation": {
-                    "alertCPoint": [
-                      {
-                        "locAlertCMethod4Point": {
-                          "alertCLocationCountryCode": "se",
-                          "alertCLocationTableNumber": "33",
-                          "alertCLocationTableVersion": "2.1",
-                          "alertCDirection": {
-                            "alertCDirectionCoded": {
-                              "value": "positive"
-                            },
-                            "alertCAffectedDirection": {
-                              "value": "both"
-                            }
-                          },
-                          "alertCMethod4PrimaryPointLocation": {
-                            "alertCLocation": {
-                              "specificLocation": 1234
-                            },
-                            "offsetDistance": {
-                              "offsetDistance": 30
-                            }
-                          }
-                        }
+                    "pointByCoordinates": {
+                      "pointCoordinates": {
+                        "latitude": 10.7769,
+                        "longitude": 106.7009
                       }
-                    ]
+                    }
                   }
                 }
               }

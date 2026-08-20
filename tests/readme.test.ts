@@ -5,6 +5,7 @@ import {
   decode,
   encode,
   encodeStrict,
+  friendlyName,
   getDef,
   membersOf,
   namespaces,
@@ -16,9 +17,16 @@ import {
 describe('README', () => {
   it('lists the members of a location reference group', () => {
     expect(membersOf('LocationReferenceG')).toEqual([
+      'LocationGroupByList',
+      'LocationGroupByReference',
+      'ItineraryByIndexedLocations',
+      'ItineraryByReference',
       'LinearLocation',
       'SingleRoadLinearLocation',
       'PointLocation',
+      'PointLocationForParking',
+      'LocationByReference',
+      'AreaLocation',
     ]);
   });
 
@@ -39,6 +47,10 @@ describe('README', () => {
       switch (record._type) {
         case 'Accident':
           return `${record.accidentType.join(', ')} at ${record.situationRecordCreationTime}`;
+        case 'ConstructionWorks':
+          return `construction works, ${record.validity.validityStatus}`;
+        default:
+          return record._type;
       }
     };
     expect(
@@ -59,9 +71,9 @@ describe('README', () => {
     ).toBe('collision at T0');
   });
 
-  it('ships 207 definitions across 11 namespaces', () => {
-    expect(typeNames()).toHaveLength(207);
-    expect(namespaces).toHaveLength(11);
+  it('ships 1608 definitions across 19 namespaces', () => {
+    expect(typeNames()).toHaveLength(1608);
+    expect(namespaces).toHaveLength(19);
     expect(typeNamesIn('Situation').length).toBeGreaterThan(0);
   });
 
@@ -106,6 +118,6 @@ describe('README', () => {
   it('describes a type at runtime', () => {
     const def = getDef('Accident');
     expect(def).toMatchObject({ ns: 'Situation', name: 'Accident', kind: 'object' });
-    expect(def.props?.find((p) => p.f === 'id')).toMatchObject({ w: 'idG', r: true });
+    expect(def.props?.find((p) => friendlyName(p) === 'id')).toMatchObject({ w: 'idG', r: true });
   });
 });

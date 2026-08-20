@@ -57,6 +57,14 @@ describe('validate', () => {
     expect(validate(180, 'AngleInDegrees')).toEqual([]);
   });
 
+  it('enforces exclusive numeric bounds from the schema', () => {
+    expect(validate(0, 'VmsGddPictogramCategoryCode')[0]).toMatchObject({
+      code: 'outOfRange',
+      message: 'must be > 0',
+    });
+    expect(validate(1, 'VmsGddPictogramCategoryCode')).toEqual([]);
+  });
+
   it('enforces minItems on repeated properties', () => {
     const issues = validate(
       {

@@ -1,0 +1,3032 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "AlternativeFuelsRefillPoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "name": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "alias": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+          },
+          "minItems": 0
+        },
+        "lastUpdated": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "description": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "accessibility": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/AccessibilityEnumG"
+          },
+          "minItems": 0
+        },
+        "additionalInformation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+          },
+          "minItems": 0
+        },
+        "deliveryUnit": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/DeliveryUnitEnumG"
+        },
+        "maximumDeliveryAmount": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/Units"
+        },
+        "minimumDeliveryAmount": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/Units"
+        },
+        "modelType": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "reservation": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/ReservationTypeEnumG"
+        },
+        "connector": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/GasConnectorTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "otherConnector": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/String"
+          },
+          "minItems": 0
+        },
+        "hydrogenProcessProtocol": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/HydrogenFuellingProcessProtocolEnumG"
+        },
+        "renewableSourcesRatio": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Percentage"
+        },
+        "pressure": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/Bar"
+        },
+        "externalIdentifier": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/ExternalIdentifier"
+          },
+          "minItems": 0
+        },
+        "informationWebsite": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "photoUrl": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "photo": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/Image"
+          },
+          "minItems": 0
+        },
+        "operatingHours": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OperatingHoursG"
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "owner": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OrganisationG"
+        },
+        "operator": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OrganisationG"
+        },
+        "helpdesk": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OrganisationG"
+        },
+        "associatedFacility": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/AssociatedFacilityG"
+          },
+          "minItems": 0
+        },
+        "rates": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/RatesG"
+        },
+        "applicableForVehicles": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/VehicleCharacteristics"
+          },
+          "minItems": 0
+        },
+        "dimension": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/Dimension"
+        },
+        "amenities": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/Amenities"
+        },
+        "supplementalFacility": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/SupplementalFacilityG"
+          },
+          "minItems": 0
+        },
+        "dedicatedParkingSpaces": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/DedicatedParkingSpaces"
+          },
+          "minItems": 0
+        },
+        "energyProduct": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/EnergyProductG"
+          },
+          "minItems": 0
+        },
+        "afacFacilityObjectExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "afacFacilityExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "aegiRefillPointExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "aegiAlternativeFuelsRefillPointExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "deliveryUnit"
+      ]
+    },
+    "Ampere": {
+      "$ref": "DATEXII_3_Common.json#/$defs/Float"
+    },
+    "AssociatedParking": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/FacilityTypeEnumG"
+        },
+        "facilityReference": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/FacilityObjectVersionedReferenceG"
+        },
+        "description": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "carParkingCapacity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "truckParkingCapacity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "bikeParkingCapacity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "afacAssociatedFacilityExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "aegiAssociatedParkingExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "AuthenticationAndIdentificationEnum": {
+      "type": "string",
+      "enum": [
+        "activeRFIDChip",
+        "apps",
+        "calypso",
+        "cashPayment",
+        "creditCard",
+        "debitCard",
+        "mifareClassic",
+        "mifareDesfire",
+        "nfc",
+        "overTheAir",
+        "phoneDialog",
+        "phoneSMS",
+        "pinpad",
+        "plc",
+        "prepaidCard",
+        "rfid",
+        "website",
+        "unlimitedAccess",
+        "noAccess",
+        "extendedG"
+      ]
+    },
+    "AuthenticationAndIdentificationEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/AuthenticationAndIdentificationEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "Bar": {
+      "$ref": "DATEXII_3_Common.json#/$defs/Float"
+    },
+    "BioethanolTypeEnum": {
+      "type": "string",
+      "enum": [
+        "superE5",
+        "superE10",
+        "e15",
+        "e85",
+        "e100",
+        "unknown",
+        "other",
+        "extendedG"
+      ]
+    },
+    "BioethanolTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/BioethanolTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "ChargingModeEnum": {
+      "type": "string",
+      "enum": [
+        "mode1AC1p",
+        "mode1AC3p",
+        "mode2AC1p",
+        "mode2AC3p",
+        "mode3AC3p",
+        "mode4DC",
+        "legacyInductive",
+        "ccs",
+        "other",
+        "unknown",
+        "extendedG"
+      ]
+    },
+    "ChargingModeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/ChargingModeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "ChargingPointUsageTypeEnum": {
+      "type": "string",
+      "enum": [
+        "electricBoat",
+        "electricBike",
+        "electricalDevices",
+        "electricMotorcycle",
+        "electricVehicle",
+        "lorryPowerConsumption",
+        "motorhomeOrCaravanSupply",
+        "overheadLineDrivenVehicles",
+        "other",
+        "extendedG"
+      ]
+    },
+    "ChargingPointUsageTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/ChargingPointUsageTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "Connector": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "connectorType": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/ConnectorTypeEnumG"
+        },
+        "otherConnector": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "countryOfDomesticSocket": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/CountryCode"
+          },
+          "minItems": 0
+        },
+        "connectorFormat": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/ConnectorFormatTypeEnumG"
+        },
+        "maxPowerAtSocket": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/Watt"
+        },
+        "voltage": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/Volt"
+        },
+        "maximumCurrent": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/Ampere"
+        },
+        "externalIdentifier": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/ExternalIdentifier"
+          },
+          "minItems": 0
+        },
+        "aegiConnectorExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "connectorType",
+        "maxPowerAtSocket"
+      ]
+    },
+    "ConnectorFormatTypeEnum": {
+      "type": "string",
+      "enum": [
+        "cableMode2",
+        "cableMode3",
+        "otherCable",
+        "socket",
+        "extendedG"
+      ]
+    },
+    "ConnectorFormatTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/ConnectorFormatTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "ConnectorTypeEnum": {
+      "type": "string",
+      "enum": [
+        "cee3",
+        "cee5",
+        "chademo",
+        "yazaki",
+        "domestic",
+        "domesticAType",
+        "domesticBType",
+        "domesticCType",
+        "domesticDType",
+        "domesticEType",
+        "domesticFType",
+        "domesticGType",
+        "domesticHType",
+        "domesticIType",
+        "domesticJType",
+        "domesticKType",
+        "domesticLType",
+        "domesticMType",
+        "domesticNType",
+        "domesticOType",
+        "iec60309x2three16",
+        "iec60309x2three32",
+        "iec60309x2three64",
+        "iec60309x2single16",
+        "iec62196T1",
+        "iec62196T1COMBO",
+        "iec62196T2",
+        "iec62196T2COMBO",
+        "iec62196T3A",
+        "iec62196T3C",
+        "mcs",
+        "pantographBottomUp",
+        "pantographTopDown",
+        "teslaConnectorEurope",
+        "teslaConnectorAmerica",
+        "teslaR",
+        "teslaS",
+        "other",
+        "extendedG"
+      ]
+    },
+    "ConnectorTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/ConnectorTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "CurrentTypeEnum": {
+      "type": "string",
+      "enum": [
+        "ac",
+        "dc",
+        "extendedG"
+      ]
+    },
+    "CurrentTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/CurrentTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "DedicatedParkingSpaces": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "name": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "alias": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+          },
+          "minItems": 0
+        },
+        "lastUpdated": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "description": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "accessibility": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/AccessibilityEnumG"
+          },
+          "minItems": 0
+        },
+        "additionalInformation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+          },
+          "minItems": 0
+        },
+        "numberOfSpaces": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "userSpecific": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/UserTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "externalIdentifier": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/ExternalIdentifier"
+          },
+          "minItems": 0
+        },
+        "informationWebsite": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "photoUrl": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "photo": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/Image"
+          },
+          "minItems": 0
+        },
+        "operatingHours": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OperatingHoursG"
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "owner": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OrganisationG"
+        },
+        "operator": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OrganisationG"
+        },
+        "helpdesk": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OrganisationG"
+        },
+        "associatedFacility": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/AssociatedFacilityG"
+          },
+          "minItems": 0
+        },
+        "rates": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/RatesG"
+        },
+        "applicableForVehicles": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/VehicleCharacteristics"
+          },
+          "minItems": 0
+        },
+        "dimension": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/Dimension"
+        },
+        "amenities": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/Amenities"
+        },
+        "afacFacilityObjectExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "aegiDedicatedParkingSpacesExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "numberOfSpaces"
+      ]
+    },
+    "DeliveryUnitEnum": {
+      "type": "string",
+      "enum": [
+        "litre",
+        "kWh",
+        "kg",
+        "m3",
+        "imperialGallon",
+        "usGallon",
+        "gasGallonEquivalent",
+        "extendedG"
+      ]
+    },
+    "DeliveryUnitEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/DeliveryUnitEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "DieselRefillPoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "name": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "alias": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+          },
+          "minItems": 0
+        },
+        "lastUpdated": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "description": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "accessibility": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/AccessibilityEnumG"
+          },
+          "minItems": 0
+        },
+        "additionalInformation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+          },
+          "minItems": 0
+        },
+        "deliveryUnit": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/DeliveryUnitEnumG"
+        },
+        "maximumDeliveryAmount": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/Units"
+        },
+        "minimumDeliveryAmount": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/Units"
+        },
+        "modelType": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "reservation": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/ReservationTypeEnumG"
+        },
+        "dieselVehicleType": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/DieselVehicleTypeEnumG"
+        },
+        "cetane": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "bioDieselShare": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Percentage"
+        },
+        "externalIdentifier": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/ExternalIdentifier"
+          },
+          "minItems": 0
+        },
+        "informationWebsite": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "photoUrl": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "photo": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/Image"
+          },
+          "minItems": 0
+        },
+        "operatingHours": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OperatingHoursG"
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "owner": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OrganisationG"
+        },
+        "operator": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OrganisationG"
+        },
+        "helpdesk": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OrganisationG"
+        },
+        "associatedFacility": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/AssociatedFacilityG"
+          },
+          "minItems": 0
+        },
+        "rates": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/RatesG"
+        },
+        "applicableForVehicles": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/VehicleCharacteristics"
+          },
+          "minItems": 0
+        },
+        "dimension": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/Dimension"
+        },
+        "amenities": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/Amenities"
+        },
+        "supplementalFacility": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/SupplementalFacilityG"
+          },
+          "minItems": 0
+        },
+        "dedicatedParkingSpaces": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/DedicatedParkingSpaces"
+          },
+          "minItems": 0
+        },
+        "energyProduct": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/EnergyProductG"
+          },
+          "minItems": 0
+        },
+        "afacFacilityObjectExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "afacFacilityExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "aegiRefillPointExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "aegiDieselRefillPointExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "deliveryUnit"
+      ]
+    },
+    "DieselVehicleTypeEnum": {
+      "type": "string",
+      "enum": [
+        "carDiesel",
+        "truckDiesel",
+        "extendedG"
+      ]
+    },
+    "DieselVehicleTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/DieselVehicleTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "ElectricChargingEquipment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "name": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "alias": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+          },
+          "minItems": 0
+        },
+        "lastUpdated": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "description": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "accessibility": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/AccessibilityEnumG"
+          },
+          "minItems": 0
+        },
+        "additionalInformation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+          },
+          "minItems": 0
+        },
+        "availability": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/AvailabilityEnumG"
+        },
+        "quantity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "regularlyCleaned": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "applicableForUser": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/UserTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "nearby": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "externalIdentifier": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/ExternalIdentifier"
+          },
+          "minItems": 0
+        },
+        "informationWebsite": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "photoUrl": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "photo": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/Image"
+          },
+          "minItems": 0
+        },
+        "operatingHours": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OperatingHoursG"
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "owner": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OrganisationG"
+        },
+        "operator": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OrganisationG"
+        },
+        "helpdesk": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OrganisationG"
+        },
+        "associatedFacility": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/AssociatedFacilityG"
+          },
+          "minItems": 0
+        },
+        "rates": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/RatesG"
+        },
+        "applicableForVehicles": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/VehicleCharacteristics"
+          },
+          "minItems": 0
+        },
+        "dimension": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/Dimension"
+        },
+        "amenities": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/Amenities"
+        },
+        "electricChargingPoint": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/ElectricChargingPoint"
+        },
+        "afacFacilityObjectExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "afacSupplementalFacilityExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "aegiElectricChargingEquipmentExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "electricChargingPoint"
+      ]
+    },
+    "ElectricChargingPoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "name": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "alias": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+          },
+          "minItems": 0
+        },
+        "lastUpdated": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "description": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "accessibility": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/AccessibilityEnumG"
+          },
+          "minItems": 0
+        },
+        "additionalInformation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+          },
+          "minItems": 0
+        },
+        "deliveryUnit": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/DeliveryUnitEnumG"
+        },
+        "maximumDeliveryAmount": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/Units"
+        },
+        "minimumDeliveryAmount": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/Units"
+        },
+        "modelType": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "reservation": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/ReservationTypeEnumG"
+        },
+        "currentType": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/CurrentTypeEnumG"
+        },
+        "usageType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/ChargingPointUsageTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "vehicleToGridCommunicationType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/VehicleToGridCommunicationTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "numberOfConnectors": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "availableVoltage": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/Volt"
+          },
+          "minItems": 0
+        },
+        "availableChargingPower": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/Watt"
+          },
+          "minItems": 0
+        },
+        "chargingMode": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/ChargingModeEnumG"
+        },
+        "smartRechargingServices": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/SmartRechargingServicesEnumG"
+          },
+          "minItems": 0
+        },
+        "otherSmartRechargingServices": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+          },
+          "minItems": 0
+        },
+        "externalIdentifier": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/ExternalIdentifier"
+          },
+          "minItems": 0
+        },
+        "informationWebsite": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "photoUrl": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "photo": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/Image"
+          },
+          "minItems": 0
+        },
+        "operatingHours": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OperatingHoursG"
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "owner": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OrganisationG"
+        },
+        "operator": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OrganisationG"
+        },
+        "helpdesk": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OrganisationG"
+        },
+        "associatedFacility": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/AssociatedFacilityG"
+          },
+          "minItems": 0
+        },
+        "rates": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/RatesG"
+        },
+        "applicableForVehicles": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/VehicleCharacteristics"
+          },
+          "minItems": 0
+        },
+        "dimension": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/Dimension"
+        },
+        "amenities": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/Amenities"
+        },
+        "supplementalFacility": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/SupplementalFacilityG"
+          },
+          "minItems": 0
+        },
+        "dedicatedParkingSpaces": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/DedicatedParkingSpaces"
+          },
+          "minItems": 0
+        },
+        "energyProduct": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/EnergyProductG"
+          },
+          "minItems": 0
+        },
+        "connector": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/Connector"
+          },
+          "minItems": 0
+        },
+        "afacFacilityObjectExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "afacFacilityExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "aegiRefillPointExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "aegiElectricChargingPointExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "deliveryUnit",
+        "currentType"
+      ]
+    },
+    "ElectricChargingPointStatus": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "reference": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/FacilityObjectVersionedReferenceG"
+        },
+        "lastUpdated": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "openingStatus": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OpeningStatusEnumG"
+        },
+        "operationStatus": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OperationStatusEnumG"
+        },
+        "regularOperatingHoursInForce": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "statusDescription": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "status": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/RefillPointStatusEnumG"
+        },
+        "unitsInStock": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/Units"
+        },
+        "remainingChargingTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Seconds"
+        },
+        "currentVoltage": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/Volt"
+        },
+        "currentChargingPower": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/Watt"
+        },
+        "nextAvailableChargingSlots": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+          },
+          "minItems": 0
+        },
+        "newOperatingHours": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OperatingHoursG"
+        },
+        "newRates": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/RatesG"
+        },
+        "fault": {
+          "$ref": "DATEXII_3_Common.json#/$defs/FaultG"
+        },
+        "supplementalFacilityStatus": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/SupplementalFacilityStatus"
+          },
+          "minItems": 0
+        },
+        "energyRateUpdate": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/EnergyRateUpdate"
+          },
+          "minItems": 0
+        },
+        "waitingTime": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/DurationValue"
+        },
+        "plannedRefillPointStatus": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/PlannedRefillPointStatus"
+          },
+          "minItems": 0
+        },
+        "afacFacilityObjectStatusExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "afacFacilityStatusExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "aegiRefillPointStatusExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "aegiElectricChargingPointStatusExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "reference",
+        "status"
+      ]
+    },
+    "ElectricEnergy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "energyProductName": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "isGreenEnergy": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "energyRateByReference": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/EnergyRateReferenceG"
+          },
+          "minItems": 0
+        },
+        "energyProductInformation": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Url"
+        },
+        "renewableEnergyEvidence": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Url"
+        },
+        "carbonDioxideImpact": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/GramsPerKilowattHour"
+        },
+        "nuclearWasteImpact": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/GramsPerKilowattHour"
+        },
+        "mobilityServiceProvider": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OrganisationG"
+          },
+          "minItems": 0
+        },
+        "energyRate": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/EnergyRate"
+          },
+          "minItems": 0
+        },
+        "electricEnergySourceRatio": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/ElectricEnergySourceRatio"
+          },
+          "minItems": 0
+        },
+        "aegiEnergyProductExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "aegiElectricEnergyExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      }
+    },
+    "ElectricEnergySourceRatio": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "energySource": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/ElectricEnergySourceTypeEnumG"
+        },
+        "otherEnergySource": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "sourceRatioValue": {
+          "$ref": "DATEXII_3_Common.json#/$defs/PercentageValue"
+        },
+        "aegiElectricEnergySourceRatioExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "energySource",
+        "sourceRatioValue"
+      ]
+    },
+    "ElectricEnergySourceTypeEnum": {
+      "type": "string",
+      "enum": [
+        "biogas",
+        "coal",
+        "gas",
+        "nuclear",
+        "solar",
+        "water",
+        "wind",
+        "generalGreen",
+        "generalFossil",
+        "other",
+        "extendedG"
+      ]
+    },
+    "ElectricEnergySourceTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/ElectricEnergySourceTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "EnergyBasedApplicability": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fromKWh": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "toKWh": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "aegiEnergyBasedApplicabilityExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      }
+    },
+    "EnergyInfrastructureSite": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "name": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "alias": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+          },
+          "minItems": 0
+        },
+        "lastUpdated": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "description": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "accessibility": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/AccessibilityEnumG"
+          },
+          "minItems": 0
+        },
+        "additionalInformation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+          },
+          "minItems": 0
+        },
+        "typeOfSite": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/EnergyInfrastructureSiteTypeEnumG"
+        },
+        "brand": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "exclusiveUsers": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/UserTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "preferredUsers": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/UserTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "externalIdentifier": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/ExternalIdentifier"
+          },
+          "minItems": 0
+        },
+        "informationWebsite": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "photoUrl": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "photo": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/Image"
+          },
+          "minItems": 0
+        },
+        "operatingHours": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OperatingHoursG"
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "owner": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OrganisationG"
+        },
+        "operator": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OrganisationG"
+        },
+        "helpdesk": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OrganisationG"
+        },
+        "associatedFacility": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/AssociatedFacilityG"
+          },
+          "minItems": 0
+        },
+        "rates": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/RatesG"
+        },
+        "applicableForVehicles": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/VehicleCharacteristics"
+          },
+          "minItems": 0
+        },
+        "dimension": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/Dimension"
+        },
+        "amenities": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/Amenities"
+        },
+        "supplementalFacility": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/SupplementalFacilityG"
+          },
+          "minItems": 0
+        },
+        "dedicatedParkingSpaces": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/DedicatedParkingSpaces"
+          },
+          "minItems": 0
+        },
+        "serviceType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/ServiceType"
+          },
+          "minItems": 0
+        },
+        "entrance": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationG"
+          },
+          "minItems": 0
+        },
+        "exit": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationG"
+          },
+          "minItems": 0
+        },
+        "energyInfrastructureStation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/EnergyInfrastructureStation"
+          },
+          "minItems": 0
+        },
+        "energyDistributor": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OrganisationG"
+        },
+        "mobilityServiceProvider": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OrganisationG"
+          },
+          "minItems": 0
+        },
+        "roamingPlatform": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OrganisationG"
+          },
+          "minItems": 0
+        },
+        "afacFacilityObjectExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "afacFacilityExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "aegiEnergyInfrastructureSiteExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG"
+      ]
+    },
+    "EnergyInfrastructureSiteStatus": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "reference": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/FacilityObjectVersionedReferenceG"
+        },
+        "lastUpdated": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "openingStatus": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OpeningStatusEnumG"
+        },
+        "operationStatus": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OperationStatusEnumG"
+        },
+        "regularOperatingHoursInForce": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "statusDescription": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "availableCarParkingPlaces": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "availableTruckParkingPlaces": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "newOperatingHours": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OperatingHoursG"
+        },
+        "newRates": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/RatesG"
+        },
+        "fault": {
+          "$ref": "DATEXII_3_Common.json#/$defs/FaultG"
+        },
+        "supplementalFacilityStatus": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/SupplementalFacilityStatus"
+          },
+          "minItems": 0
+        },
+        "energyInfrastructureStationStatus": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/EnergyInfrastructureStationStatus"
+          },
+          "minItems": 0
+        },
+        "serviceType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/ServiceType"
+          },
+          "minItems": 0
+        },
+        "afacFacilityObjectStatusExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "afacFacilityStatusExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "aegiEnergyInfrastructureSiteStatusExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "reference"
+      ]
+    },
+    "EnergyInfrastructureSiteTypeEnum": {
+      "type": "string",
+      "enum": [
+        "inBuilding",
+        "openSpace",
+        "onstreet",
+        "onCompanySite",
+        "other",
+        "extendedG"
+      ]
+    },
+    "EnergyInfrastructureSiteTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/EnergyInfrastructureSiteTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "EnergyInfrastructureStation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "name": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "alias": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+          },
+          "minItems": 0
+        },
+        "lastUpdated": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "description": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "accessibility": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/AccessibilityEnumG"
+          },
+          "minItems": 0
+        },
+        "additionalInformation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+          },
+          "minItems": 0
+        },
+        "totalMaximumPower": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/Watt"
+        },
+        "authenticationAndIdentificationMethods": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/AuthenticationAndIdentificationEnumG"
+          },
+          "minItems": 0
+        },
+        "numberOfRefillPoints": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "userInterfaceLanguage": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/Language"
+          },
+          "minItems": 0
+        },
+        "renewableSources": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "externalIdentifier": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/ExternalIdentifier"
+          },
+          "minItems": 0
+        },
+        "informationWebsite": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "photoUrl": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "photo": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/Image"
+          },
+          "minItems": 0
+        },
+        "operatingHours": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OperatingHoursG"
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "owner": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OrganisationG"
+        },
+        "operator": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OrganisationG"
+        },
+        "helpdesk": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OrganisationG"
+        },
+        "associatedFacility": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/AssociatedFacilityG"
+          },
+          "minItems": 0
+        },
+        "rates": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/RatesG"
+        },
+        "applicableForVehicles": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/VehicleCharacteristics"
+          },
+          "minItems": 0
+        },
+        "dimension": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/Dimension"
+        },
+        "amenities": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/Amenities"
+        },
+        "supplementalFacility": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/SupplementalFacilityG"
+          },
+          "minItems": 0
+        },
+        "dedicatedParkingSpaces": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/DedicatedParkingSpaces"
+          },
+          "minItems": 0
+        },
+        "energyDistributor": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OrganisationG"
+        },
+        "mobilityServiceProvider": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OrganisationG"
+          },
+          "minItems": 0
+        },
+        "roamingPlatform": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OrganisationG"
+          },
+          "minItems": 0
+        },
+        "hydrogen": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/Hydrogen"
+        },
+        "serviceType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/ServiceType"
+          },
+          "minItems": 0
+        },
+        "refillPoint": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/RefillPointG"
+          },
+          "minItems": 0
+        },
+        "energyProduct": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/EnergyProductG"
+          },
+          "minItems": 0
+        },
+        "afacFacilityObjectExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "afacFacilityExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "aegiEnergyInfrastructureStationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG"
+      ]
+    },
+    "EnergyInfrastructureStationStatus": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "reference": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/FacilityObjectVersionedReferenceG"
+        },
+        "lastUpdated": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "openingStatus": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OpeningStatusEnumG"
+        },
+        "operationStatus": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OperationStatusEnumG"
+        },
+        "regularOperatingHoursInForce": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "statusDescription": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "isAvailable": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "limitedHydrogenAmount": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "newOperatingHours": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OperatingHoursG"
+        },
+        "newRates": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/RatesG"
+        },
+        "fault": {
+          "$ref": "DATEXII_3_Common.json#/$defs/FaultG"
+        },
+        "supplementalFacilityStatus": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/SupplementalFacilityStatus"
+          },
+          "minItems": 0
+        },
+        "refillPointStatus": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/RefillPointStatusG"
+          },
+          "minItems": 0
+        },
+        "serviceType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/ServiceType"
+          },
+          "minItems": 0
+        },
+        "energyRateUpdate": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/EnergyRateUpdate"
+          },
+          "minItems": 0
+        },
+        "afacFacilityObjectStatusExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "afacFacilityStatusExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "aegiEnergyInfrastructureStationStatusExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "reference"
+      ]
+    },
+    "EnergyInfrastructureStatusPublication": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "lang": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Language"
+        },
+        "feedDescription": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "feedType": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "publicationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "tableReference": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/EnergyInfrastructureTableVersionedReferenceG"
+          },
+          "minItems": 0
+        },
+        "publicationCreator": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "headerInformation": {
+          "$ref": "DATEXII_3_Common.json#/$defs/HeaderInformation"
+        },
+        "energyInfrastructureSiteStatus": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/EnergyInfrastructureSiteStatus"
+          },
+          "minItems": 0
+        },
+        "comPayloadPublicationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "aegiEnergyInfrastructureStatusPublicationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "lang",
+        "publicationTime",
+        "publicationCreator"
+      ]
+    },
+    "EnergyInfrastructureTable": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "tableName": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "energyInfrastructureSite": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/EnergyInfrastructureSite"
+          },
+          "minItems": 1
+        },
+        "aegiEnergyInfrastructureTableExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "energyInfrastructureSite"
+      ]
+    },
+    "EnergyInfrastructureTablePublication": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "lang": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Language"
+        },
+        "feedDescription": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "feedType": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "publicationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "publicationCreator": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "headerInformation": {
+          "$ref": "DATEXII_3_Common.json#/$defs/HeaderInformation"
+        },
+        "energyInfrastructureTable": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/EnergyInfrastructureTable"
+          },
+          "minItems": 1
+        },
+        "comPayloadPublicationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "aegiEnergyInfrastructureTablePublicationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "lang",
+        "publicationTime",
+        "publicationCreator",
+        "energyInfrastructureTable"
+      ]
+    },
+    "EnergyInfrastructureTableVersionedReferenceG": {
+      "type": "object",
+      "properties": {
+        "targetClass": {
+          "type": "string",
+          "default": "EnergyInfrastructureTable"
+        },
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "targetClass",
+        "idG"
+      ]
+    },
+    "EnergyPrice": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "priceGroupIndex": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "priceType": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/PriceTypeEnumG"
+        },
+        "value": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/AmountOfMoney"
+        },
+        "priceCap": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/AmountOfMoney"
+        },
+        "taxIncluded": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "taxRate": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Percentage"
+        },
+        "additionalInformation": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "overallPeriod": {
+          "$ref": "DATEXII_3_Common.json#/$defs/OverallPeriod"
+        },
+        "timeBasedApplicability": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/TimeBasedApplicability"
+        },
+        "energyBasedApplicability": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/EnergyBasedApplicability"
+        },
+        "aegiEnergyPriceExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "priceGroupIndex",
+        "priceType",
+        "value"
+      ]
+    },
+    "EnergyProduct": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "energyProductName": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "isGreenEnergy": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "energyRateByReference": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/EnergyRateReferenceG"
+          },
+          "minItems": 0
+        },
+        "energyProductInformation": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Url"
+        },
+        "renewableEnergyEvidence": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Url"
+        },
+        "mobilityServiceProvider": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OrganisationG"
+          },
+          "minItems": 0
+        },
+        "energyRate": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/EnergyRate"
+          },
+          "minItems": 0
+        },
+        "aegiEnergyProductExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      }
+    },
+    "EnergyProductG": {
+      "description": "Only one of the properties shall be used in an instance.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "aegiEnergyProduct": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/EnergyProduct"
+        },
+        "aegiElectricEnergy": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/ElectricEnergy"
+        }
+      }
+    },
+    "EnergyRate": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "ratePolicy": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/RatePolicyEnumG"
+        },
+        "lastUpdated": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "applicableCurrency": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/CurrencyCode"
+          },
+          "minItems": 1
+        },
+        "rateName": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "combinationWithParkingFee": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "maximumDeliveryFee": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/AmountOfMoney"
+        },
+        "minimumDeliveryFee": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/AmountOfMoney"
+        },
+        "discount": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Percentage"
+        },
+        "additionalInformation": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "payment": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/Payment"
+        },
+        "energyPrice": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/EnergyPrice"
+          },
+          "minItems": 0
+        },
+        "overallPeriod": {
+          "$ref": "DATEXII_3_Common.json#/$defs/OverallPeriod"
+        },
+        "aegiEnergyRateExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "applicableCurrency",
+        "lastUpdated",
+        "ratePolicy"
+      ]
+    },
+    "EnergyRateReferenceG": {
+      "type": "object",
+      "properties": {
+        "targetClass": {
+          "type": "string",
+          "default": "EnergyRate"
+        },
+        "idG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "targetClass",
+        "idG"
+      ]
+    },
+    "EnergyRateUpdate": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "lastUpdated": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "energyRateReference": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/EnergyRateReferenceG"
+        },
+        "additionalInformation": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "energyPrice": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/EnergyPrice"
+          },
+          "minItems": 0
+        },
+        "aegiEnergyRateUpdateExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "energyRateReference",
+        "lastUpdated"
+      ]
+    },
+    "GasConnectorTypeEnum": {
+      "type": "string",
+      "enum": [
+        "gaseousHydrogen",
+        "liquidHydrogen",
+        "cng",
+        "lng",
+        "lpg",
+        "biogas",
+        "unknown",
+        "extendedG"
+      ]
+    },
+    "GasConnectorTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/GasConnectorTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "GramsPerKilowattHour": {
+      "$ref": "DATEXII_3_Common.json#/$defs/Float"
+    },
+    "Hydrogen": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "refuellingMode": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/HydrogenRefuellingModeEnumG"
+          },
+          "minItems": 1
+        },
+        "cumulativeCapacityperDay": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/KilogramPerDay"
+        },
+        "aegiHydrogenExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "cumulativeCapacityperDay",
+        "refuellingMode"
+      ]
+    },
+    "HydrogenFuellingProcessProtocolEnum": {
+      "type": "string",
+      "enum": [
+        "saej2601v2010",
+        "saej2601v2014",
+        "saej2601v2016",
+        "mcMethod",
+        "unknown",
+        "extendedG"
+      ]
+    },
+    "HydrogenFuellingProcessProtocolEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/HydrogenFuellingProcessProtocolEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "HydrogenRefuellingModeEnum": {
+      "type": "string",
+      "enum": [
+        "gaseousHydrogen350barCar",
+        "gaseousHydrogen350barTruck",
+        "gaseousHydrogen700barCar",
+        "gaseousHydrogen700barTruck",
+        "liquidHydrogen",
+        "cryoCompressedHydrogren",
+        "unknown",
+        "other",
+        "extendedG"
+      ]
+    },
+    "HydrogenRefuellingModeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/HydrogenRefuellingModeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "KilogramPerDay": {
+      "$ref": "DATEXII_3_Common.json#/$defs/Float"
+    },
+    "OctaneTypeEnum": {
+      "type": "string",
+      "enum": [
+        "octane95",
+        "octane98",
+        "other",
+        "extendedG"
+      ]
+    },
+    "OctaneTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/OctaneTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "PetrolRefillPoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "name": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "alias": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+          },
+          "minItems": 0
+        },
+        "lastUpdated": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "description": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "accessibility": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/AccessibilityEnumG"
+          },
+          "minItems": 0
+        },
+        "additionalInformation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+          },
+          "minItems": 0
+        },
+        "deliveryUnit": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/DeliveryUnitEnumG"
+        },
+        "maximumDeliveryAmount": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/Units"
+        },
+        "minimumDeliveryAmount": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/Units"
+        },
+        "modelType": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "reservation": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/ReservationTypeEnumG"
+        },
+        "petrolType": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/PetrolTypeEnumG"
+        },
+        "octaneType": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/OctaneTypeEnumG"
+        },
+        "octane": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "bioethanolShare": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Percentage"
+        },
+        "bioethanolType": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/BioethanolTypeEnumG"
+        },
+        "externalIdentifier": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/ExternalIdentifier"
+          },
+          "minItems": 0
+        },
+        "informationWebsite": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "photoUrl": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "photo": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/Image"
+          },
+          "minItems": 0
+        },
+        "operatingHours": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OperatingHoursG"
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "owner": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OrganisationG"
+        },
+        "operator": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OrganisationG"
+        },
+        "helpdesk": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OrganisationG"
+        },
+        "associatedFacility": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/AssociatedFacilityG"
+          },
+          "minItems": 0
+        },
+        "rates": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/RatesG"
+        },
+        "applicableForVehicles": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/VehicleCharacteristics"
+          },
+          "minItems": 0
+        },
+        "dimension": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/Dimension"
+        },
+        "amenities": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/Amenities"
+        },
+        "supplementalFacility": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/SupplementalFacilityG"
+          },
+          "minItems": 0
+        },
+        "dedicatedParkingSpaces": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/DedicatedParkingSpaces"
+          },
+          "minItems": 0
+        },
+        "energyProduct": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/EnergyProductG"
+          },
+          "minItems": 0
+        },
+        "afacFacilityObjectExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "afacFacilityExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "aegiRefillPointExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "aegiPetrolRefillPointExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "deliveryUnit"
+      ]
+    },
+    "PetrolTypeEnum": {
+      "type": "string",
+      "enum": [
+        "leaded",
+        "unleaded",
+        "extendedG"
+      ]
+    },
+    "PetrolTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/PetrolTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "PlannedRefillPointStatus": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/RefillPointStatusEnumG"
+        },
+        "overallPeriod": {
+          "$ref": "DATEXII_3_Common.json#/$defs/OverallPeriod"
+        },
+        "aegiPlannedRefillPointStatusExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "status",
+        "overallPeriod"
+      ]
+    },
+    "PriceTypeEnum": {
+      "type": "string",
+      "enum": [
+        "pricePerMinute",
+        "pricePerKg",
+        "pricePerKWh",
+        "basePrice",
+        "flatRate",
+        "free",
+        "other",
+        "extendedG"
+      ]
+    },
+    "PriceTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/PriceTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "RatePolicyEnum": {
+      "type": "string",
+      "enum": [
+        "contract",
+        "adHoc",
+        "extendedG"
+      ]
+    },
+    "RatePolicyEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/RatePolicyEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "RefillPointG": {
+      "description": "Only one of the properties shall be used in an instance.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "aegiElectricChargingPoint": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/ElectricChargingPoint"
+        },
+        "aegiPetrolRefillPoint": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/PetrolRefillPoint"
+        },
+        "aegiDieselRefillPoint": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/DieselRefillPoint"
+        },
+        "aegiAlternativeFuelsRefillPoint": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/AlternativeFuelsRefillPoint"
+        }
+      }
+    },
+    "RefillPointStatus": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "reference": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/FacilityObjectVersionedReferenceG"
+        },
+        "lastUpdated": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "openingStatus": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OpeningStatusEnumG"
+        },
+        "operationStatus": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OperationStatusEnumG"
+        },
+        "regularOperatingHoursInForce": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "statusDescription": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "status": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/RefillPointStatusEnumG"
+        },
+        "unitsInStock": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/Units"
+        },
+        "newOperatingHours": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/OperatingHoursG"
+        },
+        "newRates": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/RatesG"
+        },
+        "fault": {
+          "$ref": "DATEXII_3_Common.json#/$defs/FaultG"
+        },
+        "supplementalFacilityStatus": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirFacilities.json#/$defs/SupplementalFacilityStatus"
+          },
+          "minItems": 0
+        },
+        "energyRateUpdate": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/EnergyRateUpdate"
+          },
+          "minItems": 0
+        },
+        "waitingTime": {
+          "$ref": "DATEXII_3_AfirFacilities.json#/$defs/DurationValue"
+        },
+        "plannedRefillPointStatus": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/PlannedRefillPointStatus"
+          },
+          "minItems": 0
+        },
+        "afacFacilityObjectStatusExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "afacFacilityStatusExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "aegiRefillPointStatusExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "reference",
+        "status"
+      ]
+    },
+    "RefillPointStatusEnum": {
+      "type": "string",
+      "enum": [
+        "available",
+        "blocked",
+        "charging",
+        "faulted",
+        "inoperative",
+        "occupied",
+        "outOfOrder",
+        "outOfStock",
+        "planned",
+        "removed",
+        "reserved",
+        "unavailable",
+        "unknown",
+        "extendedG"
+      ]
+    },
+    "RefillPointStatusEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/RefillPointStatusEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "RefillPointStatusG": {
+      "description": "Only one of the properties shall be used in an instance.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "aegiRefillPointStatus": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/RefillPointStatus"
+        },
+        "aegiElectricChargingPointStatus": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/ElectricChargingPointStatus"
+        }
+      }
+    },
+    "ServiceType": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "serviceType": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/ServiceTypeEnumG"
+        },
+        "overallPeriod": {
+          "$ref": "DATEXII_3_Common.json#/$defs/OverallPeriod"
+        },
+        "aegiServiceTypeExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "serviceType"
+      ]
+    },
+    "ServiceTypeEnum": {
+      "type": "string",
+      "enum": [
+        "fullService",
+        "physicalAttendance",
+        "selfService",
+        "unattended",
+        "extendedG"
+      ]
+    },
+    "ServiceTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/ServiceTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "SmartRechargingServicesEnum": {
+      "type": "string",
+      "enum": [
+        "remoteMonitoring",
+        "powerOptimisationByUser",
+        "bidirectionalRecharging",
+        "plugAndCharge",
+        "extendedG"
+      ]
+    },
+    "SmartRechargingServicesEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/SmartRechargingServicesEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "TimeBasedApplicability": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fromMinute": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "toMinute": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "aegiTimeBasedApplicabilityExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      }
+    },
+    "Units": {
+      "$ref": "DATEXII_3_Common.json#/$defs/Float"
+    },
+    "VehicleToGridCommunicationTypeEnum": {
+      "type": "string",
+      "enum": [
+        "none",
+        "iso15118",
+        "iec619802",
+        "other",
+        "unknown",
+        "extendedG"
+      ]
+    },
+    "VehicleToGridCommunicationTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_AfirEnergyInfrastructure.json#/$defs/VehicleToGridCommunicationTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "Volt": {
+      "$ref": "DATEXII_3_Common.json#/$defs/Float"
+    },
+    "Watt": {
+      "$ref": "DATEXII_3_Common.json#/$defs/Float"
+    }
+  }
+}

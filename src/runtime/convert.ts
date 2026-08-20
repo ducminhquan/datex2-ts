@@ -1,5 +1,5 @@
 import type { DefMeta, PropMeta } from './meta-types.js';
-import { choicesByType, choicesByWire, getDef } from './model.js';
+import { choicesByType, choicesByWire, friendlyName, getDef } from './model.js';
 
 /** Discriminator property used by the friendly representation of a choice. */
 export const TYPE_KEY = '_type';
@@ -10,6 +10,20 @@ export interface ConvertOptions {
    * Default `false`, so profile or extension data survives a round trip.
    */
   strict?: boolean;
+}
+
+/** Raised when a friendly choice names a `_type` the substitution group has no member for. */
+export class UnknownChoiceMemberError extends Error {
+  constructor(
+    public readonly groupType: string,
+    public readonly memberType: string,
+    public readonly members: string[],
+  ) {
+    super(
+      `"${memberType}" is not a member of ${groupType}. Expected one of: ${members.join(', ')}`,
+    );
+    this.name = 'UnknownChoiceMemberError';
+  }
 }
 
 const isPlainObject = (v: unknown): v is Record<string, unknown> =>
@@ -104,9 +118,10 @@ function convertObject(
   const consumed = new Set<string>();
 
   for (const p of def.props ?? []) {
-    const from = dir === 'wire' ? p.f : p.w;
-    const alt = dir === 'wire' ? p.w : p.f;
-    const to = dir === 'wire' ? p.w : p.f;
+    const friendly = friendlyName(p);
+    const from = dir === 'wire' ? friendly : p.w;
+    const alt = dir === 'wire' ? p.w : friendly;
+    const to = dir === 'wire' ? p.w : friendly;
     let raw = value[from];
     if (isNullish(raw) && from !== alt) raw = value[alt];
     consumed.add(from);
@@ -150,9 +165,10 @@ function convertChoice(
   const consumed = new Set<string>([TYPE_KEY]);
 
   for (const p of def.props ?? []) {
-    const from = dir === 'wire' ? p.f : p.w;
-    const alt = dir === 'wire' ? p.w : p.f;
-    const to = dir === 'wire' ? p.w : p.f;
+    const friendly = friendlyName(p);
+    const from = dir === 'wire' ? friendly : p.w;
+    const alt = dir === 'wire' ? p.w : friendly;
+    const to = dir === 'wire' ? p.w : friendly;
     consumed.add(from);
     consumed.add(alt);
     let raw = value[from];
@@ -165,6 +181,9 @@ function convertChoice(
     const byType = choicesByType(def);
     const byWire = choicesByWire(def);
     const declared = value[TYPE_KEY];
+    if (typeof declared === 'string' && !byType.has(declared)) {
+      throw new UnknownChoiceMemberError(def.name, declared, [...byType.keys()]);
+    }
     let member = typeof declared === 'string' ? byType.get(declared) : undefined;
     let payload: unknown;
 

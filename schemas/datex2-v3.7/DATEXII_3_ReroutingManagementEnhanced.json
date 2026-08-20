@@ -1,0 +1,996 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "BasicAllocation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "routeProportion": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Percentage"
+        },
+        "reroutingAdvice": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/ReroutingAdviceTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "complianceOptionOverride": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ComplianceOptionEnumG"
+        },
+        "routeEffectivlyClosedForAllocation": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "condition": {
+          "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/ConditionG"
+        },
+        "rerRouteAllocationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "rerBasicAllocationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "condition"
+      ]
+    },
+    "CapacityManagement": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "capacityManagementMeasure": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/CapacityManagementMeasure"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "capacityManagementMeasure"
+      ]
+    },
+    "CapacityManagementActionEnum": {
+      "type": "string",
+      "enum": [
+        "additionalParkingBan",
+        "alteredSignalPhasing",
+        "alternatedSignalisedTraffic",
+        "closedEntry",
+        "closedExit",
+        "closedLanes",
+        "modifiedCycleLength",
+        "modifiedGreenPeriod",
+        "oneDirectionTraffic",
+        "oneDirectionTrafficReversed",
+        "openedExtraLane",
+        "reducingLocalAccess",
+        "synchronizedTrafficSignals",
+        "other",
+        "extendedG"
+      ]
+    },
+    "CapacityManagementActionEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/CapacityManagementActionEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "CapacityManagementMeasure": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "measure": {
+          "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/CapacityManagementMeasureEnumG"
+        },
+        "action": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/CapacityManagementActionEnumG"
+          },
+          "minItems": 0
+        },
+        "description": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "defaultGreenTimeAdjustment": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Seconds"
+        },
+        "defaultCycleLength": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Seconds"
+        },
+        "recommendedSpeed": {
+          "$ref": "DATEXII_3_Common.json#/$defs/KilometresPerHour"
+        },
+        "affectedLocation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+          },
+          "minItems": 0
+        },
+        "trafficSignal": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/TrafficSignal"
+          },
+          "minItems": 0
+        },
+        "rerCapacityManagementMeasureExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "measure"
+      ]
+    },
+    "CapacityManagementMeasureEnum": {
+      "type": "string",
+      "enum": [
+        "accessMeasures",
+        "capacityIncrease",
+        "capacityReduction",
+        "inflowReduction",
+        "outflowIncrease",
+        "parkingMeasures",
+        "signalMeasures",
+        "other",
+        "extendedG"
+      ]
+    },
+    "CapacityManagementMeasureEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/CapacityManagementMeasureEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "ConditionG": {
+      "description": "Only one of the properties shall be used in an instance.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rerConditionSet": {
+          "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/ConditionSet"
+        },
+        "rerVehicleCondition": {
+          "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/VehicleCondition"
+        },
+        "rerValidityCondition": {
+          "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/ValidityCondition"
+        },
+        "rerOccupantCondition": {
+          "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/OccupantCondition"
+        },
+        "rerUserCondition": {
+          "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/UserCondition"
+        },
+        "rerTrafficTypeCondition": {
+          "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/TrafficTypeCondition"
+        }
+      }
+    },
+    "ConditionOperator": {
+      "type": "string",
+      "enum": [
+        "and",
+        "or",
+        "xor",
+        "extendedG"
+      ]
+    },
+    "ConditionOperatorG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/ConditionOperator"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "ConditionSet": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "negate": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "operator": {
+          "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/ConditionOperatorG"
+        },
+        "legalBasis": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/LegalBasis"
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/ConditionG"
+          },
+          "minItems": 1
+        },
+        "rerConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "rerConditionSetExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "operator",
+        "conditions"
+      ]
+    },
+    "DetailedAllocation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "routeProportion": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Percentage"
+        },
+        "reroutingAdvice": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/ReroutingAdviceTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "complianceOptionOverride": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ComplianceOptionEnumG"
+        },
+        "routeEffectivlyClosedForAllocation": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "condition": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/ConditionG"
+        },
+        "rerRouteAllocationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "rerDetailedAllocationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "condition"
+      ]
+    },
+    "FacilityTypeEnum": {
+      "type": "string",
+      "enum": [
+        "carPark",
+        "parking",
+        "publicTransport",
+        "parkAndDrive",
+        "parkAndRide",
+        "parkAndCycle",
+        "parkAndWalk",
+        "kissAndRide",
+        "liftshare",
+        "carSharing",
+        "restArea",
+        "serviceArea",
+        "eventParking",
+        "dropOff",
+        "overnightParking",
+        "pointOfInterest",
+        "other",
+        "extendedG"
+      ]
+    },
+    "FacilityTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/FacilityTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "OccupantCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "negate": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "disabledWithPermit": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "numberOfOccupants": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "legalBasis": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/LegalBasis"
+        },
+        "rerConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "rerOccupantConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      }
+    },
+    "PriorityIndex": {
+      "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger",
+      "minimum": 0.0,
+      "maximum": 10.0
+    },
+    "PtSchedule": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "lastUpdated": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "line": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/String"
+          },
+          "minItems": 0
+        },
+        "nextDepartures": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/Time"
+          },
+          "minItems": 0
+        },
+        "destination": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "interval": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Seconds"
+        },
+        "travelTimeToDestination": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Seconds"
+        },
+        "ptType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/PublicTransportTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "ptVehicleType": {
+          "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/PublicTransportVehicleTypeG"
+        },
+        "ptVehicleName": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "ptOperator": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "validity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "rerPtScheduleExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "lastUpdated"
+      ]
+    },
+    "PublicTransportTypeEnum": {
+      "type": "string",
+      "enum": [
+        "freePublicTransport",
+        "nonFreePublicTransport",
+        "onDemandTraffic",
+        "railReplacementService",
+        "shuttleService",
+        "extendedG"
+      ]
+    },
+    "PublicTransportTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/PublicTransportTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "PublicTransportVehicleType": {
+      "type": "string",
+      "enum": [
+        "bus",
+        "coach",
+        "miniBus",
+        "subway",
+        "taxi",
+        "train",
+        "tram",
+        "extendedG"
+      ]
+    },
+    "PublicTransportVehicleTypeG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/PublicTransportVehicleType"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "ReroutingAdviceTypeEnum": {
+      "type": "string",
+      "enum": [
+        "doNotFollowDiversionSigns",
+        "doNotUseEntry",
+        "doNotUseExit",
+        "doNotUseIntersectionOrJunction",
+        "followDiversionSigns",
+        "followLocalDiversion",
+        "followSpecialMarkers",
+        "useEntry",
+        "useExit",
+        "useIntersectionOrJunction",
+        "extendedG"
+      ]
+    },
+    "ReroutingAdviceTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/ReroutingAdviceTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "ReroutingManagementEnhanced": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "type": {
+          "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/ReroutingTypeEnumG"
+        },
+        "bindingTrafficRegulation": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "preventiveMeasure": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "routingOrigin": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationG"
+          },
+          "minItems": 0
+        },
+        "routingThrough": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationG"
+          },
+          "minItems": 0
+        },
+        "routingDestination": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationG"
+          },
+          "minItems": 0
+        },
+        "originalRoute": {
+          "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/RouteDescription"
+        },
+        "alternativeRoute": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/RouteDescription"
+          },
+          "minItems": 0
+        }
+      }
+    },
+    "ReroutingTypeEnum": {
+      "type": "string",
+      "enum": [
+        "alternative",
+        "kpiForNavigationServices",
+        "parkAndRide",
+        "parkingGuidance",
+        "strategyConform",
+        "urbanCompatible",
+        "extendedG"
+      ]
+    },
+    "ReroutingTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/ReroutingTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "RouteAllocation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "routeProportion": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Percentage"
+        },
+        "reroutingAdvice": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/ReroutingAdviceTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "complianceOptionOverride": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ComplianceOptionEnumG"
+        },
+        "routeEffectivlyClosedForAllocation": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "rerRouteAllocationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      }
+    },
+    "RouteAllocationG": {
+      "description": "Only one of the properties shall be used in an instance.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rerRouteAllocation": {
+          "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/RouteAllocation"
+        },
+        "rerDetailedAllocation": {
+          "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/DetailedAllocation"
+        },
+        "rerBasicAllocation": {
+          "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/BasicAllocation"
+        }
+      }
+    },
+    "RouteDescription": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "nameOfRoute": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "routeClosed": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "isPublicTransportRoute": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "troReference": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/TrafficRegulationOrderVersionedReferenceG"
+          },
+          "minItems": 0
+        },
+        "priorityIndex": {
+          "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/PriorityIndex"
+        },
+        "capacityAvailable": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "signedRerouting": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "entry": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "exit": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "roadOrJunctionNumber": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "trafficConstriction": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/TrafficConstrictionTypeEnumG"
+        },
+        "routeLength": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MetresAsNonNegativeInteger"
+        },
+        "itinerary": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/ItineraryG"
+        },
+        "routeAllocation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/RouteAllocationG"
+          },
+          "minItems": 0
+        },
+        "specificDestinationFacility": {
+          "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/SpecificDestinationFacility"
+        },
+        "ptRouteSchedule": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/PtSchedule"
+          },
+          "minItems": 0
+        },
+        "capacityManagementMeasure": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/CapacityManagementMeasure"
+          },
+          "minItems": 0
+        },
+        "supplementaryPositionalDescription": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/SupplementaryPositionalDescription"
+        },
+        "abnormalTraffic": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/AbnormalTraffic"
+        },
+        "routeDelays": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Delays"
+        },
+        "trafficStatus": {
+          "$ref": "DATEXII_3_RoadTrafficData.json#/$defs/TrafficStatusValue"
+        },
+        "travelTimeData": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_RoadTrafficData.json#/$defs/TravelTimeData"
+          },
+          "minItems": 0
+        },
+        "rerRouteDescriptionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      }
+    },
+    "SpecificDestinationFacility": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "name": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "alias": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+          },
+          "minItems": 0
+        },
+        "externalIdentifier": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "lastUpdated": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "description": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "accessibility": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Facilities.json#/$defs/AccessibilityEnumG"
+          },
+          "minItems": 0
+        },
+        "additionalInformation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+          },
+          "minItems": 0
+        },
+        "type": {
+          "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/FacilityTypeEnumG"
+        },
+        "otherSpecificDestinationFacility": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "freeParking": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "informationWebsite": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "photoUrl": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "photo": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Facilities.json#/$defs/Image"
+          },
+          "minItems": 0
+        },
+        "operatingHours": {
+          "$ref": "DATEXII_3_Facilities.json#/$defs/OperatingHoursG"
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "owner": {
+          "$ref": "DATEXII_3_Facilities.json#/$defs/OrganisationG"
+        },
+        "operator": {
+          "$ref": "DATEXII_3_Facilities.json#/$defs/OrganisationG"
+        },
+        "associatedFacility": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Facilities.json#/$defs/AssociatedFacilityG"
+          },
+          "minItems": 0
+        },
+        "rates": {
+          "$ref": "DATEXII_3_Facilities.json#/$defs/RatesG"
+        },
+        "applicableForVehicles": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/VehicleCharacteristics"
+          },
+          "minItems": 0
+        },
+        "dimension": {
+          "$ref": "DATEXII_3_Facilities.json#/$defs/Dimension"
+        },
+        "supplementalFacility": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Facilities.json#/$defs/SupplementalFacilityG"
+          },
+          "minItems": 0
+        },
+        "ptSchedule": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/PtSchedule"
+          },
+          "minItems": 0
+        },
+        "facFacilityObjectExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "facFacilityExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "rerSpecificDestinationFacilityExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "type"
+      ]
+    },
+    "TrafficRegulationOrderVersionedReferenceG": {
+      "type": "object",
+      "properties": {
+        "targetClass": {
+          "type": "string",
+          "default": "TrafficRegulationOrder"
+        },
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "targetClass",
+        "idG"
+      ]
+    },
+    "TrafficSignal": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "index": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Integer"
+        },
+        "externalId": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "greenTimeAdjustmentOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Seconds"
+        },
+        "cycleLengthOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Seconds"
+        },
+        "signalGroup": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Reference"
+        },
+        "notionalMidPoint": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/PointLocationG"
+        },
+        "rerTrafficSignalExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "index"
+      ]
+    },
+    "TrafficTypeCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "negate": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "trafficType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/TrafficTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "legalBasis": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/LegalBasis"
+        },
+        "rerConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "rerTrafficTypeConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      }
+    },
+    "UserCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "negate": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "users": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Facilities.json#/$defs/UserTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "legalBasis": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/LegalBasis"
+        },
+        "rerConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "rerUserConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      }
+    },
+    "ValidityCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "negate": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "legalBasis": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/LegalBasis"
+        },
+        "validity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "rerConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "rerValidityConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "validity"
+      ]
+    },
+    "VehicleCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "negate": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "legalBasis": {
+          "$ref": "DATEXII_3_TrafficRegulation.json#/$defs/LegalBasis"
+        },
+        "vehicleCharacteristics": {
+          "$ref": "DATEXII_3_Common.json#/$defs/VehicleCharacteristics"
+        },
+        "rerConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "rerVehicleConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "vehicleCharacteristics"
+      ]
+    }
+  }
+}

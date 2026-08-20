@@ -1,0 +1,6253 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "AbnormalTraffic": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "situationRecordCreationReference": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "situationRecordCreationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordObservationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordFirstSupplierVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "confidentialityOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ConfidentialityValueEnumG"
+        },
+        "probabilityOfOccurrence": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ProbabilityOfOccurrenceEnumG"
+        },
+        "severity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SeverityEnumG"
+        },
+        "safetyRelatedMessage": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "trafficConstrictionType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/TrafficConstrictionTypeEnumG"
+        },
+        "abnormalTrafficType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/AbnormalTrafficTypeEnumG"
+        },
+        "numberOfVehiclesWaiting": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "queueLength": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MetresAsNonNegativeInteger"
+        },
+        "relativeTrafficFlow": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/RelativeTrafficFlowEnumG"
+        },
+        "trafficFlowCharacteristics": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/TrafficFlowCharacteristicsEnumG"
+        },
+        "trafficTrendType": {
+          "$ref": "DATEXII_3_Common.json#/$defs/TrafficTrendTypeEnumG"
+        },
+        "source": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Source"
+        },
+        "validity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "impact": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "cause": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Cause"
+        },
+        "generalPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "nonGeneralPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "urlLink": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "informationManagerOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "impactOnOppositeDirection": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "sitSituationRecordExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitTrafficElementExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitAbnormalTrafficExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "probabilityOfOccurrence",
+        "situationRecordCreationTime",
+        "situationRecordVersionTime",
+        "validity",
+        "locationReference"
+      ]
+    },
+    "AbnormalTrafficTypeEnum": {
+      "type": "string",
+      "enum": [
+        "stationaryTraffic",
+        "queuingTraffic",
+        "slowTraffic",
+        "heavyTraffic",
+        "unspecifiedAbnormalTraffic",
+        "other",
+        "extendedG"
+      ]
+    },
+    "AbnormalTrafficTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/AbnormalTrafficTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "Accident": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "situationRecordCreationReference": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "situationRecordCreationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordObservationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordFirstSupplierVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "confidentialityOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ConfidentialityValueEnumG"
+        },
+        "probabilityOfOccurrence": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ProbabilityOfOccurrenceEnumG"
+        },
+        "severity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SeverityEnumG"
+        },
+        "safetyRelatedMessage": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "trafficConstrictionType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/TrafficConstrictionTypeEnumG"
+        },
+        "accidentCause": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/AccidentCauseEnumG"
+        },
+        "accidentType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/AccidentTypeEnumG"
+          },
+          "minItems": 1
+        },
+        "collisionType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/CollisionTypeEnumG"
+        },
+        "totalNumberOfPeopleInvolved": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "totalNumberOfVehiclesInvolved": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "source": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Source"
+        },
+        "validity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "impact": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "cause": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Cause"
+        },
+        "generalPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "nonGeneralPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "urlLink": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "informationManagerOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "impactOnOppositeDirection": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "vehicleInvolved": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/Vehicle"
+          },
+          "minItems": 0
+        },
+        "groupOfVehiclesInvolved": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/GroupOfVehiclesInvolved"
+          },
+          "minItems": 0
+        },
+        "groupOfPeopleInvolved": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/GroupOfPeopleInvolved"
+          },
+          "minItems": 0
+        },
+        "sitSituationRecordExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitTrafficElementExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitAccidentExtensionG": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/AccidentExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "probabilityOfOccurrence",
+        "situationRecordCreationTime",
+        "situationRecordVersionTime",
+        "accidentType",
+        "validity",
+        "locationReference"
+      ]
+    },
+    "AccidentCauseEnum": {
+      "type": "string",
+      "enum": [
+        "avoidanceOfObstacles",
+        "driverDistraction",
+        "driverDrugAbuse",
+        "driverIllness",
+        "exceedingSpeedsLimits",
+        "excessAlcohol",
+        "excessiveDriverTiredness",
+        "impermissibleManoeuvre",
+        "limitedVisibility",
+        "notKeepingASafeDistance",
+        "onTheWrongSideOfTheRoad",
+        "pedestrianInRoad",
+        "poorLaneAdherence",
+        "poorMergeEntryOrExitJudgement",
+        "poorRoadSurfaceCondition",
+        "poorSurfaceAdherence",
+        "undisclosed",
+        "unknown",
+        "vehicleFailure",
+        "other",
+        "extendedG"
+      ]
+    },
+    "AccidentCauseEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/AccidentCauseEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "AccidentExtensionTypeG": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "AccidentExtendedUrban": {
+          "$ref": "DATEXII_3_UrbanExtensions.json#/$defs/AccidentExtendedUrban"
+        }
+      }
+    },
+    "AccidentTypeEnum": {
+      "type": "string",
+      "enum": [
+        "accident",
+        "accidentInvolvingHazardousMaterials",
+        "accidentInvolvingHeavyLorries",
+        "accidentInvolvingMassTransitVehicle",
+        "accidentInvolvingPublicTransport",
+        "accidentInvolvingRadioactiveMaterial",
+        "accidentInvolvingTrain",
+        "collision",
+        "multipleVehicleAccident",
+        "secondaryAccident",
+        "seriousInjuryOrFatalAccident",
+        "vehicleStuckUnderBridge",
+        "other",
+        "extendedG"
+      ]
+    },
+    "AccidentTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/AccidentTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "ActivityG": {
+      "description": "Only one of the properties shall be used in an instance.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sitDisturbanceActivity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/DisturbanceActivity"
+        },
+        "sitPublicEvent": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/PublicEvent"
+        },
+        "sitAuthorityOperation": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/AuthorityOperation"
+        }
+      }
+    },
+    "AnimalPresenceObstruction": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "situationRecordCreationReference": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "situationRecordCreationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordObservationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordFirstSupplierVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "confidentialityOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ConfidentialityValueEnumG"
+        },
+        "probabilityOfOccurrence": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ProbabilityOfOccurrenceEnumG"
+        },
+        "severity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SeverityEnumG"
+        },
+        "safetyRelatedMessage": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "trafficConstrictionType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/TrafficConstrictionTypeEnumG"
+        },
+        "numberOfObstructions": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "alive": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "animalPresenceType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/AnimalPresenceTypeEnumG"
+        },
+        "source": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Source"
+        },
+        "validity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "impact": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "cause": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Cause"
+        },
+        "generalPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "nonGeneralPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "urlLink": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "informationManagerOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "impactOnOppositeDirection": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "mobilityOfObstruction": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Mobility"
+        },
+        "sitSituationRecordExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitTrafficElementExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitObstructionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitAnimalPresenceObstructionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "probabilityOfOccurrence",
+        "situationRecordCreationTime",
+        "situationRecordVersionTime",
+        "animalPresenceType",
+        "validity",
+        "locationReference"
+      ]
+    },
+    "AnimalPresenceTypeEnum": {
+      "type": "string",
+      "enum": [
+        "animalsOnTheRoad",
+        "herdOfAnimalsOnTheRoad",
+        "largeAnimalsOnTheRoad",
+        "smallAnimalsOnTheRoad",
+        "wildAnimalsOnTheRoad",
+        "extendedG"
+      ]
+    },
+    "AnimalPresenceTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/AnimalPresenceTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "AuthorityOperation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "situationRecordCreationReference": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "situationRecordCreationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordObservationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordFirstSupplierVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "confidentialityOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ConfidentialityValueEnumG"
+        },
+        "probabilityOfOccurrence": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ProbabilityOfOccurrenceEnumG"
+        },
+        "severity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SeverityEnumG"
+        },
+        "safetyRelatedMessage": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "trafficConstrictionType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/TrafficConstrictionTypeEnumG"
+        },
+        "authorityOperationType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/AuthorityOperationTypeEnumG"
+        },
+        "source": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Source"
+        },
+        "validity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "impact": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "cause": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Cause"
+        },
+        "generalPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "nonGeneralPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "urlLink": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "informationManagerOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "impactOnOppositeDirection": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "mobilityOfActivity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Mobility"
+        },
+        "sitSituationRecordExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitTrafficElementExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitActivityExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitAuthorityOperationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "probabilityOfOccurrence",
+        "situationRecordCreationTime",
+        "situationRecordVersionTime",
+        "authorityOperationType",
+        "validity",
+        "locationReference"
+      ]
+    },
+    "AuthorityOperationTypeEnum": {
+      "type": "string",
+      "enum": [
+        "accidentInvestigationWork",
+        "bombSquadInAction",
+        "civilEmergency",
+        "customsOperation",
+        "juridicalReconstruction",
+        "policeCheckPoint",
+        "policeInvestigation",
+        "roadOperatorCheckPoint",
+        "snowChainOnBoardOrSnowTyresMountedCheck",
+        "snowChainOrSnowTyresMountedCheck",
+        "survey",
+        "undefinedAuthorityActivity",
+        "transportOfVip",
+        "vehicleInspectionCheckPoint",
+        "vehicleWeighing",
+        "weighInMotion",
+        "other",
+        "extendedG"
+      ]
+    },
+    "AuthorityOperationTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/AuthorityOperationTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "Cause": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "causeDescription": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "causeType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/CauseTypeEnumG"
+        },
+        "detailedCauseType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/DetailedCauseType"
+        },
+        "managedCause": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SituationRecordReference"
+        },
+        "sitCauseExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      }
+    },
+    "CauseTypeEnum": {
+      "type": "string",
+      "enum": [
+        "abnormalTraffic",
+        "accident",
+        "animalPresence",
+        "authorityOperation",
+        "constructionWork",
+        "disturbance",
+        "drivingConditions",
+        "environmentalObstruction",
+        "equipmentOrSystemFault",
+        "infrastructureDamageObstruction",
+        "instructionToRoadUsers",
+        "networkManagement",
+        "nonWeatherRelatedRoadConditions",
+        "obstruction",
+        "poorEnvironment",
+        "publicEvent",
+        "rerouting",
+        "roadMaintenance",
+        "roadOperatorServiceDisruption",
+        "roadOrCarriagewayOrLaneManagement",
+        "roadsideAssistance",
+        "roadsideServiceDisruption",
+        "speedManagement",
+        "transitServiceDisruption",
+        "vehicleObstruction",
+        "weatherRelatedRoadConditions",
+        "winterEquipmentManagement",
+        "earlierEvent",
+        "earlierIncident",
+        "holidayTraffic",
+        "problemsAtBorderPost",
+        "problemsAtCustomPost",
+        "problemsOnLocalRoads",
+        "roadsideEvent",
+        "rubberNecking",
+        "technicalProblems",
+        "vandalism",
+        "other",
+        "extendedG"
+      ]
+    },
+    "CauseTypeEnumExtensionTypeG": {
+      "type": "string",
+      "enum": [
+        "movingBridgeInOperation"
+      ]
+    },
+    "CauseTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/CauseTypeEnum"
+        },
+        "extendedValueG": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/CauseTypeEnumExtensionTypeG"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "CollisionTypeEnum": {
+      "type": "string",
+      "enum": [
+        "collisionWithAnimal",
+        "collisionWithObstacle",
+        "collisionWithPerson",
+        "headOnCollision",
+        "headOnOrSideCollision",
+        "multipleVehicleCollision",
+        "rearCollision",
+        "sideCollision",
+        "extendedG"
+      ]
+    },
+    "CollisionTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/CollisionTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "Comment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "comment": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "commentDateTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "commentType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/CommentTypeEnumG"
+        },
+        "sitCommentExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "comment"
+      ]
+    },
+    "CommentTypeEnum": {
+      "type": "string",
+      "enum": [
+        "abnormalLoadMovementNote",
+        "dataProcessingNote",
+        "description",
+        "internalNote",
+        "roadworksName",
+        "warning",
+        "other",
+        "extendedG"
+      ]
+    },
+    "CommentTypeEnumExtensionTypeG": {
+      "type": "string",
+      "enum": [
+        "operatorInformationExchange"
+      ]
+    },
+    "CommentTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/CommentTypeEnum"
+        },
+        "extendedValueG": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/CommentTypeEnumExtensionTypeG"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "ComplianceOptionEnum": {
+      "type": "string",
+      "enum": [
+        "advisory",
+        "mandatory",
+        "extendedG"
+      ]
+    },
+    "ComplianceOptionEnumExtensionTypeG": {
+      "type": "string",
+      "enum": [
+        "information",
+        "unknown"
+      ]
+    },
+    "ComplianceOptionEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ComplianceOptionEnum"
+        },
+        "extendedValueG": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ComplianceOptionEnumExtensionTypeG"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "Conditions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "situationRecordCreationReference": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "situationRecordCreationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordObservationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordFirstSupplierVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "confidentialityOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ConfidentialityValueEnumG"
+        },
+        "probabilityOfOccurrence": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ProbabilityOfOccurrenceEnumG"
+        },
+        "severity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SeverityEnumG"
+        },
+        "safetyRelatedMessage": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "trafficConstrictionType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/TrafficConstrictionTypeEnumG"
+        },
+        "drivingConditionType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/DrivingConditionTypeEnumG"
+        },
+        "source": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Source"
+        },
+        "validity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "impact": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "cause": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Cause"
+        },
+        "generalPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "nonGeneralPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "urlLink": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "informationManagerOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "impactOnOppositeDirection": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "sitSituationRecordExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitTrafficElementExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitConditionsExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "probabilityOfOccurrence",
+        "situationRecordCreationTime",
+        "situationRecordVersionTime",
+        "validity",
+        "locationReference"
+      ]
+    },
+    "ConditionsG": {
+      "description": "Only one of the properties shall be used in an instance.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sitConditions": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Conditions"
+        },
+        "sitNonWeatherRelatedRoadConditions": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/NonWeatherRelatedRoadConditions"
+        },
+        "sitWeatherRelatedRoadConditions": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/WeatherRelatedRoadConditions"
+        },
+        "sitPoorEnvironmentConditions": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/PoorEnvironmentConditions"
+        }
+      }
+    },
+    "ConstructionWorks": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "situationRecordCreationReference": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "situationRecordCreationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordObservationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordFirstSupplierVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "confidentialityOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ConfidentialityValueEnumG"
+        },
+        "probabilityOfOccurrence": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ProbabilityOfOccurrenceEnumG"
+        },
+        "severity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SeverityEnumG"
+        },
+        "safetyRelatedMessage": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "actionOrigin": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/OperatorActionOriginEnumG"
+        },
+        "actionPlanIdentifier": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "operatorActionStatus": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/OperatorActionStatusEnumG"
+        },
+        "publicTransportAlternative": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "roadworksDurationClassification": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/RoadworksDurationEnumG"
+        },
+        "roadworksIdentifier": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "roadworksScale": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/RoadworksScaleEnumG"
+        },
+        "underTraffic": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "urgentRoadworks": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "constructionWorkType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ConstructionWorkTypeEnumG"
+        },
+        "source": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Source"
+        },
+        "validity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "impact": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "cause": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Cause"
+        },
+        "generalPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "nonGeneralPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "urlLink": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "informationManagerOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "impactOnOppositeDirection": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "mobility": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Mobility"
+        },
+        "subjects": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Subjects"
+        },
+        "maintenanceVehicles": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/MaintenanceVehicles"
+        },
+        "sitSituationRecordExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitOperatorActionExtensionG": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/OperatorActionExtensionTypeG"
+        },
+        "sitRoadworksExtensionG": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/RoadworksExtensionTypeG"
+        },
+        "sitConstructionWorksExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "probabilityOfOccurrence",
+        "situationRecordCreationTime",
+        "situationRecordVersionTime",
+        "constructionWorkType",
+        "validity",
+        "locationReference"
+      ]
+    },
+    "ConstructionWorkTypeEnum": {
+      "type": "string",
+      "enum": [
+        "blastingWork",
+        "constructionWork",
+        "demolitionWork",
+        "roadImprovementOrUpgrading",
+        "roadWideningWork",
+        "extendedG"
+      ]
+    },
+    "ConstructionWorkTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ConstructionWorkTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "DelayBandEnum": {
+      "type": "string",
+      "enum": [
+        "negligible",
+        "upToTenMinutes",
+        "betweenTenMinutesAndThirtyMinutes",
+        "betweenThirtyMinutesAndOneHour",
+        "betweenOneHourAndThreeHours",
+        "betweenThreeHoursAndSixHours",
+        "longerThanSixHours",
+        "extendedG"
+      ]
+    },
+    "DelayBandEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/DelayBandEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "Delays": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "delayBand": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/DelayBandEnumG"
+        },
+        "delaysType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/DelaysTypeEnumG"
+        },
+        "delayTimeValue": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Seconds"
+        },
+        "sitDelaysExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      }
+    },
+    "DelaysTypeEnum": {
+      "type": "string",
+      "enum": [
+        "delays",
+        "delaysOfUncertainDuration",
+        "longDelays",
+        "veryLongDelays",
+        "extendedG"
+      ]
+    },
+    "DelaysTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/DelaysTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "DetailedCauseType": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "abnormalTrafficType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/AbnormalTrafficTypeEnumG"
+        },
+        "accidentType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/AccidentTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "animalPresenceType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/AnimalPresenceTypeEnumG"
+        },
+        "authorityOperationType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/AuthorityOperationTypeEnumG"
+        },
+        "constructionWorkType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ConstructionWorkTypeEnumG"
+        },
+        "disturbanceActivityType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/DisturbanceActivityTypeEnumG"
+        },
+        "drivingConditionType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/DrivingConditionTypeEnumG"
+        },
+        "environmentalObstructionType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/EnvironmentalObstructionTypeEnumG"
+        },
+        "equipmentOrSystemFaultType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/EquipmentOrSystemFaultTypeEnumG"
+        },
+        "generalInstructionToRoadUsersType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/GeneralInstructionToRoadUsersTypeEnumG"
+        },
+        "generalNetworkManagementType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/GeneralNetworkManagementTypeEnumG"
+        },
+        "infrastructureDamageType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/InfrastructureDamageTypeEnumG"
+        },
+        "nonWeatherRelatedRoadConditionType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/NonWeatherRelatedRoadConditionTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "obstructionType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/ObstructionTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "poorEnvironmentType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/PoorEnvironmentTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "publicEventType": {
+          "$ref": "DATEXII_3_Common.json#/$defs/PublicEventTypeEnumG"
+        },
+        "reroutingManagementType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/ReroutingManagementTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "roadMaintenanceType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/RoadMaintenanceTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "roadOperatorServiceDisruptionType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/RoadOperatorServiceDisruptionTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "roadOrCarriagewayOrLaneManagementType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/RoadOrCarriagewayOrLaneManagementTypeEnumG"
+        },
+        "roadsideAssistanceType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/RoadsideAssistanceTypeEnumG"
+        },
+        "roadsideServiceDisruptionType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/ServiceDisruptionTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "speedManagementType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SpeedManagementTypeEnumG"
+        },
+        "transitServiceInformation": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/TransitServiceInformationEnumG"
+        },
+        "vehicleObstructionType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/VehicleObstructionTypeEnumG"
+        },
+        "weatherRelatedRoadConditionType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/WeatherRelatedRoadConditionTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "winterEquipmentManagementType": {
+          "$ref": "DATEXII_3_Common.json#/$defs/WinterEquipmentManagementTypeEnumG"
+        },
+        "sitDetailedCauseTypeExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      }
+    },
+    "DisturbanceActivity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "situationRecordCreationReference": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "situationRecordCreationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordObservationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordFirstSupplierVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "confidentialityOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ConfidentialityValueEnumG"
+        },
+        "probabilityOfOccurrence": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ProbabilityOfOccurrenceEnumG"
+        },
+        "severity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SeverityEnumG"
+        },
+        "safetyRelatedMessage": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "trafficConstrictionType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/TrafficConstrictionTypeEnumG"
+        },
+        "disturbanceActivityType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/DisturbanceActivityTypeEnumG"
+        },
+        "source": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Source"
+        },
+        "validity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "impact": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "cause": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Cause"
+        },
+        "generalPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "nonGeneralPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "urlLink": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "informationManagerOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "impactOnOppositeDirection": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "mobilityOfActivity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Mobility"
+        },
+        "sitSituationRecordExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitTrafficElementExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitActivityExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitDisturbanceActivityExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "probabilityOfOccurrence",
+        "situationRecordCreationTime",
+        "situationRecordVersionTime",
+        "disturbanceActivityType",
+        "validity",
+        "locationReference"
+      ]
+    },
+    "DisturbanceActivityTypeEnum": {
+      "type": "string",
+      "enum": [
+        "airRaid",
+        "altercationOfVehicleOccupants",
+        "assault",
+        "assetDestruction",
+        "attack",
+        "attackOnVehicle",
+        "blockadeOrBarrier",
+        "bombAlert",
+        "crowd",
+        "demonstration",
+        "evacuation",
+        "filterBlockade",
+        "goSlowOperation",
+        "gunfireOnRoadway",
+        "illVehicleOccupants",
+        "march",
+        "peopleThrowingObjectsOnTheRoad",
+        "publicDisturbance",
+        "radioactiveLeakAlert",
+        "riot",
+        "sabotage",
+        "securityAlert",
+        "securityIncident",
+        "sightseersObstructingAccess",
+        "strike",
+        "terroristIncident",
+        "theft",
+        "toxicCloudAlert",
+        "unspecifiedAlert",
+        "other",
+        "extendedG"
+      ]
+    },
+    "DisturbanceActivityTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/DisturbanceActivityTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "DrivingConditionTypeEnum": {
+      "type": "string",
+      "enum": [
+        "impossible",
+        "hazardous",
+        "normal",
+        "passableWithCare",
+        "unknown",
+        "veryHazardous",
+        "winterConditions",
+        "other",
+        "extendedG"
+      ]
+    },
+    "DrivingConditionTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/DrivingConditionTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "EnvironmentalObstruction": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "situationRecordCreationReference": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "situationRecordCreationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordObservationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordFirstSupplierVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "confidentialityOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ConfidentialityValueEnumG"
+        },
+        "probabilityOfOccurrence": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ProbabilityOfOccurrenceEnumG"
+        },
+        "severity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SeverityEnumG"
+        },
+        "safetyRelatedMessage": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "trafficConstrictionType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/TrafficConstrictionTypeEnumG"
+        },
+        "numberOfObstructions": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "depth": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MetresAsFloat"
+        },
+        "environmentalObstructionType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/EnvironmentalObstructionTypeEnumG"
+        },
+        "source": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Source"
+        },
+        "validity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "impact": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "cause": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Cause"
+        },
+        "generalPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "nonGeneralPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "urlLink": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "informationManagerOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "impactOnOppositeDirection": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "mobilityOfObstruction": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Mobility"
+        },
+        "sitSituationRecordExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitTrafficElementExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitObstructionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitEnvironmentalObstructionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "probabilityOfOccurrence",
+        "situationRecordCreationTime",
+        "situationRecordVersionTime",
+        "environmentalObstructionType",
+        "validity",
+        "locationReference"
+      ]
+    },
+    "EnvironmentalObstructionTypeEnum": {
+      "type": "string",
+      "enum": [
+        "avalanches",
+        "earthquakeDamage",
+        "fallenTrees",
+        "fallingIce",
+        "fallingLightIceOrSnow",
+        "flashFloods",
+        "flooding",
+        "forestFire",
+        "grassFire",
+        "landslips",
+        "mudSlide",
+        "sewerOverflow",
+        "rockfalls",
+        "seriousFire",
+        "smokeOrFumes",
+        "stormDamage",
+        "subsidence",
+        "other",
+        "extendedG"
+      ]
+    },
+    "EnvironmentalObstructionTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/EnvironmentalObstructionTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "EquipmentOrSystemFault": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "situationRecordCreationReference": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "situationRecordCreationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordObservationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordFirstSupplierVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "confidentialityOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ConfidentialityValueEnumG"
+        },
+        "probabilityOfOccurrence": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ProbabilityOfOccurrenceEnumG"
+        },
+        "severity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SeverityEnumG"
+        },
+        "safetyRelatedMessage": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "trafficConstrictionType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/TrafficConstrictionTypeEnumG"
+        },
+        "equipmentOrSystemFaultType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/EquipmentOrSystemFaultTypeEnumG"
+        },
+        "faultyEquipmentOrSystemType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/EquipmentOrSystemTypeEnumG"
+        },
+        "source": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Source"
+        },
+        "validity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "impact": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "cause": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Cause"
+        },
+        "generalPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "nonGeneralPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "urlLink": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "informationManagerOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "impactOnOppositeDirection": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "sitSituationRecordExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitTrafficElementExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitEquipmentOrSystemFaultExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "probabilityOfOccurrence",
+        "situationRecordCreationTime",
+        "situationRecordVersionTime",
+        "equipmentOrSystemFaultType",
+        "faultyEquipmentOrSystemType",
+        "validity",
+        "locationReference"
+      ]
+    },
+    "EquipmentOrSystemFaultTypeEnum": {
+      "type": "string",
+      "enum": [
+        "notWorking",
+        "outOfService",
+        "workingIncorrectly",
+        "workingIntermittently",
+        "extendedG"
+      ]
+    },
+    "EquipmentOrSystemFaultTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/EquipmentOrSystemFaultTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "EquipmentOrSystemTypeEnum": {
+      "type": "string",
+      "enum": [
+        "anprCameras",
+        "automatedTollSystem",
+        "cctvCameras",
+        "emergencyRoadsideTelephones",
+        "fireDetectionEquipment",
+        "galleryLights",
+        "laneControlSigns",
+        "levelCrossing",
+        "matrixSigns",
+        "rampControls",
+        "roadsideCommunicationsSystem",
+        "roadsidePowerSystem",
+        "speedControlSigns",
+        "streetLighting",
+        "temporaryTrafficLights",
+        "tollGates",
+        "trafficLightSets",
+        "trafficSignals",
+        "tunnelEmergencyPhones",
+        "tunnelFireFightingEquipment",
+        "tunnelLights",
+        "tunnelMobileCommunication",
+        "tunnelRadioCommunication",
+        "tunnelSafetySystem",
+        "tunnelVentilation",
+        "variableMessageSigns",
+        "other",
+        "extendedG"
+      ]
+    },
+    "EquipmentOrSystemTypeEnumExtensionTypeG": {
+      "type": "string",
+      "enum": [
+        "accessControlSystem",
+        "parkingSensors",
+        "trafficSensors"
+      ]
+    },
+    "EquipmentOrSystemTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/EquipmentOrSystemTypeEnum"
+        },
+        "extendedValueG": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/EquipmentOrSystemTypeEnumExtensionTypeG"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "GeneralInstructionOrMessageToRoadUsers": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "situationRecordCreationReference": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "situationRecordCreationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordObservationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordFirstSupplierVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "confidentialityOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ConfidentialityValueEnumG"
+        },
+        "probabilityOfOccurrence": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ProbabilityOfOccurrenceEnumG"
+        },
+        "severity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SeverityEnumG"
+        },
+        "safetyRelatedMessage": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "actionOrigin": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/OperatorActionOriginEnumG"
+        },
+        "actionPlanIdentifier": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "operatorActionStatus": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/OperatorActionStatusEnumG"
+        },
+        "complianceOption": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ComplianceOptionEnumG"
+        },
+        "applicableForTrafficDirection": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/DirectionEnumG"
+          },
+          "minItems": 0
+        },
+        "applicableForTrafficType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/TrafficTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "placesAtWhichApplicable": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/PlacesEnumG"
+          },
+          "minItems": 0
+        },
+        "automaticallyInitiated": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "generalInstructionToRoadUsersType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/GeneralInstructionToRoadUsersTypeEnumG"
+        },
+        "generalMessageToRoadUsers": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "source": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Source"
+        },
+        "validity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "impact": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "cause": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Cause"
+        },
+        "generalPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "nonGeneralPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "urlLink": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "informationManagerOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "impactOnOppositeDirection": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "forVehiclesWithCharacteristicsOf": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/VehicleCharacteristics"
+          },
+          "minItems": 0
+        },
+        "sitSituationRecordExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitOperatorActionExtensionG": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/OperatorActionExtensionTypeG"
+        },
+        "sitNetworkManagementExtensionG": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/NetworkManagementExtensionTypeG"
+        },
+        "sitGeneralInstructionOrMessageToRoadUsersExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "probabilityOfOccurrence",
+        "situationRecordCreationTime",
+        "situationRecordVersionTime",
+        "complianceOption",
+        "validity",
+        "locationReference"
+      ]
+    },
+    "GeneralInstructionToRoadUsersTypeEnum": {
+      "type": "string",
+      "enum": [
+        "allowEmergencyVehiclesToPass",
+        "approachWithCare",
+        "avoidTheArea",
+        "closeAllWindowsTurnOffHeaterAndVents",
+        "crossJunctionWithCare",
+        "doNotAllowUnnecessaryGaps",
+        "doNotLeaveYourVehicle",
+        "doNotThrowOutAnyBurningObjects",
+        "doNotUseNavigationSystems",
+        "driveCarefully",
+        "driveWithExtremeCaution",
+        "flashYourLights",
+        "followTheVehicleInFrontSmoothly",
+        "increaseNormalFollowingDistance",
+        "inEmergencyWaitForPatrolService",
+        "keepYourDistance",
+        "leaveYourVehicleProceedToNextSafePlace",
+        "noNakedFlames",
+        "noOvertaking",
+        "noSmoking",
+        "noStopping",
+        "noUturns",
+        "observeAmberAlert",
+        "observeSignals",
+        "observeSigns",
+        "onlyTravelIfAbsolutelyNecessary",
+        "overtakeWithCare",
+        "pullOverToTheEdgeOfTheRoadway",
+        "stopAtNextSafePlace",
+        "stopAtNextServiceArea",
+        "switchOffEngine",
+        "switchOffMobilePhonesAndTwoWayRadios",
+        "testYourBrakes",
+        "useBusService",
+        "useFogLights",
+        "useHazardWarningLights",
+        "useHeadlights",
+        "useRailService",
+        "useTramService",
+        "useUndergroundService",
+        "waitForEscortVehicle",
+        "other",
+        "extendedG"
+      ]
+    },
+    "GeneralInstructionToRoadUsersTypeEnumExtensionTypeG": {
+      "type": "string",
+      "enum": [
+        "cyclistsMustDismount",
+        "pedestriansMustUseOtherSide"
+      ]
+    },
+    "GeneralInstructionToRoadUsersTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/GeneralInstructionToRoadUsersTypeEnum"
+        },
+        "extendedValueG": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/GeneralInstructionToRoadUsersTypeEnumExtensionTypeG"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "GeneralNetworkManagement": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "situationRecordCreationReference": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "situationRecordCreationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordObservationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordFirstSupplierVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "confidentialityOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ConfidentialityValueEnumG"
+        },
+        "probabilityOfOccurrence": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ProbabilityOfOccurrenceEnumG"
+        },
+        "severity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SeverityEnumG"
+        },
+        "safetyRelatedMessage": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "actionOrigin": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/OperatorActionOriginEnumG"
+        },
+        "actionPlanIdentifier": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "operatorActionStatus": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/OperatorActionStatusEnumG"
+        },
+        "complianceOption": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ComplianceOptionEnumG"
+        },
+        "applicableForTrafficDirection": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/DirectionEnumG"
+          },
+          "minItems": 0
+        },
+        "applicableForTrafficType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/TrafficTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "placesAtWhichApplicable": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/PlacesEnumG"
+          },
+          "minItems": 0
+        },
+        "automaticallyInitiated": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "generalNetworkManagementType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/GeneralNetworkManagementTypeEnumG"
+        },
+        "trafficManuallyDirectedBy": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/PersonCategoryEnumG"
+        },
+        "source": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Source"
+        },
+        "validity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "impact": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "cause": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Cause"
+        },
+        "generalPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "nonGeneralPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "urlLink": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "informationManagerOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "impactOnOppositeDirection": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "forVehiclesWithCharacteristicsOf": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/VehicleCharacteristics"
+          },
+          "minItems": 0
+        },
+        "sitSituationRecordExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitOperatorActionExtensionG": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/OperatorActionExtensionTypeG"
+        },
+        "sitNetworkManagementExtensionG": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/NetworkManagementExtensionTypeG"
+        },
+        "sitGeneralNetworkManagementExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "probabilityOfOccurrence",
+        "situationRecordCreationTime",
+        "situationRecordVersionTime",
+        "complianceOption",
+        "generalNetworkManagementType",
+        "validity",
+        "locationReference"
+      ]
+    },
+    "GeneralNetworkManagementTypeEnum": {
+      "type": "string",
+      "enum": [
+        "bridgeSwingInOperation",
+        "convoyService",
+        "obstacleSignalling",
+        "rampMeteringInOperation",
+        "temporaryTrafficLights",
+        "tollGatesOpen",
+        "trafficBeingManuallyDirected",
+        "trafficHeld",
+        "other",
+        "extendedG"
+      ]
+    },
+    "GeneralNetworkManagementTypeEnumExtensionTypeG": {
+      "type": "string",
+      "enum": [
+        "restrictedAreasAccessInOperation",
+        "tollingInOperation",
+        "tollingNotInOperation"
+      ]
+    },
+    "GeneralNetworkManagementTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/GeneralNetworkManagementTypeEnum"
+        },
+        "extendedValueG": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/GeneralNetworkManagementTypeEnumExtensionTypeG"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "GeneralObstruction": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "situationRecordCreationReference": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "situationRecordCreationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordObservationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordFirstSupplierVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "confidentialityOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ConfidentialityValueEnumG"
+        },
+        "probabilityOfOccurrence": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ProbabilityOfOccurrenceEnumG"
+        },
+        "severity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SeverityEnumG"
+        },
+        "safetyRelatedMessage": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "trafficConstrictionType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/TrafficConstrictionTypeEnumG"
+        },
+        "numberOfObstructions": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "obstructionType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/ObstructionTypeEnumG"
+          },
+          "minItems": 1
+        },
+        "source": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Source"
+        },
+        "validity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "impact": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "cause": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Cause"
+        },
+        "generalPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "nonGeneralPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "urlLink": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "informationManagerOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "impactOnOppositeDirection": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "mobilityOfObstruction": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Mobility"
+        },
+        "groupOfPeopleInvolved": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/GroupOfPeopleInvolved"
+          },
+          "minItems": 0
+        },
+        "sitSituationRecordExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitTrafficElementExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitObstructionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitGeneralObstructionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "probabilityOfOccurrence",
+        "situationRecordCreationTime",
+        "situationRecordVersionTime",
+        "obstructionType",
+        "validity",
+        "locationReference"
+      ]
+    },
+    "GenericSituationRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "situationRecordCreationReference": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "situationRecordCreationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordObservationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordFirstSupplierVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "confidentialityOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ConfidentialityValueEnumG"
+        },
+        "probabilityOfOccurrence": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ProbabilityOfOccurrenceEnumG"
+        },
+        "severity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SeverityEnumG"
+        },
+        "safetyRelatedMessage": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "genericSituationRecordName": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "source": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Source"
+        },
+        "validity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "impact": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "cause": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Cause"
+        },
+        "generalPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "nonGeneralPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "urlLink": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "informationManagerOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "impactOnOppositeDirection": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "sitSituationRecordExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitGenericSituationRecordExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "probabilityOfOccurrence",
+        "situationRecordCreationTime",
+        "situationRecordVersionTime",
+        "genericSituationRecordName",
+        "validity",
+        "locationReference"
+      ]
+    },
+    "GroupOfPeopleInvolved": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "numberOfPeople": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "injuryStatusType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/InjuryStatusTypeEnumG"
+        },
+        "involvementRole": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/InvolvementRolesEnumG"
+        },
+        "categoryOfPeopleInvolved": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/PersonCategoryEnumG"
+        },
+        "sitGroupOfPeopleInvolvedExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      }
+    },
+    "Impact": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "capacityRemaining": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Percentage"
+        },
+        "numberOfLanesRestricted": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "numberOfOperationalLanes": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "residualLaneWidth": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MetresAsFloat"
+        },
+        "residualRoadWidth": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MetresAsFloat"
+        },
+        "delays": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Delays"
+        },
+        "sitImpactExtensionG": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ImpactExtensionTypeG"
+        }
+      }
+    },
+    "ImpactExtensionTypeG": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "ImpactExtendedUrban": {
+          "$ref": "DATEXII_3_UrbanExtensions.json#/$defs/ImpactExtendedUrban"
+        }
+      }
+    },
+    "InfrastructureDamageObstruction": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "situationRecordCreationReference": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "situationRecordCreationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordObservationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordFirstSupplierVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "confidentialityOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ConfidentialityValueEnumG"
+        },
+        "probabilityOfOccurrence": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ProbabilityOfOccurrenceEnumG"
+        },
+        "severity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SeverityEnumG"
+        },
+        "safetyRelatedMessage": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "trafficConstrictionType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/TrafficConstrictionTypeEnumG"
+        },
+        "numberOfObstructions": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "infrastructureDamageType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/InfrastructureDamageTypeEnumG"
+        },
+        "source": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Source"
+        },
+        "validity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "impact": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "cause": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Cause"
+        },
+        "generalPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "nonGeneralPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "urlLink": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "informationManagerOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "impactOnOppositeDirection": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "mobilityOfObstruction": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Mobility"
+        },
+        "sitSituationRecordExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitTrafficElementExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitObstructionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitInfrastructureDamageObstructionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "probabilityOfOccurrence",
+        "situationRecordCreationTime",
+        "situationRecordVersionTime",
+        "infrastructureDamageType",
+        "validity",
+        "locationReference"
+      ]
+    },
+    "InfrastructureDamageTypeEnum": {
+      "type": "string",
+      "enum": [
+        "burstPipe",
+        "burstWaterMain",
+        "collapsedSewer",
+        "damagedBridge",
+        "damagedCrashBarrier",
+        "damagedFlyover",
+        "damagedGallery",
+        "damagedGantry",
+        "damagedRoadSurface",
+        "damagedTunnel",
+        "damagedViaduct",
+        "fallenPowerCables",
+        "gasLeak",
+        "weakBridge",
+        "other",
+        "extendedG"
+      ]
+    },
+    "InfrastructureDamageTypeEnumExtensionTypeG": {
+      "type": "string",
+      "enum": [
+        "collapsedRoadSurface"
+      ]
+    },
+    "InfrastructureDamageTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/InfrastructureDamageTypeEnum"
+        },
+        "extendedValueG": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/InfrastructureDamageTypeEnumExtensionTypeG"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "InjuryStatusTypeEnum": {
+      "type": "string",
+      "enum": [
+        "dead",
+        "injured",
+        "seriouslyInjured",
+        "slightlyInjured",
+        "uninjured",
+        "unknown",
+        "extendedG"
+      ]
+    },
+    "InjuryStatusTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/InjuryStatusTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "InvolvementRolesEnum": {
+      "type": "string",
+      "enum": [
+        "cyclist",
+        "motorcyclist",
+        "pedestrian",
+        "unknown",
+        "vehicleDriver",
+        "vehicleOccupant",
+        "vehiclePassenger",
+        "witness",
+        "extendedG"
+      ]
+    },
+    "InvolvementRolesEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/InvolvementRolesEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "MaintenanceVehicleActionsEnum": {
+      "type": "string",
+      "enum": [
+        "maintenanceAction",
+        "maintenanceVehiclesMergingIntoTrafficFlow",
+        "slowMoving",
+        "stoppingToServiceEquipments",
+        "extendedG"
+      ]
+    },
+    "MaintenanceVehicleActionsEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/MaintenanceVehicleActionsEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "MaintenanceVehicles": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "numberOfMaintenanceVehicles": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "maintenanceVehicleActions": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/MaintenanceVehicleActionsEnumG"
+          },
+          "minItems": 0
+        },
+        "sitMaintenanceVehiclesExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      }
+    },
+    "MaintenanceWorks": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "situationRecordCreationReference": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "situationRecordCreationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordObservationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordFirstSupplierVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "confidentialityOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ConfidentialityValueEnumG"
+        },
+        "probabilityOfOccurrence": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ProbabilityOfOccurrenceEnumG"
+        },
+        "severity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SeverityEnumG"
+        },
+        "safetyRelatedMessage": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "actionOrigin": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/OperatorActionOriginEnumG"
+        },
+        "actionPlanIdentifier": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "operatorActionStatus": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/OperatorActionStatusEnumG"
+        },
+        "publicTransportAlternative": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "roadworksDurationClassification": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/RoadworksDurationEnumG"
+        },
+        "roadworksIdentifier": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "roadworksScale": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/RoadworksScaleEnumG"
+        },
+        "underTraffic": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "urgentRoadworks": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "roadMaintenanceType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/RoadMaintenanceTypeEnumG"
+          },
+          "minItems": 1
+        },
+        "source": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Source"
+        },
+        "validity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "impact": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "cause": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Cause"
+        },
+        "generalPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "nonGeneralPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "urlLink": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "informationManagerOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "impactOnOppositeDirection": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "mobility": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Mobility"
+        },
+        "subjects": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Subjects"
+        },
+        "maintenanceVehicles": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/MaintenanceVehicles"
+        },
+        "sitSituationRecordExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitOperatorActionExtensionG": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/OperatorActionExtensionTypeG"
+        },
+        "sitRoadworksExtensionG": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/RoadworksExtensionTypeG"
+        },
+        "sitMaintenanceWorksExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "probabilityOfOccurrence",
+        "situationRecordCreationTime",
+        "situationRecordVersionTime",
+        "roadMaintenanceType",
+        "validity",
+        "locationReference"
+      ]
+    },
+    "Mobility": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "mobilityType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/MobilityTypeEnumG"
+        },
+        "speed": {
+          "$ref": "DATEXII_3_Common.json#/$defs/KilometresPerHour"
+        },
+        "sitMobilityExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "mobilityType"
+      ]
+    },
+    "MobilityTypeEnum": {
+      "type": "string",
+      "enum": [
+        "mobile",
+        "stationary",
+        "unknown",
+        "extendedG"
+      ]
+    },
+    "MobilityTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/MobilityTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "NetworkManagementExtensionTypeG": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "NetworkManagementExtendedUrban": {
+          "$ref": "DATEXII_3_UrbanExtensions.json#/$defs/NetworkManagementExtendedUrban"
+        },
+        "ReroutingManagementEnhanced": {
+          "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/ReroutingManagementEnhanced"
+        },
+        "SignSetting": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/SignSetting"
+        },
+        "CapacityManagement": {
+          "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/CapacityManagement"
+        }
+      }
+    },
+    "NetworkManagementG": {
+      "description": "Only one of the properties shall be used in an instance.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sitReroutingManagement": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ReroutingManagement"
+        },
+        "sitRoadOrCarriagewayOrLaneManagement": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/RoadOrCarriagewayOrLaneManagement"
+        },
+        "sitSpeedManagement": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SpeedManagement"
+        },
+        "sitGeneralInstructionOrMessageToRoadUsers": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/GeneralInstructionOrMessageToRoadUsers"
+        },
+        "sitWinterDrivingManagement": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/WinterDrivingManagement"
+        },
+        "sitGeneralNetworkManagement": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/GeneralNetworkManagement"
+        }
+      }
+    },
+    "NonWeatherRelatedRoadConditions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "situationRecordCreationReference": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "situationRecordCreationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordObservationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordFirstSupplierVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "confidentialityOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ConfidentialityValueEnumG"
+        },
+        "probabilityOfOccurrence": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ProbabilityOfOccurrenceEnumG"
+        },
+        "severity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SeverityEnumG"
+        },
+        "safetyRelatedMessage": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "trafficConstrictionType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/TrafficConstrictionTypeEnumG"
+        },
+        "drivingConditionType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/DrivingConditionTypeEnumG"
+        },
+        "nonWeatherRelatedRoadConditionType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/NonWeatherRelatedRoadConditionTypeEnumG"
+          },
+          "minItems": 1
+        },
+        "source": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Source"
+        },
+        "validity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "impact": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "cause": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Cause"
+        },
+        "generalPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "nonGeneralPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "urlLink": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "informationManagerOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "impactOnOppositeDirection": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "sitSituationRecordExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitTrafficElementExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitConditionsExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitRoadSurfaceConditionsExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitNonWeatherRelatedRoadConditionsExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "probabilityOfOccurrence",
+        "situationRecordCreationTime",
+        "situationRecordVersionTime",
+        "nonWeatherRelatedRoadConditionType",
+        "validity",
+        "locationReference"
+      ]
+    },
+    "NonWeatherRelatedRoadConditionTypeEnum": {
+      "type": "string",
+      "enum": [
+        "dieselOnRoad",
+        "leavesOnRoad",
+        "looseChippings",
+        "looseSandOnRoad",
+        "mudOnRoad",
+        "oilOnRoad",
+        "petrolOnRoad",
+        "roadMarkingNotPresent",
+        "roadSurfaceInPoorCondition",
+        "slipperyRoad",
+        "other",
+        "extendedG"
+      ]
+    },
+    "NonWeatherRelatedRoadConditionTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/NonWeatherRelatedRoadConditionTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "ObstructionG": {
+      "description": "Only one of the properties shall be used in an instance.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sitInfrastructureDamageObstruction": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/InfrastructureDamageObstruction"
+        },
+        "sitEnvironmentalObstruction": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/EnvironmentalObstruction"
+        },
+        "sitAnimalPresenceObstruction": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/AnimalPresenceObstruction"
+        },
+        "sitGeneralObstruction": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/GeneralObstruction"
+        },
+        "sitVehicleObstruction": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/VehicleObstruction"
+        }
+      }
+    },
+    "ObstructionTypeEnum": {
+      "type": "string",
+      "enum": [
+        "airCrash",
+        "childrenOnRoadway",
+        "clearanceWork",
+        "craneOperating",
+        "cyclistsOnRoadway",
+        "debris",
+        "explosion",
+        "explosionHazard",
+        "hazardsOnTheRoad",
+        "incident",
+        "industrialAccident",
+        "objectOnTheRoad",
+        "objectsFallingFromMovingVehicle",
+        "obstructionOnTheRoad",
+        "peopleOnRoadway",
+        "railCrash",
+        "rescueAndRecoveryWork",
+        "severeFrostDamagedRoadway",
+        "shedLoad",
+        "snowAndIceDebris",
+        "spillageOccurringFromMovingVehicle",
+        "spillageOnTheRoad",
+        "unprotectedAccidentArea",
+        "other",
+        "extendedG"
+      ]
+    },
+    "ObstructionTypeEnumExtensionTypeG": {
+      "type": "string",
+      "enum": [
+        "buildingWork",
+        "firefightersInOperation",
+        "policeInOperation"
+      ]
+    },
+    "ObstructionTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ObstructionTypeEnum"
+        },
+        "extendedValueG": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ObstructionTypeEnumExtensionTypeG"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "OperatorActionExtensionTypeG": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "OperatorActionExtendedTmplan": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/OperatorActionExtendedTmplan"
+        }
+      }
+    },
+    "OperatorActionG": {
+      "description": "Only one of the properties shall be used in an instance.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sitReroutingManagement": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ReroutingManagement"
+        },
+        "sitRoadOrCarriagewayOrLaneManagement": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/RoadOrCarriagewayOrLaneManagement"
+        },
+        "sitSpeedManagement": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SpeedManagement"
+        },
+        "sitGeneralInstructionOrMessageToRoadUsers": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/GeneralInstructionOrMessageToRoadUsers"
+        },
+        "sitWinterDrivingManagement": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/WinterDrivingManagement"
+        },
+        "sitGeneralNetworkManagement": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/GeneralNetworkManagement"
+        },
+        "sitConstructionWorks": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ConstructionWorks"
+        },
+        "sitMaintenanceWorks": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/MaintenanceWorks"
+        },
+        "sitRoadsideAssistance": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/RoadsideAssistance"
+        }
+      }
+    },
+    "OperatorActionOriginEnum": {
+      "type": "string",
+      "enum": [
+        "external",
+        "internal",
+        "extendedG"
+      ]
+    },
+    "OperatorActionOriginEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/OperatorActionOriginEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "OperatorActionStatusEnum": {
+      "type": "string",
+      "enum": [
+        "requested",
+        "approved",
+        "beingImplemented",
+        "implemented",
+        "rejected",
+        "terminationRequested",
+        "beingTerminated",
+        "extendedG"
+      ]
+    },
+    "OperatorActionStatusEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/OperatorActionStatusEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "PersonCategoryEnum": {
+      "type": "string",
+      "enum": [
+        "adult",
+        "child",
+        "emergencyServicesPerson",
+        "fireman",
+        "infant",
+        "medicalStaff",
+        "memberOfThePublic",
+        "policeman",
+        "politician",
+        "publicTransportPassenger",
+        "sickPerson",
+        "trafficOfficer",
+        "trafficWarden",
+        "veryImportantPerson",
+        "extendedG"
+      ]
+    },
+    "PersonCategoryEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/PersonCategoryEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "PlacesEnum": {
+      "type": "string",
+      "enum": [
+        "aroundBendsInTheRoad",
+        "atCustomsPosts",
+        "atHighAltitudes",
+        "atRestAreas",
+        "atServiceAreas",
+        "atTollPlazas",
+        "inBuiltUpAreas",
+        "inContraflowSections",
+        "inForestedAreas",
+        "inGalleries",
+        "inLowLyingAreas",
+        "inRoadworksAreas",
+        "inRuralAreas",
+        "inShadedAreas",
+        "inTheInnerCityAreas",
+        "inTheCityCentre",
+        "inTunnels",
+        "onBridges",
+        "onDownHillSections",
+        "onDualCarriagewaySections",
+        "onElevatedSections",
+        "onEnteringOrLeavingTunnels",
+        "onEnteringTheCountry",
+        "onFlyovers",
+        "onLeavingTheCountry",
+        "onMotorways",
+        "onNonMotorways",
+        "onPasses",
+        "onRoundabouts",
+        "onSingleCarriagewaySections",
+        "onSlipRoads",
+        "onUndergroundSections",
+        "onUnderpasses",
+        "onUpHillSections",
+        "overTheCrestOfHills",
+        "other",
+        "extendedG"
+      ]
+    },
+    "PlacesEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/PlacesEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "PoorEnvironmentConditions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "situationRecordCreationReference": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "situationRecordCreationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordObservationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordFirstSupplierVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "confidentialityOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ConfidentialityValueEnumG"
+        },
+        "probabilityOfOccurrence": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ProbabilityOfOccurrenceEnumG"
+        },
+        "severity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SeverityEnumG"
+        },
+        "safetyRelatedMessage": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "trafficConstrictionType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/TrafficConstrictionTypeEnumG"
+        },
+        "drivingConditionType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/DrivingConditionTypeEnumG"
+        },
+        "poorEnvironmentType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/PoorEnvironmentTypeEnumG"
+          },
+          "minItems": 1
+        },
+        "source": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Source"
+        },
+        "validity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "impact": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "cause": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Cause"
+        },
+        "generalPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "nonGeneralPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "urlLink": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "informationManagerOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "impactOnOppositeDirection": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "precipitationDetail": {
+          "$ref": "DATEXII_3_Common.json#/$defs/PrecipitationDetail"
+        },
+        "visibility": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Visibility"
+        },
+        "pollution": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Pollution"
+        },
+        "temperature": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Temperature"
+        },
+        "wind": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Wind"
+        },
+        "humidity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Humidity"
+        },
+        "pressure": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Pressure"
+        },
+        "sitSituationRecordExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitTrafficElementExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitConditionsExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitPoorEnvironmentConditionsExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "probabilityOfOccurrence",
+        "situationRecordCreationTime",
+        "situationRecordVersionTime",
+        "poorEnvironmentType",
+        "validity",
+        "locationReference"
+      ]
+    },
+    "PoorEnvironmentTypeEnum": {
+      "type": "string",
+      "enum": [
+        "badWeather",
+        "blizzard",
+        "blowingDust",
+        "blowingSnow",
+        "crosswinds",
+        "damagingHail",
+        "denseFog",
+        "eclipse",
+        "extremeCold",
+        "extremeHeat",
+        "fog",
+        "freezingFog",
+        "frost",
+        "gales",
+        "gustyWinds",
+        "hail",
+        "heavyFrost",
+        "heavyRain",
+        "heavySnowfall",
+        "hurricaneForceWinds",
+        "lowSunGlare",
+        "moderateFog",
+        "nearbyFire",
+        "nearbyFlooding",
+        "ozonePollution",
+        "pollution",
+        "patchyFog",
+        "precipitationInTheArea",
+        "rain",
+        "rainChangingToSnow",
+        "sandStorms",
+        "severeExhaustPollution",
+        "severeSmog",
+        "showers",
+        "sleet",
+        "smogAlert",
+        "smokeHazard",
+        "snowChangingToRain",
+        "snowfall",
+        "sprayHazard",
+        "stormForceWinds",
+        "strongGustsOfWind",
+        "strongWinds",
+        "swarmsOfInsects",
+        "temperatureFalling",
+        "thunderstorms",
+        "tornadoes",
+        "veryStrongGustsOfWind",
+        "visibilityReduced",
+        "whiteOut",
+        "winterStorm",
+        "extendedG"
+      ]
+    },
+    "PoorEnvironmentTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/PoorEnvironmentTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "ProbabilityOfOccurrenceEnum": {
+      "type": "string",
+      "enum": [
+        "certain",
+        "probable",
+        "riskOf",
+        "extendedG"
+      ]
+    },
+    "ProbabilityOfOccurrenceEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ProbabilityOfOccurrenceEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "PublicEvent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "situationRecordCreationReference": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "situationRecordCreationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordObservationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordFirstSupplierVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "confidentialityOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ConfidentialityValueEnumG"
+        },
+        "probabilityOfOccurrence": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ProbabilityOfOccurrenceEnumG"
+        },
+        "severity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SeverityEnumG"
+        },
+        "safetyRelatedMessage": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "trafficConstrictionType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/TrafficConstrictionTypeEnumG"
+        },
+        "publicEventType": {
+          "$ref": "DATEXII_3_Common.json#/$defs/PublicEventTypeEnumG"
+        },
+        "venueName": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "source": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Source"
+        },
+        "validity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "impact": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "cause": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Cause"
+        },
+        "generalPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "nonGeneralPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "urlLink": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "informationManagerOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "impactOnOppositeDirection": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "mobilityOfActivity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Mobility"
+        },
+        "sitSituationRecordExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitTrafficElementExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitActivityExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitPublicEventExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "probabilityOfOccurrence",
+        "situationRecordCreationTime",
+        "situationRecordVersionTime",
+        "publicEventType",
+        "validity",
+        "locationReference"
+      ]
+    },
+    "RelativeTrafficFlowEnum": {
+      "type": "string",
+      "enum": [
+        "trafficVeryMuchHeavierThanNormal",
+        "trafficHeavierThanNormal",
+        "trafficFlowNormal",
+        "trafficLighterThanNormal",
+        "trafficVeryMuchLighterThanNormal",
+        "extendedG"
+      ]
+    },
+    "RelativeTrafficFlowEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/RelativeTrafficFlowEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "ReroutingManagement": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "situationRecordCreationReference": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "situationRecordCreationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordObservationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordFirstSupplierVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "confidentialityOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ConfidentialityValueEnumG"
+        },
+        "probabilityOfOccurrence": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ProbabilityOfOccurrenceEnumG"
+        },
+        "severity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SeverityEnumG"
+        },
+        "safetyRelatedMessage": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "actionOrigin": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/OperatorActionOriginEnumG"
+        },
+        "actionPlanIdentifier": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "operatorActionStatus": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/OperatorActionStatusEnumG"
+        },
+        "complianceOption": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ComplianceOptionEnumG"
+        },
+        "applicableForTrafficDirection": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/DirectionEnumG"
+          },
+          "minItems": 0
+        },
+        "applicableForTrafficType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/TrafficTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "placesAtWhichApplicable": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/PlacesEnumG"
+          },
+          "minItems": 0
+        },
+        "automaticallyInitiated": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "reroutingManagementType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/ReroutingManagementTypeEnumG"
+          },
+          "minItems": 1
+        },
+        "reroutingItineraryDescription": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "signedRerouting": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "alternativeRouteIdentifier": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "entry": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "exit": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "roadOrJunctionNumber": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "source": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Source"
+        },
+        "validity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "impact": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "cause": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Cause"
+        },
+        "generalPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "nonGeneralPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "urlLink": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "informationManagerOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "impactOnOppositeDirection": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "forVehiclesWithCharacteristicsOf": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/VehicleCharacteristics"
+          },
+          "minItems": 0
+        },
+        "alternativeRoute": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/ItineraryG"
+          },
+          "minItems": 0
+        },
+        "destination": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/DestinationG"
+        },
+        "sitSituationRecordExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitOperatorActionExtensionG": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/OperatorActionExtensionTypeG"
+        },
+        "sitNetworkManagementExtensionG": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/NetworkManagementExtensionTypeG"
+        },
+        "sitReroutingManagementExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "probabilityOfOccurrence",
+        "situationRecordCreationTime",
+        "situationRecordVersionTime",
+        "complianceOption",
+        "reroutingManagementType",
+        "validity",
+        "locationReference"
+      ]
+    },
+    "ReroutingManagementTypeEnum": {
+      "type": "string",
+      "enum": [
+        "doNotFollowDiversionSigns",
+        "doNotUseEntry",
+        "doNotUseExit",
+        "doNotUseIntersectionOrJunction",
+        "followDiversionSigns",
+        "followLocalDiversion",
+        "followSpecialMarkers",
+        "useEntry",
+        "useExit",
+        "useIntersectionOrJunction",
+        "extendedG"
+      ]
+    },
+    "ReroutingManagementTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ReroutingManagementTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "RoadMaintenanceTypeEnum": {
+      "type": "string",
+      "enum": [
+        "accidentRepairWork",
+        "clearanceWork",
+        "controlledAvalanche",
+        "installationWork",
+        "grassCuttingWork",
+        "litterClearance",
+        "maintenanceWork",
+        "maintenancePeopleOnRoad",
+        "overheadWorks",
+        "repairWork",
+        "resurfacingWork",
+        "roadMarkingWork",
+        "roadsideWork",
+        "roadworksClearance",
+        "roadworks",
+        "rockFallPreventativeMaintenance",
+        "saltingInProgress",
+        "snowploughsInUse",
+        "sweepingOfRoad",
+        "treeAndVegetationCuttingWork",
+        "other",
+        "extendedG"
+      ]
+    },
+    "RoadMaintenanceTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/RoadMaintenanceTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "RoadOperatorServiceDisruption": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "situationRecordCreationReference": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "situationRecordCreationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordObservationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordFirstSupplierVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "confidentialityOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ConfidentialityValueEnumG"
+        },
+        "probabilityOfOccurrence": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ProbabilityOfOccurrenceEnumG"
+        },
+        "severity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SeverityEnumG"
+        },
+        "safetyRelatedMessage": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "roadOperatorServiceDisruptionType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/RoadOperatorServiceDisruptionTypeEnumG"
+          },
+          "minItems": 1
+        },
+        "source": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Source"
+        },
+        "validity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "impact": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "cause": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Cause"
+        },
+        "generalPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "nonGeneralPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "urlLink": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "informationManagerOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "impactOnOppositeDirection": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "sitSituationRecordExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitServiceInformationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitRoadOperatorServiceDisruptionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "probabilityOfOccurrence",
+        "situationRecordCreationTime",
+        "situationRecordVersionTime",
+        "roadOperatorServiceDisruptionType",
+        "validity",
+        "locationReference"
+      ]
+    },
+    "RoadOperatorServiceDisruptionTypeEnum": {
+      "type": "string",
+      "enum": [
+        "emergencyTelephoneNumberOutOfService",
+        "informationServiceTelephoneNumberOutOfService",
+        "noTrafficOfficerPatrolService",
+        "extendedG"
+      ]
+    },
+    "RoadOperatorServiceDisruptionTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/RoadOperatorServiceDisruptionTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "RoadOrCarriagewayOrLaneManagement": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "situationRecordCreationReference": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "situationRecordCreationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordObservationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordFirstSupplierVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "confidentialityOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ConfidentialityValueEnumG"
+        },
+        "probabilityOfOccurrence": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ProbabilityOfOccurrenceEnumG"
+        },
+        "severity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SeverityEnumG"
+        },
+        "safetyRelatedMessage": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "actionOrigin": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/OperatorActionOriginEnumG"
+        },
+        "actionPlanIdentifier": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "operatorActionStatus": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/OperatorActionStatusEnumG"
+        },
+        "complianceOption": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ComplianceOptionEnumG"
+        },
+        "applicableForTrafficDirection": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/DirectionEnumG"
+          },
+          "minItems": 0
+        },
+        "applicableForTrafficType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/TrafficTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "placesAtWhichApplicable": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/PlacesEnumG"
+          },
+          "minItems": 0
+        },
+        "automaticallyInitiated": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "roadOrCarriagewayOrLaneManagementType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/RoadOrCarriagewayOrLaneManagementTypeEnumG"
+        },
+        "minimumCarOccupancy": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "source": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Source"
+        },
+        "validity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "impact": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "cause": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Cause"
+        },
+        "generalPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "nonGeneralPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "urlLink": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "informationManagerOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "impactOnOppositeDirection": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "forVehiclesWithCharacteristicsOf": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/VehicleCharacteristics"
+          },
+          "minItems": 0
+        },
+        "sitSituationRecordExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitOperatorActionExtensionG": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/OperatorActionExtensionTypeG"
+        },
+        "sitNetworkManagementExtensionG": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/NetworkManagementExtensionTypeG"
+        },
+        "sitRoadOrCarriagewayOrLaneManagementExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "probabilityOfOccurrence",
+        "situationRecordCreationTime",
+        "situationRecordVersionTime",
+        "complianceOption",
+        "roadOrCarriagewayOrLaneManagementType",
+        "validity",
+        "locationReference"
+      ]
+    },
+    "RoadOrCarriagewayOrLaneManagementTypeEnum": {
+      "type": "string",
+      "enum": [
+        "carPoolLaneInOperation",
+        "carriagewayClosures",
+        "clearALaneForEmergencyVehicles",
+        "clearALaneForSnowploughsAndGrittingVehicles",
+        "closedPermanentlyForTheWinter",
+        "contraflow",
+        "doNotUseSpecifiedLanesOrCarriageways",
+        "hardShoulderRunningInOperation",
+        "hardShoulderRunningNotInOperation",
+        "heightRestrictionInOperation",
+        "intermittentShortTermClosures",
+        "keepToTheLeft",
+        "keepToTheRight",
+        "laneClosures",
+        "lanesDeviated",
+        "narrowLanes",
+        "newRoadworksLayout",
+        "overnightClosures",
+        "roadCleared",
+        "roadClosed",
+        "rollingRoadBlock",
+        "rushHourLaneInOperation",
+        "singleAlternateLineTraffic",
+        "tidalFlowLaneInOperation",
+        "turnAroundInOperation",
+        "useOfSpecifiedLanesOrCarriagewaysAllowed",
+        "useSpecifiedLanesOrCarriageways",
+        "vehicleStorageInOperation",
+        "weightRestrictionInOperation",
+        "other",
+        "extendedG"
+      ]
+    },
+    "RoadOrCarriagewayOrLaneManagementTypeEnumExtensionTypeG": {
+      "type": "string",
+      "enum": [
+        "createOneDirectionWay",
+        "createTwoDirectionWay",
+        "laneInOperation",
+        "laneMoved",
+        "laneNotInOperation",
+        "laneRestrictionInOperation",
+        "parkingProhibitionInOperation",
+        "reverseTrafficDirection",
+        "waitingProhibitionInOperation"
+      ]
+    },
+    "RoadOrCarriagewayOrLaneManagementTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/RoadOrCarriagewayOrLaneManagementTypeEnum"
+        },
+        "extendedValueG": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/RoadOrCarriagewayOrLaneManagementTypeEnumExtensionTypeG"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "RoadsideAssistance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "situationRecordCreationReference": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "situationRecordCreationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordObservationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordFirstSupplierVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "confidentialityOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ConfidentialityValueEnumG"
+        },
+        "probabilityOfOccurrence": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ProbabilityOfOccurrenceEnumG"
+        },
+        "severity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SeverityEnumG"
+        },
+        "safetyRelatedMessage": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "actionOrigin": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/OperatorActionOriginEnumG"
+        },
+        "actionPlanIdentifier": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "operatorActionStatus": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/OperatorActionStatusEnumG"
+        },
+        "roadsideAssistanceType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/RoadsideAssistanceTypeEnumG"
+        },
+        "source": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Source"
+        },
+        "validity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "impact": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "cause": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Cause"
+        },
+        "generalPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "nonGeneralPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "urlLink": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "informationManagerOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "impactOnOppositeDirection": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "sitSituationRecordExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitOperatorActionExtensionG": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/OperatorActionExtensionTypeG"
+        },
+        "sitRoadsideAssistanceExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "probabilityOfOccurrence",
+        "situationRecordCreationTime",
+        "situationRecordVersionTime",
+        "roadsideAssistanceType",
+        "validity",
+        "locationReference"
+      ]
+    },
+    "RoadsideAssistanceTypeEnum": {
+      "type": "string",
+      "enum": [
+        "airAmbulance",
+        "busPassengerAssistance",
+        "emergencyServices",
+        "firstAid",
+        "foodDelivery",
+        "helicopterRescue",
+        "vehicleRepair",
+        "vehicleRecovery",
+        "other",
+        "extendedG"
+      ]
+    },
+    "RoadsideAssistanceTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/RoadsideAssistanceTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "RoadSurfaceConditionsG": {
+      "description": "Only one of the properties shall be used in an instance.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sitNonWeatherRelatedRoadConditions": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/NonWeatherRelatedRoadConditions"
+        },
+        "sitWeatherRelatedRoadConditions": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/WeatherRelatedRoadConditions"
+        }
+      }
+    },
+    "RoadworksDurationEnum": {
+      "type": "string",
+      "enum": [
+        "longTerm",
+        "mediumTerm",
+        "shortTerm",
+        "extendedG"
+      ]
+    },
+    "RoadworksDurationEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/RoadworksDurationEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "RoadworksExtensionTypeG": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "StreetWorks": {
+          "$ref": "DATEXII_3_UrbanExtensions.json#/$defs/StreetWorks"
+        }
+      }
+    },
+    "RoadworksG": {
+      "description": "Only one of the properties shall be used in an instance.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sitConstructionWorks": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ConstructionWorks"
+        },
+        "sitMaintenanceWorks": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/MaintenanceWorks"
+        }
+      }
+    },
+    "RoadworksScaleEnum": {
+      "type": "string",
+      "enum": [
+        "major",
+        "medium",
+        "minor",
+        "extendedG"
+      ]
+    },
+    "RoadworksScaleEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/RoadworksScaleEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "ServiceDisruption": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "situationRecordCreationReference": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "situationRecordCreationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordObservationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordFirstSupplierVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "confidentialityOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ConfidentialityValueEnumG"
+        },
+        "probabilityOfOccurrence": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ProbabilityOfOccurrenceEnumG"
+        },
+        "severity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SeverityEnumG"
+        },
+        "safetyRelatedMessage": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "serviceDisruptionType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/ServiceDisruptionTypeEnumG"
+          },
+          "minItems": 1
+        },
+        "source": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Source"
+        },
+        "validity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "impact": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "cause": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Cause"
+        },
+        "generalPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "nonGeneralPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "urlLink": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "informationManagerOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "impactOnOppositeDirection": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "sitSituationRecordExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitServiceInformationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitServiceDisruptionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "probabilityOfOccurrence",
+        "situationRecordCreationTime",
+        "situationRecordVersionTime",
+        "serviceDisruptionType",
+        "validity",
+        "locationReference"
+      ]
+    },
+    "ServiceDisruptionTypeEnum": {
+      "type": "string",
+      "enum": [
+        "barClosed",
+        "dieselShortage",
+        "fuelShortage",
+        "lpgShortage",
+        "methaneShortage",
+        "noDieselForHeavyVehicles",
+        "noDieselForLightVehicles",
+        "noParkingAvailability",
+        "noPublicTelephones",
+        "noToiletFacilities",
+        "noVehicleRepairFacilities",
+        "petrolShortage",
+        "restAreaBusy",
+        "restAreaClosed",
+        "restAreaOvercrowdedDriveToAnotherRestArea",
+        "serviceAreaBusy",
+        "serviceAreaClosed",
+        "serviceAreaFuelStationClosed",
+        "serviceAreaOvercrowdedDriveToAnotherServiceArea",
+        "serviceAreaRestaurantClosed",
+        "someCommercialServicesClosed",
+        "waterShortage",
+        "extendedG"
+      ]
+    },
+    "ServiceDisruptionTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ServiceDisruptionTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "ServiceInformationG": {
+      "description": "Only one of the properties shall be used in an instance.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sitRoadOperatorServiceDisruption": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/RoadOperatorServiceDisruption"
+        },
+        "sitServiceDisruption": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ServiceDisruption"
+        },
+        "sitTransitInformation": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/TransitInformation"
+        }
+      }
+    },
+    "SeverityEnum": {
+      "type": "string",
+      "enum": [
+        "highest",
+        "high",
+        "medium",
+        "low",
+        "lowest",
+        "none",
+        "unknown",
+        "extendedG"
+      ]
+    },
+    "SeverityEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SeverityEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "Situation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "overallSeverity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SeverityEnumG"
+        },
+        "situationVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "headerInformation": {
+          "$ref": "DATEXII_3_Common.json#/$defs/HeaderInformation"
+        },
+        "situationRecord": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/SituationRecordG"
+          },
+          "minItems": 1
+        },
+        "relatedSituation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/SituationReference"
+          },
+          "minItems": 0
+        },
+        "informationManager": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "situationSummary": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SituationRecordG"
+        },
+        "sitSituationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "headerInformation",
+        "situationRecord"
+      ]
+    },
+    "SituationPublication": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "lang": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Language"
+        },
+        "feedDescription": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "feedType": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "publicationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "publicationCreator": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "situation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Situation"
+          },
+          "minItems": 0
+        },
+        "comPayloadPublicationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitSituationPublicationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "lang",
+        "publicationTime",
+        "publicationCreator"
+      ]
+    },
+    "SituationRecordG": {
+      "description": "Only one of the properties shall be used in an instance.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sitInfrastructureDamageObstruction": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/InfrastructureDamageObstruction"
+        },
+        "sitEnvironmentalObstruction": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/EnvironmentalObstruction"
+        },
+        "sitAnimalPresenceObstruction": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/AnimalPresenceObstruction"
+        },
+        "sitGeneralObstruction": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/GeneralObstruction"
+        },
+        "sitVehicleObstruction": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/VehicleObstruction"
+        },
+        "sitDisturbanceActivity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/DisturbanceActivity"
+        },
+        "sitPublicEvent": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/PublicEvent"
+        },
+        "sitAuthorityOperation": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/AuthorityOperation"
+        },
+        "sitAbnormalTraffic": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/AbnormalTraffic"
+        },
+        "sitEquipmentOrSystemFault": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/EquipmentOrSystemFault"
+        },
+        "sitAccident": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Accident"
+        },
+        "sitConditions": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Conditions"
+        },
+        "sitNonWeatherRelatedRoadConditions": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/NonWeatherRelatedRoadConditions"
+        },
+        "sitWeatherRelatedRoadConditions": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/WeatherRelatedRoadConditions"
+        },
+        "sitPoorEnvironmentConditions": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/PoorEnvironmentConditions"
+        },
+        "sitGenericSituationRecord": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/GenericSituationRecord"
+        },
+        "sitRoadOperatorServiceDisruption": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/RoadOperatorServiceDisruption"
+        },
+        "sitServiceDisruption": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ServiceDisruption"
+        },
+        "sitTransitInformation": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/TransitInformation"
+        },
+        "sitReroutingManagement": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ReroutingManagement"
+        },
+        "sitRoadOrCarriagewayOrLaneManagement": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/RoadOrCarriagewayOrLaneManagement"
+        },
+        "sitSpeedManagement": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SpeedManagement"
+        },
+        "sitGeneralInstructionOrMessageToRoadUsers": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/GeneralInstructionOrMessageToRoadUsers"
+        },
+        "sitWinterDrivingManagement": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/WinterDrivingManagement"
+        },
+        "sitGeneralNetworkManagement": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/GeneralNetworkManagement"
+        },
+        "sitConstructionWorks": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ConstructionWorks"
+        },
+        "sitMaintenanceWorks": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/MaintenanceWorks"
+        },
+        "sitRoadsideAssistance": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/RoadsideAssistance"
+        }
+      }
+    },
+    "SituationRecordReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "externalPublicationIdentifier": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "objectReference": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SituationRecordVersionedReferenceG"
+        },
+        "externalPublisher": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "comGlobalReferenceExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitSituationRecordReferenceExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "objectReference"
+      ]
+    },
+    "SituationRecordVersionedReferenceG": {
+      "type": "object",
+      "properties": {
+        "targetClass": {
+          "type": "string",
+          "default": "SituationRecord"
+        },
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "targetClass",
+        "idG"
+      ]
+    },
+    "SituationReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "externalPublicationIdentifier": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "objectReference": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SituationVersionedReferenceG"
+        },
+        "externalPublisher": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "comGlobalReferenceExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitSituationReferenceExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "objectReference"
+      ]
+    },
+    "SituationVersionedReferenceG": {
+      "type": "object",
+      "properties": {
+        "targetClass": {
+          "type": "string",
+          "default": "Situation"
+        },
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "targetClass",
+        "idG"
+      ]
+    },
+    "SpeedManagement": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "situationRecordCreationReference": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "situationRecordCreationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordObservationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordFirstSupplierVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "confidentialityOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ConfidentialityValueEnumG"
+        },
+        "probabilityOfOccurrence": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ProbabilityOfOccurrenceEnumG"
+        },
+        "severity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SeverityEnumG"
+        },
+        "safetyRelatedMessage": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "actionOrigin": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/OperatorActionOriginEnumG"
+        },
+        "actionPlanIdentifier": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "operatorActionStatus": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/OperatorActionStatusEnumG"
+        },
+        "complianceOption": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ComplianceOptionEnumG"
+        },
+        "applicableForTrafficDirection": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/DirectionEnumG"
+          },
+          "minItems": 0
+        },
+        "applicableForTrafficType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/TrafficTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "placesAtWhichApplicable": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/PlacesEnumG"
+          },
+          "minItems": 0
+        },
+        "automaticallyInitiated": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "speedManagementType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SpeedManagementTypeEnumG"
+        },
+        "temporarySpeedLimit": {
+          "$ref": "DATEXII_3_Common.json#/$defs/KilometresPerHour"
+        },
+        "source": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Source"
+        },
+        "validity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "impact": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "cause": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Cause"
+        },
+        "generalPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "nonGeneralPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "urlLink": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "informationManagerOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "impactOnOppositeDirection": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "forVehiclesWithCharacteristicsOf": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/VehicleCharacteristics"
+          },
+          "minItems": 0
+        },
+        "sitSituationRecordExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitOperatorActionExtensionG": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/OperatorActionExtensionTypeG"
+        },
+        "sitNetworkManagementExtensionG": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/NetworkManagementExtensionTypeG"
+        },
+        "sitSpeedManagementExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "probabilityOfOccurrence",
+        "situationRecordCreationTime",
+        "situationRecordVersionTime",
+        "complianceOption",
+        "validity",
+        "locationReference"
+      ]
+    },
+    "SpeedManagementTypeEnum": {
+      "type": "string",
+      "enum": [
+        "activeSpeedControlInOperation",
+        "doNotSlowdownUnnecessarily",
+        "observeSpeedLimit",
+        "policeSpeedChecksInOperation",
+        "reduceYourSpeed",
+        "speedRestrictionInOperation",
+        "other",
+        "extendedG"
+      ]
+    },
+    "SpeedManagementTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SpeedManagementTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "Subjects": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "subjectTypeOfWorks": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SubjectTypeOfWorksEnumG"
+        },
+        "numberOfSubjects": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "sitSubjectsExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "subjectTypeOfWorks"
+      ]
+    },
+    "SubjectTypeOfWorksEnum": {
+      "type": "string",
+      "enum": [
+        "bridge",
+        "buriedCables",
+        "buriedServices",
+        "crashBarrier",
+        "cycleTrack",
+        "footpath",
+        "gallery",
+        "gantry",
+        "gasMainWork",
+        "heatingPipe",
+        "interchange",
+        "junction",
+        "levelCrossing",
+        "lightingSystem",
+        "lock",
+        "measurementEquipment",
+        "metro",
+        "noiseProtection",
+        "parking",
+        "publicTransportInfrastructure",
+        "publicTransportStop",
+        "road",
+        "roadSigns",
+        "roadsideDrains",
+        "roadsideEmbankment",
+        "roadsideEquipment",
+        "roundabout",
+        "sewer",
+        "streetParking",
+        "tollGate",
+        "trafficSignals",
+        "tunnel",
+        "waterBank",
+        "waterMain",
+        "other",
+        "extendedG"
+      ]
+    },
+    "SubjectTypeOfWorksEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SubjectTypeOfWorksEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "TrafficConstrictionTypeEnum": {
+      "type": "string",
+      "enum": [
+        "carriagewayBlocked",
+        "carriagewayPartiallyObstructed",
+        "lanesBlocked",
+        "lanesPartiallyObstructed",
+        "roadBlocked",
+        "roadPartiallyObstructed",
+        "extendedG"
+      ]
+    },
+    "TrafficConstrictionTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/TrafficConstrictionTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "TrafficElementG": {
+      "description": "Only one of the properties shall be used in an instance.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sitInfrastructureDamageObstruction": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/InfrastructureDamageObstruction"
+        },
+        "sitEnvironmentalObstruction": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/EnvironmentalObstruction"
+        },
+        "sitAnimalPresenceObstruction": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/AnimalPresenceObstruction"
+        },
+        "sitGeneralObstruction": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/GeneralObstruction"
+        },
+        "sitVehicleObstruction": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/VehicleObstruction"
+        },
+        "sitDisturbanceActivity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/DisturbanceActivity"
+        },
+        "sitPublicEvent": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/PublicEvent"
+        },
+        "sitAuthorityOperation": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/AuthorityOperation"
+        },
+        "sitAbnormalTraffic": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/AbnormalTraffic"
+        },
+        "sitEquipmentOrSystemFault": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/EquipmentOrSystemFault"
+        },
+        "sitAccident": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Accident"
+        },
+        "sitConditions": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Conditions"
+        },
+        "sitNonWeatherRelatedRoadConditions": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/NonWeatherRelatedRoadConditions"
+        },
+        "sitWeatherRelatedRoadConditions": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/WeatherRelatedRoadConditions"
+        },
+        "sitPoorEnvironmentConditions": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/PoorEnvironmentConditions"
+        }
+      }
+    },
+    "TrafficFlowCharacteristicsEnum": {
+      "type": "string",
+      "enum": [
+        "erraticFlow",
+        "smoothFlow",
+        "stopAndGo",
+        "trafficBlocked",
+        "extendedG"
+      ]
+    },
+    "TrafficFlowCharacteristicsEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/TrafficFlowCharacteristicsEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "TrafficTypeEnum": {
+      "type": "string",
+      "enum": [
+        "accessOnlyTraffic",
+        "destinedForAirport",
+        "destinedForAirportArrivals",
+        "destinedForAirportDepartures",
+        "destinedForFerryService",
+        "destinedForRailService",
+        "holidayTraffic",
+        "localTraffic",
+        "longDistanceTraffic",
+        "regionalTraffic",
+        "residentsOnlyTraffic",
+        "throughTraffic",
+        "visitorTraffic",
+        "extendedG"
+      ]
+    },
+    "TrafficTypeEnumExtensionTypeG": {
+      "type": "string",
+      "enum": [
+        "commuterTraffic",
+        "deliveryTraffic",
+        "eventTraffic",
+        "haulageCompany",
+        "parkSearchTraffic",
+        "specialTraffic"
+      ]
+    },
+    "TrafficTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/TrafficTypeEnum"
+        },
+        "extendedValueG": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/TrafficTypeEnumExtensionTypeG"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "TransitInformation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "situationRecordCreationReference": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "situationRecordCreationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordObservationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordFirstSupplierVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "confidentialityOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ConfidentialityValueEnumG"
+        },
+        "probabilityOfOccurrence": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ProbabilityOfOccurrenceEnumG"
+        },
+        "severity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SeverityEnumG"
+        },
+        "safetyRelatedMessage": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "journeyDestination": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "journeyOrigin": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "journeyReference": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "transitServiceInformation": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/TransitServiceInformationEnumG"
+        },
+        "transitServiceType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/TransitServiceTypeEnumG"
+        },
+        "scheduledDepartureTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "source": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Source"
+        },
+        "validity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "impact": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "cause": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Cause"
+        },
+        "generalPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "nonGeneralPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "urlLink": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "informationManagerOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "impactOnOppositeDirection": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "sitSituationRecordExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitServiceInformationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitTransitInformationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "probabilityOfOccurrence",
+        "situationRecordCreationTime",
+        "situationRecordVersionTime",
+        "transitServiceInformation",
+        "transitServiceType",
+        "validity",
+        "locationReference"
+      ]
+    },
+    "TransitServiceInformationEnum": {
+      "type": "string",
+      "enum": [
+        "cancellations",
+        "delayDueToBadWeather",
+        "delayDueToRepairs",
+        "delayedUntilFurtherNotice",
+        "delaysDueToFlotsam",
+        "departureOnSchedule",
+        "ferryReplacedByIceRoad",
+        "freeShuttleServiceOperating",
+        "informationServiceNotAvailable",
+        "irregularServiceDelays",
+        "loadCapacityChanged",
+        "restrictionsForLongerVehicles",
+        "serviceDelays",
+        "serviceDelaysOfUncertainDuration",
+        "serviceFullyBooked",
+        "serviceNotOperating",
+        "serviceNotOperatingSubstituteServiceAvailable",
+        "serviceSuspended",
+        "serviceWithdrawn",
+        "shuttleServiceOperating",
+        "temporaryChangesToTimetables",
+        "other",
+        "extendedG"
+      ]
+    },
+    "TransitServiceInformationEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/TransitServiceInformationEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "TransitServiceTypeEnum": {
+      "type": "string",
+      "enum": [
+        "air",
+        "bus",
+        "ferry",
+        "hydrofoil",
+        "rail",
+        "tram",
+        "undergroundMetro",
+        "extendedG"
+      ]
+    },
+    "TransitServiceTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/TransitServiceTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "VehicleObstruction": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "situationRecordCreationReference": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "situationRecordCreationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordObservationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordFirstSupplierVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "confidentialityOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ConfidentialityValueEnumG"
+        },
+        "probabilityOfOccurrence": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ProbabilityOfOccurrenceEnumG"
+        },
+        "severity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SeverityEnumG"
+        },
+        "safetyRelatedMessage": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "trafficConstrictionType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/TrafficConstrictionTypeEnumG"
+        },
+        "numberOfObstructions": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "vehicleObstructionType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/VehicleObstructionTypeEnumG"
+        },
+        "involvedVehicleType": {
+          "$ref": "DATEXII_3_Common.json#/$defs/VehicleTypeEnumG"
+        },
+        "vehicleProblemCause": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/VehicleProblemCauseEnumG"
+        },
+        "source": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Source"
+        },
+        "validity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "impact": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "cause": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Cause"
+        },
+        "generalPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "nonGeneralPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "urlLink": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "informationManagerOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "impactOnOppositeDirection": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "mobilityOfObstruction": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Mobility"
+        },
+        "obstructingVehicle": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/Vehicle"
+          },
+          "minItems": 0
+        },
+        "sitSituationRecordExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitTrafficElementExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitObstructionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitVehicleObstructionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "probabilityOfOccurrence",
+        "situationRecordCreationTime",
+        "situationRecordVersionTime",
+        "vehicleObstructionType",
+        "validity",
+        "locationReference"
+      ]
+    },
+    "VehicleObstructionTypeEnum": {
+      "type": "string",
+      "enum": [
+        "abandonedVehicle",
+        "abnormalLoad",
+        "brokenDownVehicle",
+        "convoy",
+        "damagedVehicle",
+        "dangerousSlowMovingVehicle",
+        "emergencyVehicle",
+        "highSpeedEmergencyVehicle",
+        "longLoad",
+        "highSpeedChase",
+        "medicalEmergency",
+        "militaryConvoy",
+        "overheightVehicle",
+        "prohibitedVehicleOnTheRoad",
+        "recklessDriver",
+        "slowVehicle",
+        "specialPermitTransport",
+        "trackedVehicle",
+        "unlitVehicleOnTheRoad",
+        "vehicleOnFire",
+        "vehicleCarryingHazardousMaterials",
+        "vehicleInDifficulty",
+        "vehicleOnWrongCarriageway",
+        "vehicleStuck",
+        "vehicleWithOverheightLoad",
+        "vehicleWithOverwideLoad",
+        "winterMaintetanceVehicleInTransfer",
+        "other",
+        "extendedG"
+      ]
+    },
+    "VehicleObstructionTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/VehicleObstructionTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "VehicleProblemCauseEnum": {
+      "type": "string",
+      "enum": [
+        "airSystem",
+        "battery",
+        "brakingSystem",
+        "coolingSystem",
+        "decoupledTrailer",
+        "diverProblem",
+        "electricalSystem",
+        "flatTyre",
+        "fuelSystem",
+        "gear",
+        "loadProblem",
+        "lostWheel",
+        "motorMechanics",
+        "oilLeakage",
+        "suspension",
+        "other",
+        "unknown",
+        "extendedG"
+      ]
+    },
+    "VehicleProblemCauseEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/VehicleProblemCauseEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "WeatherRelatedRoadConditions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "situationRecordCreationReference": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "situationRecordCreationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordObservationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordFirstSupplierVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "confidentialityOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ConfidentialityValueEnumG"
+        },
+        "probabilityOfOccurrence": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ProbabilityOfOccurrenceEnumG"
+        },
+        "severity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SeverityEnumG"
+        },
+        "safetyRelatedMessage": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "trafficConstrictionType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/TrafficConstrictionTypeEnumG"
+        },
+        "drivingConditionType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/DrivingConditionTypeEnumG"
+        },
+        "weatherRelatedRoadConditionType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/WeatherRelatedRoadConditionTypeEnumG"
+          },
+          "minItems": 1
+        },
+        "source": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Source"
+        },
+        "validity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "impact": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "cause": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Cause"
+        },
+        "generalPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "nonGeneralPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "urlLink": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "informationManagerOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "impactOnOppositeDirection": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "roadSurfaceConditionMeasurements": {
+          "$ref": "DATEXII_3_Common.json#/$defs/RoadSurfaceConditionMeasurements"
+        },
+        "sitSituationRecordExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitTrafficElementExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitConditionsExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitRoadSurfaceConditionsExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitWeatherRelatedRoadConditionsExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "probabilityOfOccurrence",
+        "situationRecordCreationTime",
+        "situationRecordVersionTime",
+        "weatherRelatedRoadConditionType",
+        "validity",
+        "locationReference"
+      ]
+    },
+    "WinterDrivingManagement": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "situationRecordCreationReference": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "situationRecordCreationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordObservationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "situationRecordFirstSupplierVersionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "confidentialityOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ConfidentialityValueEnumG"
+        },
+        "probabilityOfOccurrence": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ProbabilityOfOccurrenceEnumG"
+        },
+        "severity": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SeverityEnumG"
+        },
+        "safetyRelatedMessage": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "actionOrigin": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/OperatorActionOriginEnumG"
+        },
+        "actionPlanIdentifier": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "operatorActionStatus": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/OperatorActionStatusEnumG"
+        },
+        "complianceOption": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ComplianceOptionEnumG"
+        },
+        "applicableForTrafficDirection": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/DirectionEnumG"
+          },
+          "minItems": 0
+        },
+        "applicableForTrafficType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/TrafficTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "placesAtWhichApplicable": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/PlacesEnumG"
+          },
+          "minItems": 0
+        },
+        "automaticallyInitiated": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "winterEquipmentManagementType": {
+          "$ref": "DATEXII_3_Common.json#/$defs/WinterEquipmentManagementTypeEnumG"
+        },
+        "source": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Source"
+        },
+        "validity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Validity"
+        },
+        "impact": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "cause": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Cause"
+        },
+        "generalPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "nonGeneralPublicComment": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/Comment"
+          },
+          "minItems": 0
+        },
+        "urlLink": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/UrlLink"
+          },
+          "minItems": 0
+        },
+        "locationReference": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "informationManagerOverride": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "impactOnOppositeDirection": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "forVehiclesWithCharacteristicsOf": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/VehicleCharacteristics"
+          },
+          "minItems": 0
+        },
+        "sitSituationRecordExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "sitOperatorActionExtensionG": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/OperatorActionExtensionTypeG"
+        },
+        "sitNetworkManagementExtensionG": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/NetworkManagementExtensionTypeG"
+        },
+        "sitWinterDrivingManagementExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "probabilityOfOccurrence",
+        "situationRecordCreationTime",
+        "situationRecordVersionTime",
+        "complianceOption",
+        "winterEquipmentManagementType",
+        "validity",
+        "locationReference"
+      ]
+    }
+  }
+}

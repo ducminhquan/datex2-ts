@@ -10,8 +10,11 @@ export type JsonType = 'string' | 'number' | 'integer' | 'boolean' | 'unknown';
 export interface PropMeta {
   /** Property name in the DATEX II JSON encoding. */
   w: string;
-  /** Property name in the friendly model (technical `G` suffix removed). */
-  f: string;
+  /**
+   * Property name in the friendly model (technical `G` suffix removed).
+   * Omitted when it is identical to `w`; use `friendlyName()` to read it.
+   */
+  f?: string;
   /** Referenced definition name, when the property points at another type. */
   t?: string;
   /** Inline JSON type, when the property is not a reference. */
@@ -25,6 +28,8 @@ export interface PropMeta {
   /** Inline enumeration values. */
   values?: string[];
   format?: string;
+  /** Regular expression the value must match, for inline string properties. */
+  pattern?: string;
 }
 
 export interface ChoiceMeta {
@@ -37,6 +42,8 @@ export interface ChoiceMeta {
 export interface Constraints {
   minimum?: number;
   maximum?: number;
+  exclusiveMinimum?: number;
+  exclusiveMaximum?: number;
   minLength?: number;
   maxLength?: number;
   pattern?: string;

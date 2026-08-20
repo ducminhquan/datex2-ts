@@ -43,10 +43,15 @@ export function propsByWire(def: DefMeta): Map<string, PropMeta> {
   return map;
 }
 
+/** The friendly name of a property, falling back to its wire name. */
+export function friendlyName(p: PropMeta): string {
+  return p.f ?? p.w;
+}
+
 /** Index a definition's properties by their friendly name. */
 export function propsByFriendly(def: DefMeta): Map<string, PropMeta> {
   const map = new Map<string, PropMeta>();
-  for (const p of def.props ?? []) map.set(p.f, p);
+  for (const p of def.props ?? []) map.set(friendlyName(p), p);
   return map;
 }
 

@@ -111,8 +111,8 @@ export function toDocument<K extends ModelType>(
   value: FriendlyTypes[K],
   type: K,
   options: SerializeOptions = {},
-): Record<string, unknown> | unknown {
-  const wire = encode(type, value);
+): unknown {
+  const wire: unknown = encode(type, value);
   if (options.validate) assertValid(wire, type, options);
   const root =
     options.root === false

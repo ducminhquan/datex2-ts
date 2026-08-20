@@ -1,0 +1,14 @@
+{
+  "payload": {
+    "modelBaseVersionG": "3",
+    "comGenericPublication": {
+      "lang": "en",
+      "publicationTime": "2026-08-20T15:00:00+07:00",
+      "genericPublicationName": "roadworksFeed",
+      "publicationCreator": {
+        "country": "vn",
+        "nationalIdentifier": "HCMC"
+      }
+    }
+  }
+}

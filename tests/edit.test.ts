@@ -5,12 +5,15 @@ import { accidentPublication } from './fixtures.js';
 describe('edit', () => {
   it('mutates a draft and leaves the input alone', () => {
     const next = edit(accidentPublication, (draft) => {
+      if (draft._type !== 'SituationPublication') return;
       const record = draft.situation![0]!.situationRecord[0]!;
       if (record._type === 'Accident') {
         record.accidentType = ['multipleVehicleAccident'];
         record.totalNumberOfVehiclesInvolved = 3;
       }
     });
+    if (accidentPublication._type !== 'SituationPublication') expect.unreachable();
+    if (next._type !== 'SituationPublication') expect.unreachable();
     const before = accidentPublication.situation![0]!.situationRecord[0]!;
     const after = next.situation![0]!.situationRecord[0]!;
     expect(after._type === 'Accident' && after.totalNumberOfVehiclesInvolved).toBe(3);

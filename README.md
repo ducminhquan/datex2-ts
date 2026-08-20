@@ -19,8 +19,9 @@ between them:
 | use it for | reading and writing DATEX II JSON | writing application code |
 
 Everything - types, enums and the runtime metadata that drives conversion and
-validation - is generated from the JSON Schemas vendored in
-[`schemas/`](./schemas). Zero runtime dependencies.
+validation - is generated from the official **DATEX II v3.7** JSON Schemas
+vendored in [`schemas/`](./schemas): 19 namespaces, 1608 definitions. Zero
+runtime dependencies.
 
 > 🇻🇳 Bản tiếng Việt: [README.vi.md](./README.vi.md)
 
@@ -40,10 +41,11 @@ import { create, encodeStrict, serialize } from 'datex2-ts';
 
 const publication = create('PayloadPublicationG', {
   modelBaseVersion: '3',
+  version: '3.7',
   _type: 'SituationPublication',
   lang: 'en',
   publicationTime: new Date().toISOString(),
-  publicationCreator: { country: 'se', nationalIdentifier: 'STA' },
+  publicationCreator: { country: 'vn', nationalIdentifier: 'HCMC' },
   situation: [
     {
       id: '12345',
@@ -53,32 +55,20 @@ const publication = create('PayloadPublicationG', {
           _type: 'Accident',
           id: '2322',
           version: '1',
-          situationRecordCreationTime: '2018-10-11T14:32:00+02:00',
-          situationRecordVersionTime: '2018-10-11T14:32:00+02:00',
+          situationRecordCreationTime: '2026-08-20T14:32:00+07:00',
+          situationRecordVersionTime: '2026-08-20T14:32:00+07:00',
           probabilityOfOccurrence: 'certain',
           accidentType: ['accidentInvolvingHeavyLorries'],
+          severity: 'high',
           validity: {
             validityStatus: 'active',
-            validityTimeSpecification: { overallStartTime: '2018-10-11T14:32:00+02:00' },
+            validityTimeSpecification: { overallStartTime: '2026-08-20T14:32:00+07:00' },
           },
           locationReference: {
             _type: 'PointLocation',
-            alertCPoint: [
-              {
-                _type: 'AlertCMethod4Point',
-                alertCLocationCountryCode: 'se',
-                alertCLocationTableNumber: '33',
-                alertCLocationTableVersion: '2.1',
-                alertCDirection: {
-                  alertCDirectionCoded: 'positive',
-                  alertCAffectedDirection: 'both',
-                },
-                alertCMethod4PrimaryPointLocation: {
-                  alertCLocation: { specificLocation: 1234 },
-                  offsetDistance: { offsetDistance: 30 },
-                },
-              },
-            ],
+            pointByCoordinates: {
+              pointCoordinates: { latitude: 10.7769, longitude: 106.7009 },
+            },
           },
         },
       ],
@@ -92,6 +82,11 @@ const wire = encodeStrict('PayloadPublicationG', publication);
 // -> a complete document, wrapped in its `payload` envelope
 const json = serialize(publication, 'PayloadPublicationG', { space: 2, validate: true });
 ```
+
+`PayloadPublicationG` is the substitution group of every DATEX II publication, so
+the same call builds a `ParkingTablePublication`, an
+`EnergyInfrastructureStatusPublication`, a `VmsPublication` and so on - just
+change `_type`.
 
 Read one back:
 
@@ -139,6 +134,10 @@ function describe(record: SituationRecordG): string {
   switch (record._type) {
     case 'Accident':
       return `${record.accidentType.join(', ')} at ${record.situationRecordCreationTime}`;
+    case 'ConstructionWorks':
+      return `construction works, ${record.validity.validityStatus}`;
+    default:
+      return record._type;
   }
 }
 ```
@@ -147,7 +146,10 @@ Ask the model which members a group accepts:
 
 ```ts
 import { membersOf } from 'datex2-ts';
-membersOf('LocationReferenceG'); // ['LinearLocation', 'SingleRoadLinearLocation', 'PointLocation']
+membersOf('LocationReferenceG');
+// ['LocationGroupByList', 'LocationGroupByReference', 'ItineraryByIndexedLocations',
+//  'ItineraryByReference', 'LinearLocation', 'SingleRoadLinearLocation',
+//  'PointLocation', 'PointLocationForParking', 'LocationByReference', 'AreaLocation']
 ```
 
 ### Forgiving input
@@ -228,7 +230,7 @@ If you would rather validate with a JSON Schema validator, the schemas ship with
 the package:
 
 ```ts
-import common from 'datex2-ts/schemas/datex2-v3/DATEXII_3_Common.json' with { type: 'json' };
+import common from 'datex2-ts/schemas/datex2-v3.7/DATEXII_3_Common.json' with { type: 'json' };
 ```
 
 ## Documents and envelopes
@@ -236,7 +238,7 @@ import common from 'datex2-ts/schemas/datex2-v3/DATEXII_3_Common.json' with { ty
 ```ts
 import { detectRoot, parse, rootTypes, serialize, toDocument } from 'datex2-ts';
 
-rootTypes;                       // { payload: 'PayloadPublicationG', messageContainer: 'MessageContainer', … }
+rootTypes;                       // { payload: 'PayloadPublicationG' }
 detectRoot(doc);                 // { root, type, value } or undefined
 parse(jsonOrObject);             // envelope detected
 parse(fragment, 'Accident');     // explicit type for envelope-less fragments
@@ -260,23 +262,31 @@ getDef('Accident').props?.map((p) => `${p.f} (${p.w})${p.r ? ' *' : ''}`);
 
 ## Which DATEX II model is included
 
-The bundled model is generated from the official DATEX II v3 JSON Schema set
-published in the DATEX II programme's
-[UF2024 workshop repository](https://github.com/DATEX-II-EU/UF2024-OpenAPI-and-JSON/tree/main/Schema_Small_Accident):
-the complete `Common`, `ExchangeInformation` and `LocationReferencing`
-namespaces plus the `Situation` accident subset - 207 definitions across 11
-namespaces.
+The bundled model is generated from the official **DATEX II version 3.7 model
+package** (<https://docs.datex2.eu/downloads/modelv37/>): 19 namespaces, 1608
+definitions, covering `Situation`, `Parking`, `EnergyInfrastructure`,
+`AfirEnergyInfrastructure`, `Facilities`, `AfirFacilities`, `RoadTrafficData`,
+`Vms`, `TrafficRegulation`, `TrafficManagementPlan`, `ControlledZone`,
+`FaultAndStatus`, `ReroutingManagementEnhanced`, `LocationReferencing`,
+`UrbanExtensions` and the `Common` namespaces.
 
-**The generator is not tied to that set.** Point it at the full v3.7 model or at
-your own wizard-generated profile and everything - types, enums, metadata,
-validation - follows:
+The DATEX II **Exchange / CIS** namespaces (`MessageContainer`,
+`ExchangeInformation`) are published as a separate package and are not part of
+the model download, so this release covers payload publications rather than
+message envelopes.
+
+**The generator is not tied to that set.** Point it at the Exchange package, an
+older model version, or your own wizard-generated profile, and everything -
+types, enums, metadata, validation - follows:
 
 ```bash
-node scripts/generate.mjs schemas/datex2-v37
+node scripts/generate.mjs schemas/my-profile
 npm run typecheck && npm test
 ```
 
-See [`schemas/README.md`](./schemas/README.md) for details.
+It understands both dialects the DATEX II tooling emits: draft-04 with
+`definitions` and draft 2020-12 with `$defs`. See
+[`schemas/README.md`](./schemas/README.md) for details.
 
 ## Scope
 
@@ -285,7 +295,9 @@ See [`schemas/README.md`](./schemas/README.md) for details.
   properties, enumerations, ranges, lengths, patterns, list bounds). It does not
   check the standard's prose-level rules.
 - Importing only types (`datex2-ts/friendly`, `datex2-ts/wire`) costs nothing at
-  runtime; importing the runtime pulls in the generated metadata.
+  runtime. Importing the runtime pulls in the generated metadata for all 1608
+  definitions - roughly 1 MB unminified, which your bundler will compress and
+  which matters mostly in the browser.
 
 ## Development
 

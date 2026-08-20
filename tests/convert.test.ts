@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { decode, encode, toFriendly, toWire } from '../src/index.js';
+import { UnknownChoiceMemberError, decode, encode, toFriendly, toWire } from '../src/index.js';
 import { accidentPublication } from './fixtures.js';
 
 describe('enum wrappers', () => {
@@ -43,6 +43,15 @@ describe('substitution groups', () => {
     expect(friendly['_type']).toBe('Accident');
     expect(friendly['id']).toBe('1');
     expect(toWire(friendly, 'SituationRecordG')).toEqual(wire);
+  });
+
+  it('refuses a _type the group has no member for', () => {
+    expect(() => toWire({ _type: 'ParkingSiteStatus' }, 'ParkingStatusInformationG')).toThrow(
+      UnknownChoiceMemberError,
+    );
+    expect(() => toWire({ _type: 'Nonsense' }, 'SituationRecordG')).toThrow(
+      /not a member of SituationRecordG/,
+    );
   });
 
   it('keeps group-level attributes beside the member', () => {

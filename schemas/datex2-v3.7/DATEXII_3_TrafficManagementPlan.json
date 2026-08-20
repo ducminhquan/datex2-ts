@@ -1,0 +1,1824 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "ActionByReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "versionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "actionReference": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/ActionDefinitionVersionedReferenceG"
+        },
+        "tmpActionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "tmpActionByReferenceExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "versionTime",
+        "actionReference"
+      ]
+    },
+    "ActionDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "versionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "externalIdentification": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "description": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "actionImplementer": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "operatorActionDefinition": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/OperatorActionDefinitionG"
+        },
+        "activationDelay": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/ActivationDelay"
+        },
+        "tmpActionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "tmpActionDefinitionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "versionTime",
+        "description"
+      ]
+    },
+    "ActionDefinitionVersionedReferenceG": {
+      "type": "object",
+      "properties": {
+        "targetClass": {
+          "type": "string",
+          "default": "ActionDefinition"
+        },
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "targetClass",
+        "idG"
+      ]
+    },
+    "ActionG": {
+      "description": "Only one of the properties shall be used in an instance.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "tmpActionByReference": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/ActionByReference"
+        },
+        "tmpActionDefinition": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/ActionDefinition"
+        }
+      }
+    },
+    "ActivationConditions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "automaticallyApproved": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "automaticallyImplemented": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "automaticallyDeactivated": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "activationDelay": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/ActivationDelay"
+        },
+        "activationTrigger": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/ConditionG"
+        },
+        "deactivationTrigger": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/ConditionG"
+        },
+        "tmpActivationConditionsExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      }
+    },
+    "ActivationDelay": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "activationDelay": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Seconds"
+        },
+        "deactivationDelay": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Seconds"
+        },
+        "tmpActivationDelayExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "activationDelay",
+        "deactivationDelay"
+      ]
+    },
+    "CompositeMeasure": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "versionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "measure": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/MeasureG"
+          },
+          "minItems": 2
+        },
+        "tmpMeasureExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "tmpCompositeMeasureExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "versionTime",
+        "measure"
+      ]
+    },
+    "ConditionG": {
+      "description": "Only one of the properties shall be used in an instance.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "tmpTriggerCondition": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/TriggerCondition"
+        },
+        "tmpConditionSet": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/ConditionSet"
+        }
+      }
+    },
+    "ConditionOperator": {
+      "type": "string",
+      "enum": [
+        "and",
+        "or",
+        "xor",
+        "extendedG"
+      ]
+    },
+    "ConditionOperatorG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/ConditionOperator"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "ConditionSet": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "negate": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "operator": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/ConditionOperatorG"
+        },
+        "condition": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/ConditionG"
+          },
+          "minItems": 1
+        },
+        "tmpConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "tmpConditionSetExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "operator",
+        "condition"
+      ]
+    },
+    "GeneralInstructionOrMessageToRoadUsersDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "complianceOption": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ComplianceOptionEnumG"
+        },
+        "applicableForTrafficDirection": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/DirectionEnumG"
+          },
+          "minItems": 0
+        },
+        "applicableForTrafficType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/TrafficTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "placesAtWhichApplicable": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/PlacesEnumG"
+          },
+          "minItems": 0
+        },
+        "automaticallyInitiated": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "generalInstructionToRoadUsersType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/GeneralInstructionToRoadUsersTypeEnumG"
+        },
+        "generalMessageToRoadUsers": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "targetLocation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+          },
+          "minItems": 0
+        },
+        "forVehiclesWithCharacteristicsOf": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/VehicleCharacteristics"
+          },
+          "minItems": 0
+        },
+        "tmpOperatorActionDefinitionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "tmpNetworkManagementDefinitionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "tmpGeneralInstructionOrMessageToRoadUsersDefinitionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "complianceOption"
+      ]
+    },
+    "GeneralNetworkManagementDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "complianceOption": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ComplianceOptionEnumG"
+        },
+        "applicableForTrafficDirection": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/DirectionEnumG"
+          },
+          "minItems": 0
+        },
+        "applicableForTrafficType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/TrafficTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "placesAtWhichApplicable": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/PlacesEnumG"
+          },
+          "minItems": 0
+        },
+        "automaticallyInitiated": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "generalNetworkManagementType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/GeneralNetworkManagementTypeEnumG"
+        },
+        "trafficManuallyDirectedBy": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/PersonCategoryEnumG"
+        },
+        "targetLocation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+          },
+          "minItems": 0
+        },
+        "forVehiclesWithCharacteristicsOf": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/VehicleCharacteristics"
+          },
+          "minItems": 0
+        },
+        "tmpOperatorActionDefinitionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "tmpNetworkManagementDefinitionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "tmpGeneralNetworkManagementDefinitionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "complianceOption",
+        "generalNetworkManagementType"
+      ]
+    },
+    "ImpactKind": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "capacityReduced": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "impactDetail": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/Impact"
+        },
+        "tmpImpactKindExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      }
+    },
+    "MeasureByReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "versionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "measureReference": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/MeasureDefinitionVersionedReferenceG"
+        },
+        "tmpMeasureExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "tmpMeasureByReferenceExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "versionTime",
+        "measureReference"
+      ]
+    },
+    "MeasureDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "versionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "externalIdentification": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "description": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "responsibleRoadOperator": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/OrganisationReferenceG"
+        },
+        "shortName": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "action": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/ActionG"
+          },
+          "minItems": 1
+        },
+        "responseType": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/ResponseType"
+        },
+        "activationConditions": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/ActivationConditions"
+        },
+        "tmpMeasureExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "tmpMeasureDefinitionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "versionTime",
+        "description",
+        "responsibleRoadOperator",
+        "action"
+      ]
+    },
+    "MeasureDefinitionVersionedReferenceG": {
+      "type": "object",
+      "properties": {
+        "targetClass": {
+          "type": "string",
+          "default": "MeasureDefinition"
+        },
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "targetClass",
+        "idG"
+      ]
+    },
+    "MeasureG": {
+      "description": "Only one of the properties shall be used in an instance.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "tmpMeasureDefinition": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/MeasureDefinition"
+        },
+        "tmpCompositeMeasure": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/CompositeMeasure"
+        },
+        "tmpMeasureByReference": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/MeasureByReference"
+        }
+      }
+    },
+    "NetworkManagementDefinitionG": {
+      "description": "Only one of the properties shall be used in an instance.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "tmpSignSettingDefinition": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/SignSettingDefinition"
+        },
+        "tmpGeneralInstructionOrMessageToRoadUsersDefinition": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/GeneralInstructionOrMessageToRoadUsersDefinition"
+        },
+        "tmpTrafficSignalSettingDefinition": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/TrafficSignalSettingDefinition"
+        },
+        "tmpGeneralNetworkManagementDefinition": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/GeneralNetworkManagementDefinition"
+        },
+        "tmpRoadOrCarriagewayOrLaneManagementDefinition": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/RoadOrCarriagewayOrLaneManagementDefinition"
+        },
+        "tmpWinterDrivingManagementDefinition": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/WinterDrivingManagementDefinition"
+        },
+        "tmpSpeedManagementDefinition": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/SpeedManagementDefinition"
+        },
+        "tmpReroutingManagementDefinition": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/ReroutingManagementDefinition"
+        }
+      }
+    },
+    "NonPredefinedAction": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "nonPredefinedActionDescription": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "nonPredefinedActionId": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "actionImplementingSituationRecord": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/SituationRecordVersionedReferenceG"
+        },
+        "internationalIdentifier": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "operatorActionDefinition": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/OperatorActionDefinitionG"
+        },
+        "tmpNonPredefinedActionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "nonPredefinedActionDescription",
+        "internationalIdentifier"
+      ]
+    },
+    "NonPredefinedTmplanOperation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "creationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "expiryTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "status": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/TmplanOperationStatusEnumG"
+        },
+        "statusReason": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "versionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "involvedRoadOperatorConsensusRate": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Percentage"
+        },
+        "nonPredefinedScenarioDescription": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "nonPredefinedScenarioId": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "nonPredefinedStrategyDescription": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "nonPredefinedStrategyId": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "headerInformation": {
+          "$ref": "DATEXII_3_Common.json#/$defs/HeaderInformation"
+        },
+        "nonPredefinedAction": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/NonPredefinedAction"
+          },
+          "minItems": 1
+        },
+        "tmpTmplanOperationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "tmpNonPredefinedTmplanOperationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "creationTime",
+        "status",
+        "versionTime",
+        "nonPredefinedScenarioDescription",
+        "nonPredefinedStrategyDescription",
+        "headerInformation",
+        "nonPredefinedAction"
+      ]
+    },
+    "OperatorActionDefinitionG": {
+      "description": "Only one of the properties shall be used in an instance.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "tmpSignSettingDefinition": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/SignSettingDefinition"
+        },
+        "tmpGeneralInstructionOrMessageToRoadUsersDefinition": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/GeneralInstructionOrMessageToRoadUsersDefinition"
+        },
+        "tmpTrafficSignalSettingDefinition": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/TrafficSignalSettingDefinition"
+        },
+        "tmpGeneralNetworkManagementDefinition": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/GeneralNetworkManagementDefinition"
+        },
+        "tmpRoadOrCarriagewayOrLaneManagementDefinition": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/RoadOrCarriagewayOrLaneManagementDefinition"
+        },
+        "tmpWinterDrivingManagementDefinition": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/WinterDrivingManagementDefinition"
+        },
+        "tmpSpeedManagementDefinition": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/SpeedManagementDefinition"
+        },
+        "tmpReroutingManagementDefinition": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/ReroutingManagementDefinition"
+        },
+        "tmpRoadsideAssistanceDefinition": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/RoadsideAssistanceDefinition"
+        }
+      }
+    },
+    "OperatorActionExtendedTmplan": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "tmplanImplementingAction": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/TmplanImplementingAction"
+        }
+      }
+    },
+    "OrganisationReferenceG": {
+      "type": "object",
+      "properties": {
+        "targetClass": {
+          "type": "string",
+          "default": "Organisation"
+        },
+        "idG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "targetClass",
+        "idG"
+      ]
+    },
+    "PredefinedAction": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "actionImplementingSituationRecord": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/SituationRecordVersionedReferenceG"
+        },
+        "predefinedActionReference": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/ActionDefinitionVersionedReferenceG"
+        },
+        "tmpPredefinedActionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "predefinedActionReference"
+      ]
+    },
+    "PredefinedMeasureSelected": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "predefinedMeasureReference": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/MeasureDefinitionVersionedReferenceG"
+        },
+        "predefinedAction": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/PredefinedAction"
+          },
+          "minItems": 0
+        },
+        "tmpPredefinedMeasureSelectedExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "predefinedMeasureReference"
+      ]
+    },
+    "PredefinedTmplanOperation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "creationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "expiryTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "status": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/TmplanOperationStatusEnumG"
+        },
+        "statusReason": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "versionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "involvedRoadOperatorConsensusRate": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Percentage"
+        },
+        "tmplanTableReference": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/TmplanTableVersionedReferenceG"
+        },
+        "predefinedScenarioReference": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/ScenarioVersionedReferenceG"
+        },
+        "predefinedStrategyReference": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/StrategyVersionedReferenceG"
+        },
+        "headerInformation": {
+          "$ref": "DATEXII_3_Common.json#/$defs/HeaderInformation"
+        },
+        "predefinedMeasureSelected": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/PredefinedMeasureSelected"
+        },
+        "problemLocationOverride": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "tmpTmplanOperationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "tmpPredefinedTmplanOperationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "creationTime",
+        "status",
+        "versionTime",
+        "tmplanTableReference",
+        "headerInformation"
+      ]
+    },
+    "ReroutingManagementDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "complianceOption": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ComplianceOptionEnumG"
+        },
+        "applicableForTrafficDirection": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/DirectionEnumG"
+          },
+          "minItems": 0
+        },
+        "applicableForTrafficType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/TrafficTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "placesAtWhichApplicable": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/PlacesEnumG"
+          },
+          "minItems": 0
+        },
+        "automaticallyInitiated": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "name": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "type": {
+          "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/ReroutingTypeEnumG"
+        },
+        "bindingTrafficRegulation": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "preventiveMeasure": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "targetLocation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+          },
+          "minItems": 0
+        },
+        "forVehiclesWithCharacteristicsOf": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/VehicleCharacteristics"
+          },
+          "minItems": 0
+        },
+        "routingOrigin": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationG"
+          },
+          "minItems": 0
+        },
+        "routingThrough": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationG"
+          },
+          "minItems": 0
+        },
+        "routingDestination": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationG"
+          },
+          "minItems": 0
+        },
+        "originalRoute": {
+          "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/RouteDescription"
+        },
+        "alternativeRoute": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_ReroutingManagementEnhanced.json#/$defs/RouteDescription"
+          },
+          "minItems": 0
+        },
+        "tmpOperatorActionDefinitionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "tmpNetworkManagementDefinitionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "tmpReroutingManagementDefinitionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "complianceOption"
+      ]
+    },
+    "ResponseEffectTypeEnum": {
+      "type": "string",
+      "enum": [
+        "capacityIncrease",
+        "inflowReduction",
+        "outflowIncrease",
+        "prewarning",
+        "rerouting",
+        "extendedG"
+      ]
+    },
+    "ResponseEffectTypeEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/ResponseEffectTypeEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "ResponseStageEnum": {
+      "type": "string",
+      "enum": [
+        "basic",
+        "prewarning",
+        "trafficCondition",
+        "extendedG"
+      ]
+    },
+    "ResponseStageEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/ResponseStageEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "ResponseType": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "effect": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/ResponseEffectTypeEnumG"
+        },
+        "stage": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/ResponseStageEnumG"
+        },
+        "tmpResponseTypeExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "effect"
+      ]
+    },
+    "RoadOrCarriagewayOrLaneManagementDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "complianceOption": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ComplianceOptionEnumG"
+        },
+        "applicableForTrafficDirection": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/DirectionEnumG"
+          },
+          "minItems": 0
+        },
+        "applicableForTrafficType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/TrafficTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "placesAtWhichApplicable": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/PlacesEnumG"
+          },
+          "minItems": 0
+        },
+        "automaticallyInitiated": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "roadOrCarriagewayOrLaneManagementType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/RoadOrCarriagewayOrLaneManagementTypeEnumG"
+        },
+        "minimumCarOccupancy": {
+          "$ref": "DATEXII_3_Common.json#/$defs/NonNegativeInteger"
+        },
+        "targetLocation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+          },
+          "minItems": 0
+        },
+        "forVehiclesWithCharacteristicsOf": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/VehicleCharacteristics"
+          },
+          "minItems": 0
+        },
+        "tmpOperatorActionDefinitionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "tmpNetworkManagementDefinitionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "tmpRoadOrCarriagewayOrLaneManagementDefinitionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "complianceOption",
+        "roadOrCarriagewayOrLaneManagementType"
+      ]
+    },
+    "RoadsideAssistanceDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "roadsideAssistanceType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/RoadsideAssistanceTypeEnumG"
+        },
+        "targetLocation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+          },
+          "minItems": 0
+        },
+        "tmpOperatorActionDefinitionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "tmpRoadsideAssistanceDefinitionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "roadsideAssistanceType"
+      ]
+    },
+    "Scenario": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "externalIdentification": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "versionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "description": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "situationType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/CauseTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "emergencyServicesAccessibility": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "name": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "scenarioDirector": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/OrganisationReferenceG"
+        },
+        "situationFilter": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/String"
+          },
+          "minItems": 0
+        },
+        "strategy": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/StrategyG"
+          },
+          "minItems": 0
+        },
+        "impactKind": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/ImpactKind"
+        },
+        "problemLocation": {
+          "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+        },
+        "scheduledScenarioValidity": {
+          "$ref": "DATEXII_3_Common.json#/$defs/OverallPeriod"
+        },
+        "situationTypeDetail": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/DetailedCauseType"
+          },
+          "minItems": 0
+        },
+        "tmpScenarioExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "versionTime"
+      ]
+    },
+    "ScenarioVersionedReferenceG": {
+      "type": "object",
+      "properties": {
+        "targetClass": {
+          "type": "string",
+          "default": "Scenario"
+        },
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "targetClass",
+        "idG"
+      ]
+    },
+    "SignSetting": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "signSettingDefinition": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/SignSettingDefinition"
+        }
+      },
+      "required": [
+        "signSettingDefinition"
+      ]
+    },
+    "SignSettingDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "complianceOption": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ComplianceOptionEnumG"
+        },
+        "applicableForTrafficDirection": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/DirectionEnumG"
+          },
+          "minItems": 0
+        },
+        "applicableForTrafficType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/TrafficTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "placesAtWhichApplicable": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/PlacesEnumG"
+          },
+          "minItems": 0
+        },
+        "automaticallyInitiated": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "targetLocation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+          },
+          "minItems": 0
+        },
+        "forVehiclesWithCharacteristicsOf": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/VehicleCharacteristics"
+          },
+          "minItems": 0
+        },
+        "setting": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Vms.json#/$defs/VmsControllerStatus"
+          },
+          "minItems": 0
+        },
+        "tmpOperatorActionDefinitionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "tmpNetworkManagementDefinitionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "tmpSignSettingDefinitionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "complianceOption"
+      ]
+    },
+    "SituationRecordVersionedReferenceG": {
+      "type": "object",
+      "properties": {
+        "targetClass": {
+          "type": "string",
+          "default": "SituationRecord"
+        },
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "targetClass",
+        "idG"
+      ]
+    },
+    "SpeedManagementDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "complianceOption": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ComplianceOptionEnumG"
+        },
+        "applicableForTrafficDirection": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/DirectionEnumG"
+          },
+          "minItems": 0
+        },
+        "applicableForTrafficType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/TrafficTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "placesAtWhichApplicable": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/PlacesEnumG"
+          },
+          "minItems": 0
+        },
+        "automaticallyInitiated": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "speedManagementType": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/SpeedManagementTypeEnumG"
+        },
+        "temporarySpeedLimit": {
+          "$ref": "DATEXII_3_Common.json#/$defs/KilometresPerHour"
+        },
+        "targetLocation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+          },
+          "minItems": 0
+        },
+        "forVehiclesWithCharacteristicsOf": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/VehicleCharacteristics"
+          },
+          "minItems": 0
+        },
+        "tmpOperatorActionDefinitionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "tmpNetworkManagementDefinitionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "tmpSpeedManagementDefinitionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "complianceOption",
+        "speedManagementType"
+      ]
+    },
+    "StrategyByReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "versionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "strategyReference": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/StrategyDefinitionVersionedReferenceG"
+        },
+        "tmpStrategyExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "tmpStrategyByReferenceExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "versionTime",
+        "strategyReference"
+      ]
+    },
+    "StrategyDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "versionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "externalIdentification": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "description": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "shortName": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "priority": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Integer"
+        },
+        "strategyMeasure": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/StrategyMeasure"
+          },
+          "minItems": 1
+        },
+        "responseType": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/ResponseType"
+        },
+        "overallActivation": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/ActivationConditions"
+        },
+        "tmpStrategyExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "tmpStrategyDefinitionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "versionTime",
+        "description",
+        "strategyMeasure"
+      ]
+    },
+    "StrategyDefinitionVersionedReferenceG": {
+      "type": "object",
+      "properties": {
+        "targetClass": {
+          "type": "string",
+          "default": "StrategyDefinition"
+        },
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "targetClass",
+        "idG"
+      ]
+    },
+    "StrategyG": {
+      "description": "Only one of the properties shall be used in an instance.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "tmpStrategyByReference": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/StrategyByReference"
+        },
+        "tmpStrategyDefinition": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/StrategyDefinition"
+        }
+      }
+    },
+    "StrategyMeasure": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "processingIndex": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Integer"
+        },
+        "essentialForStrategy": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "activationConditions": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/ActivationConditions"
+        },
+        "measure": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/MeasureG"
+        },
+        "tmpStrategyMeasureExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "measure"
+      ]
+    },
+    "StrategyVersionedReferenceG": {
+      "type": "object",
+      "properties": {
+        "targetClass": {
+          "type": "string",
+          "default": "Strategy"
+        },
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "targetClass",
+        "idG"
+      ]
+    },
+    "TmplanImplementingAction": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "nonPredefinedActionIdReference": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "predefinedActionReference": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/ActionDefinitionVersionedReferenceG"
+        },
+        "predefinedMeasureReference": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/MeasureDefinitionVersionedReferenceG"
+        },
+        "predefinedStrategyReference": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/StrategyDefinitionVersionedReferenceG"
+        },
+        "tmpTmplanImplementingActionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      }
+    },
+    "TmplanOperationG": {
+      "description": "Only one of the properties shall be used in an instance.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "tmpNonPredefinedTmplanOperation": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/NonPredefinedTmplanOperation"
+        },
+        "tmpPredefinedTmplanOperation": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/PredefinedTmplanOperation"
+        }
+      }
+    },
+    "TmplanOperationPublication": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "lang": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Language"
+        },
+        "feedDescription": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "feedType": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "publicationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "publicationCreator": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "tmplanOperation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/TmplanOperationG"
+          },
+          "minItems": 1
+        },
+        "comPayloadPublicationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "tmpTmplanOperationPublicationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "lang",
+        "publicationTime",
+        "publicationCreator",
+        "tmplanOperation"
+      ]
+    },
+    "TmplanOperationStatusEnum": {
+      "type": "string",
+      "enum": [
+        "scheduled",
+        "schedulingAborted",
+        "schedulingRejected",
+        "schedulingRequested",
+        "extendedG"
+      ]
+    },
+    "TmplanOperationStatusEnumG": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/TmplanOperationStatusEnum"
+        },
+        "extendedValueG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "TmplanTable": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        },
+        "externalIdentification": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "versionTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "description": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "scenario": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/Scenario"
+          },
+          "minItems": 0
+        },
+        "measure": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/MeasureG"
+          },
+          "minItems": 0
+        },
+        "action": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/ActionG"
+          },
+          "minItems": 0
+        },
+        "tmpTmplanTableExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "idG",
+        "versionG",
+        "versionTime"
+      ]
+    },
+    "TmplanTablePublication": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "lang": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Language"
+        },
+        "feedDescription": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "feedType": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "publicationTime": {
+          "$ref": "DATEXII_3_Common.json#/$defs/DateTime"
+        },
+        "publicationCreator": {
+          "$ref": "DATEXII_3_Common.json#/$defs/InternationalIdentifier"
+        },
+        "headerInformation": {
+          "$ref": "DATEXII_3_Common.json#/$defs/HeaderInformation"
+        },
+        "tmplanTable": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_TrafficManagementPlan.json#/$defs/TmplanTable"
+          },
+          "minItems": 1
+        },
+        "comPayloadPublicationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "tmpTmplanTablePublicationExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "lang",
+        "publicationTime",
+        "publicationCreator",
+        "headerInformation",
+        "tmplanTable"
+      ]
+    },
+    "TmplanTableVersionedReferenceG": {
+      "type": "object",
+      "properties": {
+        "targetClass": {
+          "type": "string",
+          "default": "TmplanTable"
+        },
+        "idG": {
+          "type": "string"
+        },
+        "versionG": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "targetClass",
+        "idG"
+      ]
+    },
+    "TrafficSignalSettingDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "complianceOption": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ComplianceOptionEnumG"
+        },
+        "applicableForTrafficDirection": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/DirectionEnumG"
+          },
+          "minItems": 0
+        },
+        "applicableForTrafficType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/TrafficTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "placesAtWhichApplicable": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/PlacesEnumG"
+          },
+          "minItems": 0
+        },
+        "automaticallyInitiated": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "setting": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "targetLocation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+          },
+          "minItems": 0
+        },
+        "forVehiclesWithCharacteristicsOf": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/VehicleCharacteristics"
+          },
+          "minItems": 0
+        },
+        "tmpOperatorActionDefinitionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "tmpNetworkManagementDefinitionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "tmpTrafficSignalSettingDefinitionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "complianceOption",
+        "setting"
+      ]
+    },
+    "TriggerCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "negate": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "triggerDefinition": {
+          "$ref": "DATEXII_3_Common.json#/$defs/String"
+        },
+        "description": {
+          "$ref": "DATEXII_3_Common.json#/$defs/MultilingualString"
+        },
+        "tmpConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "tmpTriggerConditionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "triggerDefinition"
+      ]
+    },
+    "WinterDrivingManagementDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "complianceOption": {
+          "$ref": "DATEXII_3_Situation.json#/$defs/ComplianceOptionEnumG"
+        },
+        "applicableForTrafficDirection": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/DirectionEnumG"
+          },
+          "minItems": 0
+        },
+        "applicableForTrafficType": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/TrafficTypeEnumG"
+          },
+          "minItems": 0
+        },
+        "placesAtWhichApplicable": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Situation.json#/$defs/PlacesEnumG"
+          },
+          "minItems": 0
+        },
+        "automaticallyInitiated": {
+          "$ref": "DATEXII_3_Common.json#/$defs/Boolean"
+        },
+        "winterEquipmentManagementType": {
+          "$ref": "DATEXII_3_Common.json#/$defs/WinterEquipmentManagementTypeEnumG"
+        },
+        "targetLocation": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_LocationReferencing.json#/$defs/LocationReferenceG"
+          },
+          "minItems": 0
+        },
+        "forVehiclesWithCharacteristicsOf": {
+          "type": "array",
+          "items": {
+            "$ref": "DATEXII_3_Common.json#/$defs/VehicleCharacteristics"
+          },
+          "minItems": 0
+        },
+        "tmpOperatorActionDefinitionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "tmpNetworkManagementDefinitionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        },
+        "tmpWinterDrivingManagementDefinitionExtensionG": {
+          "$ref": "DATEXII_3_Common.json#/$defs/ExtensionTypeG"
+        }
+      },
+      "required": [
+        "complianceOption",
+        "winterEquipmentManagementType"
+      ]
+    }
+  }
+}

@@ -5,45 +5,46 @@ directory. Nothing here is edited by hand.
 
 ## What is currently vendored
 
-`datex2-v3/` holds the DATEX II v3 JSON Schema set published by the DATEX II
-programme in the official
-[UF2024 OpenAPI-and-JSON workshop repository](https://github.com/DATEX-II-EU/UF2024-OpenAPI-and-JSON/tree/main/Schema_Small_Accident)
-(`Schema_Small_Accident`). It is a *profile* of the DATEX II v3 model produced by
-the [DATEX II schema wizard](https://webtool.datex2.eu/wizard/), covering these
-namespaces:
+`datex2-v3.7/` holds the official **DATEX II version 3.7 model** schema package
+from <https://docs.datex2.eu/downloads/modelv37/> - 19 namespaces, 1608
+definitions, JSON Schema draft 2020-12:
 
-| File | Namespace |
+| Namespace | Namespace |
 | --- | --- |
-| `DATEXII_3_Common.json` | Common |
-| `DATEXII_3_CommonExtension.json` | CommonExtension |
-| `DATEXII_3_CISInformation.json` | CISInformation |
-| `DATEXII_3_D2Payload.json` | D2Payload |
-| `DATEXII_3_ExchangeInformation.json` | ExchangeInformation |
-| `DATEXII_3_InformationManagement.json` | InformationManagement |
-| `DATEXII_3_LocationExtension.json` | LocationExtension |
-| `DATEXII_3_LocationReferencing.json` | LocationReferencing |
-| `DATEXII_3_MessageContainer.json` | MessageContainer |
-| `DATEXII_3_Parking.json` | Parking |
-| `DATEXII_3_Situation.json` | Situation |
+| `AfirEnergyInfrastructure` | `Parking` |
+| `AfirFacilities` | `ReroutingManagementEnhanced` |
+| `Common` | `RoadTrafficData` |
+| `CommonExtension` | `Situation` |
+| `ControlledZone` | `TrafficManagementPlan` |
+| `D2Payload` | `TrafficRegulation` |
+| `EnergyInfrastructure` | `UrbanExtensions` |
+| `Facilities` | `Vms` |
+| `FaultAndStatus` | |
+| `LocationExtension` | |
+| `LocationReferencing` | |
 
-It carries the full Common, ExchangeInformation and LocationReferencing
-namespaces plus the Situation subset needed for accident publications - enough
-to exercise every structural pattern DATEX II v3 uses (substitution groups,
-enum wrappers, extension containers, technical `G` attributes).
+This is the model (payload) package. The DATEX II **Exchange / CIS** namespaces -
+`MessageContainer`, `ExchangeInformation`, `CISInformation`,
+`InformationManagement` - ship as a separate download and are not part of it, so
+the generated model covers payload publications rather than message envelopes.
+Adding them is just a matter of dropping their schema files in here and
+regenerating.
 
-## Retargeting at the full v3.7 model, or at your own profile
+## Retargeting at another model or profile
 
-The generator is schema-driven, so any DATEX II v3 JSON Schema set works:
+The generator is schema-driven and understands both dialects the DATEX II
+tooling emits - draft-04 with `definitions` and draft 2020-12 with `$defs` - so
+any DATEX II v3 JSON Schema set works:
 
-1. Download the JSON Schemas for the model or profile you need - the official
-   full model lives at <https://docs.datex2.eu/downloads/modelv37/>, and the
+1. Get the schemas you need: the official model packages live at
+   <https://docs.datex2.eu/downloads/>, and the
    [schema wizard](https://webtool.datex2.eu/wizard/) generates profile-specific
    sets.
-2. Drop the `DATEXII_3_*.json` files into a directory, e.g. `schemas/datex2-v37/`.
+2. Drop the `DATEXII_3_*.json` files into a directory, e.g. `schemas/my-profile/`.
 3. Regenerate and verify:
 
    ```bash
-   node scripts/generate.mjs schemas/datex2-v37
+   node scripts/generate.mjs schemas/my-profile
    npm run typecheck && npm test
    ```
 
@@ -51,8 +52,9 @@ The generator is schema-driven, so any DATEX II v3 JSON Schema set works:
 model into your own project instead of into `src/generated/`.
 
 Nothing in `src/runtime/` hard-codes a namespace, a class name or a property
-prefix; it all reads the generated metadata. Note that the property prefixes for
-substitution-group members (`sitAccident`, `locPointLocation`, …) are chosen by
-the wizard when the schema set is produced, so they can differ between two sets
-that describe the same model - another reason the runtime derives them from the
-schemas rather than assuming them.
+prefix; it all reads the generated metadata. Note in particular that the
+property prefixes for substitution-group members (`sitAccident`,
+`locPointLocation`, `egiEnergyInfrastructureTablePublication`, …) are chosen
+when the schema set is produced, so they differ between packages that describe
+the same model - another reason the runtime derives them from the schemas
+rather than assuming them.

@@ -162,6 +162,12 @@ function checkScalar(
     if (c.maximum !== undefined && value > c.maximum) {
       add(ctx, path, 'outOfRange', `must be <= ${c.maximum}`, typeName);
     }
+    if (c.exclusiveMinimum !== undefined && value <= c.exclusiveMinimum) {
+      add(ctx, path, 'outOfRange', `must be > ${c.exclusiveMinimum}`, typeName);
+    }
+    if (c.exclusiveMaximum !== undefined && value >= c.exclusiveMaximum) {
+      add(ctx, path, 'outOfRange', `must be < ${c.exclusiveMaximum}`, typeName);
+    }
   }
   if (typeof value === 'string') {
     if (c.maxLength !== undefined && value.length > c.maxLength) {
@@ -225,6 +231,10 @@ function checkLeaf(raw: unknown, p: PropMeta, path: string, ctx: Ctx): void {
     return;
   }
   const j = p.j;
+  if (j === 'string' && typeof raw === 'string' && p.pattern && !new RegExp(p.pattern).test(raw)) {
+    add(ctx, path, 'patternMismatch', `must match ${p.pattern}`);
+    return;
+  }
   if (j === 'string' && typeof raw !== 'string') add(ctx, path, 'wrongType', 'expected a string');
   else if ((j === 'number' || j === 'integer') && typeof raw !== 'number') {
     add(ctx, path, 'wrongType', 'expected a number');

@@ -8,12 +8,11 @@ import {
   toDocument,
   validate,
 } from '../src/index.js';
-import { accidentMessage, accidentPublication } from './fixtures.js';
+import { accidentPublication, genericPublication } from './fixtures.js';
 
 describe('envelopes', () => {
   it('knows the roots the schemas declare', () => {
     expect(rootTypes['payload']).toBe('PayloadPublicationG');
-    expect(rootTypes['messageContainer']).toBe('MessageContainer');
   });
 
   it('detects the envelope of a raw document', () => {
@@ -31,33 +30,32 @@ describe('serialize / parse', () => {
     expect(parsed.value).toEqual(accidentPublication);
   });
 
-  it('round-trips a full message container', () => {
-    const json = serialize(accidentMessage, 'MessageContainer');
-    const parsed = parse(json);
-    expect(parsed.type).toBe('MessageContainer');
-    expect(parsed.value).toEqual(accidentMessage);
+  it('round-trips a publication from another namespace', () => {
+    const parsed = parse(serialize(genericPublication, 'PayloadPublicationG'));
+    expect(parsed.type).toBe('PayloadPublicationG');
+    expect(parsed.value).toEqual(genericPublication);
   });
 
   it('validates on demand', () => {
     expect(() =>
-      serialize({ country: 'se' } as never, 'InternationalIdentifier', { validate: true }),
+      serialize({ country: 'vn' } as never, 'InternationalIdentifier', { validate: true }),
     ).toThrow(/nationalIdentifier/);
   });
 
   it('accepts fragments when told which type they are', () => {
-    const wire = encode('InternationalIdentifier', { country: 'se', nationalIdentifier: 'STA' });
+    const wire = encode('InternationalIdentifier', { country: 'vn', nationalIdentifier: 'HCMC' });
     expect(parse(wire, 'InternationalIdentifier').value).toEqual({
-      country: 'se',
-      nationalIdentifier: 'STA',
+      country: 'vn',
+      nationalIdentifier: 'HCMC',
     });
   });
 
   it('refuses to guess when there is no envelope', () => {
-    expect(() => parse({ country: 'se' })).toThrow(/Cannot determine/);
+    expect(() => parse({ country: 'vn' })).toThrow(/Cannot determine/);
   });
 
   it('produces a document that satisfies the schema model', () => {
-    const doc = toDocument(accidentMessage, 'MessageContainer') as Record<string, unknown>;
-    expect(validate(doc['messageContainer'], 'MessageContainer')).toEqual([]);
+    const doc = toDocument(accidentPublication, 'PayloadPublicationG') as Record<string, unknown>;
+    expect(validate(doc['payload'], 'PayloadPublicationG')).toEqual([]);
   });
 });

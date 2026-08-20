@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   defs,
   findDef,
+  friendlyName,
   getDef,
   membersOf,
   namespaces,
@@ -53,7 +54,7 @@ describe('generated model integrity', () => {
     for (const name of names) {
       const def = getDef(name);
       const wire = new Set((def.props ?? []).map((p) => p.w));
-      const friendly = new Set((def.props ?? []).map((p) => p.f));
+      const friendly = new Set((def.props ?? []).map(friendlyName));
       expect(wire.size, `${name} wire names`).toBe((def.props ?? []).length);
       expect(friendly.size, `${name} friendly names`).toBe((def.props ?? []).length);
     }
@@ -63,11 +64,12 @@ describe('generated model integrity', () => {
     for (const name of names) {
       const def = getDef(name);
       if (def.kind !== 'choice') continue;
-      const attrs = new Set((def.props ?? []).map((p) => p.f));
+      const attrs = new Set((def.props ?? []).map(friendlyName));
       expect(attrs.has('_type'), `${name} uses the discriminator as a property`).toBe(false);
       for (const member of membersOf(name)) {
         for (const p of getDef(member).props ?? []) {
-          expect(attrs.has(p.f), `${name} + ${member} collide on ${p.f}`).toBe(false);
+          const f = friendlyName(p);
+          expect(attrs.has(f), `${name} + ${member} collide on ${f}`).toBe(false);
         }
       }
     }

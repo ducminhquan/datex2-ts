@@ -18,8 +18,9 @@ không mất dữ liệu:
 | substitution group | `{ sitAccident: { … } }` | `{ _type: 'Accident', … }` |
 | dùng khi | đọc/ghi JSON DATEX II | viết code ứng dụng |
 
-Toàn bộ types, enums và metadata runtime đều được **sinh tự động** từ các JSON
-Schema nằm trong [`schemas/`](./schemas). Không có dependency runtime nào.
+Toàn bộ types, enums và metadata runtime đều được **sinh tự động** từ bộ JSON
+Schema **DATEX II v3.7** chính thức nằm trong [`schemas/`](./schemas): 19
+namespace, 1608 định nghĩa. Không có dependency runtime nào.
 
 ## Cài đặt
 
@@ -36,6 +37,7 @@ import { create, encodeStrict, serialize } from 'datex2-ts';
 
 const publication = create('PayloadPublicationG', {
   modelBaseVersion: '3',
+  version: '3.7',
   _type: 'SituationPublication',
   lang: 'vi',
   publicationTime: new Date().toISOString(),
@@ -53,6 +55,7 @@ const publication = create('PayloadPublicationG', {
           situationRecordVersionTime: '2026-08-20T14:32:00+07:00',
           probabilityOfOccurrence: 'certain',
           accidentType: ['multipleVehicleAccident'],
+          severity: 'high',
           validity: {
             validityStatus: 'active',
             validityTimeSpecification: { overallStartTime: '2026-08-20T14:32:00+07:00' },
@@ -75,6 +78,10 @@ const wire = encodeStrict('PayloadPublicationG', publication);
 // -> document hoàn chỉnh, đã bọc trong envelope `payload`
 const json = serialize(publication, 'PayloadPublicationG', { space: 2, validate: true });
 ```
+
+`PayloadPublicationG` là substitution group của mọi publication trong DATEX II,
+nên cùng một lời gọi đó dựng được `ParkingTablePublication`,
+`EnergyInfrastructureStatusPublication`, `VmsPublication`… — chỉ cần đổi `_type`.
 
 Đọc ngược lại:
 
@@ -118,6 +125,10 @@ function moTa(record: SituationRecordG): string {
   switch (record._type) {
     case 'Accident':
       return `${record.accidentType.join(', ')} lúc ${record.situationRecordCreationTime}`;
+    case 'ConstructionWorks':
+      return `công trường, ${record.validity.validityStatus}`;
+    default:
+      return record._type;
   }
 }
 ```
@@ -126,7 +137,10 @@ Hỏi model xem một group nhận những thành viên nào:
 
 ```ts
 import { membersOf } from 'datex2-ts';
-membersOf('LocationReferenceG'); // ['LinearLocation', 'SingleRoadLinearLocation', 'PointLocation']
+membersOf('LocationReferenceG');
+// ['LocationGroupByList', 'LocationGroupByReference', 'ItineraryByIndexedLocations',
+//  'ItineraryByReference', 'LinearLocation', 'SingleRoadLinearLocation',
+//  'PointLocation', 'PointLocationForParking', 'LocationByReference', 'AreaLocation']
 ```
 
 ### Input dễ tính
@@ -203,7 +217,7 @@ Mỗi `Issue` gồm `{ path, code, message, type }`, với các mã `missingRequ
 Nếu muốn dùng validator JSON Schema, schema gốc cũng được đóng gói kèm:
 
 ```ts
-import common from 'datex2-ts/schemas/datex2-v3/DATEXII_3_Common.json' with { type: 'json' };
+import common from 'datex2-ts/schemas/datex2-v3.7/DATEXII_3_Common.json' with { type: 'json' };
 ```
 
 ## Document và envelope
@@ -211,7 +225,7 @@ import common from 'datex2-ts/schemas/datex2-v3/DATEXII_3_Common.json' with { ty
 ```ts
 import { detectRoot, parse, rootTypes, serialize, toDocument } from 'datex2-ts';
 
-rootTypes;                       // { payload: 'PayloadPublicationG', messageContainer: 'MessageContainer', … }
+rootTypes;                       // { payload: 'PayloadPublicationG' }
 detectRoot(doc);                 // { root, type, value } hoặc undefined
 parse(jsonOrObject);             // tự nhận diện envelope
 parse(fragment, 'Accident');     // chỉ định type cho fragment không có envelope
@@ -234,21 +248,28 @@ getDef('Accident');        // { ns, name, kind, props, open, … }
 
 ## Model DATEX II nào đang được đóng gói
 
-Model đi kèm được sinh từ bộ JSON Schema DATEX II v3 chính thức trong
-[repo workshop UF2024](https://github.com/DATEX-II-EU/UF2024-OpenAPI-and-JSON/tree/main/Schema_Small_Accident)
-của chương trình DATEX II: đầy đủ các namespace `Common`, `ExchangeInformation`,
-`LocationReferencing`, cộng với phần `Situation` cho tai nạn — 207 định nghĩa
-trên 11 namespace.
+Model đi kèm được sinh từ **gói model DATEX II phiên bản 3.7** chính thức
+(<https://docs.datex2.eu/downloads/modelv37/>): 19 namespace, 1608 định nghĩa,
+bao gồm `Situation`, `Parking`, `EnergyInfrastructure`,
+`AfirEnergyInfrastructure`, `Facilities`, `AfirFacilities`, `RoadTrafficData`,
+`Vms`, `TrafficRegulation`, `TrafficManagementPlan`, `ControlledZone`,
+`FaultAndStatus`, `ReroutingManagementEnhanced`, `LocationReferencing`,
+`UrbanExtensions` và các namespace `Common`.
 
-**Generator không bị khoá vào bộ schema đó.** Trỏ nó sang model v3.7 đầy đủ hoặc
-sang profile riêng của bạn, mọi thứ sẽ đi theo:
+Các namespace **Exchange / CIS** của DATEX II (`MessageContainer`,
+`ExchangeInformation`) được publish ở một gói tải riêng, không nằm trong gói
+model — nên bản này phủ phần payload publication chứ chưa phủ message envelope.
+
+**Generator không bị khoá vào bộ schema đó.** Trỏ nó sang gói Exchange, sang một
+phiên bản model cũ hơn, hay sang profile riêng của bạn, mọi thứ sẽ đi theo:
 
 ```bash
-node scripts/generate.mjs schemas/datex2-v37
+node scripts/generate.mjs schemas/my-profile
 npm run typecheck && npm test
 ```
 
-Xem thêm [`schemas/README.md`](./schemas/README.md).
+Nó hiểu cả hai dialect mà tooling DATEX II sinh ra: draft-04 dùng `definitions`
+và draft 2020-12 dùng `$defs`. Xem thêm [`schemas/README.md`](./schemas/README.md).
 
 ## Phạm vi
 
@@ -257,7 +278,9 @@ Xem thêm [`schemas/README.md`](./schemas/README.md).
   trường bắt buộc, enum, khoảng giá trị, độ dài, pattern, số phần tử). Các quy
   tắc chỉ mô tả bằng lời trong tiêu chuẩn thì không kiểm tra được.
 - Chỉ import type (`datex2-ts/friendly`, `datex2-ts/wire`) thì không tốn gì lúc
-  runtime; import phần runtime sẽ kéo theo metadata đã sinh.
+  runtime. Import phần runtime sẽ kéo theo metadata của cả 1608 định nghĩa —
+  khoảng 1 MB chưa minify, bundler sẽ nén lại, và điều này chủ yếu đáng quan tâm
+  khi chạy trên trình duyệt.
 
 ## Phát triển
 
